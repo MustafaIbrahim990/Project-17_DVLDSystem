@@ -278,7 +278,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmManagePeople";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Manage People";
             this.Activated += new System.EventHandler(this.frmManagePeople_Activated);
             this.Load += new System.EventHandler(this.frmManagePeople_Load);
