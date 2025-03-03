@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gbFilterPerson = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnAddNewPerson = new System.Windows.Forms.Button();
             this.btnFindPersonInfo = new System.Windows.Forms.Button();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.ctrlPersonInfo1 = new DVLDSystem.DVLD.People.Controls.ctrlPersonInfo();
             this.gbFilterPerson.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -56,17 +56,6 @@
             this.gbFilterPerson.TabStop = false;
             this.gbFilterPerson.Text = "Filter";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(11, 41);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 20);
-            this.label3.TabIndex = 65;
-            this.label3.Text = "Find By :";
-            // 
             // txtFilterValue
             // 
             this.txtFilterValue.BackColor = System.Drawing.Color.White;
@@ -76,7 +65,7 @@
             this.txtFilterValue.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.txtFilterValue.Location = new System.Drawing.Point(368, 39);
             this.txtFilterValue.Name = "txtFilterValue";
-            this.txtFilterValue.Size = new System.Drawing.Size(245, 24);
+            this.txtFilterValue.Size = new System.Drawing.Size(510, 24);
             this.txtFilterValue.TabIndex = 67;
             this.txtFilterValue.TextChanged += new System.EventHandler(this.txtFilterValue_TextChanged);
             this.txtFilterValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilterValue_KeyPress);
@@ -97,13 +86,28 @@
             this.cbFilterBy.TabIndex = 66;
             this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(11, 41);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 20);
+            this.label3.TabIndex = 65;
+            this.label3.Text = "Find By :";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // btnAddNewPerson
             // 
             this.btnAddNewPerson.BackColor = System.Drawing.Color.White;
             this.btnAddNewPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddNewPerson.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddNewPerson.Image = global::DVLDSystem.Properties.Resources.AddPerson_321;
-            this.btnAddNewPerson.Location = new System.Drawing.Point(733, 27);
+            this.btnAddNewPerson.Location = new System.Drawing.Point(1009, 27);
             this.btnAddNewPerson.Name = "btnAddNewPerson";
             this.btnAddNewPerson.Size = new System.Drawing.Size(73, 48);
             this.btnAddNewPerson.TabIndex = 69;
@@ -116,16 +120,12 @@
             this.btnFindPersonInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFindPersonInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFindPersonInfo.Image = global::DVLDSystem.Properties.Resources.SearchPerson;
-            this.btnFindPersonInfo.Location = new System.Drawing.Point(635, 27);
+            this.btnFindPersonInfo.Location = new System.Drawing.Point(911, 27);
             this.btnFindPersonInfo.Name = "btnFindPersonInfo";
             this.btnFindPersonInfo.Size = new System.Drawing.Size(73, 48);
             this.btnFindPersonInfo.TabIndex = 68;
             this.btnFindPersonInfo.UseVisualStyleBackColor = false;
             this.btnFindPersonInfo.Click += new System.EventHandler(this.btnFindPersonInfo_Click);
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
             // 
             // ctrlPersonInfo1
             // 
