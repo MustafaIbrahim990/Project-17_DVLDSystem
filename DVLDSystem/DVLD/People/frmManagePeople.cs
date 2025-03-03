@@ -242,6 +242,7 @@ namespace DVLDSystem
             btnAddNewPerson.PerformClick();
         }
 
+
         //Show Person Details :-
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -256,7 +257,18 @@ namespace DVLDSystem
         //Edit Person :-
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int PersonID = (int)dgvPeopleLists.CurrentRow.Cells[0].Value;
 
+            if (!clsPerson.IsExist(PersonID))
+            {
+                MessageBox.Show($"Error : No Person With ID [{PersonID}] in The System!", "Person Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            frmAddEditPerson frm = new frmAddEditPerson(PersonID);
+            frm.ShowDialog();
+
+            //Refresh :-
+            _RefreshDataInGrid();
         }
 
 
