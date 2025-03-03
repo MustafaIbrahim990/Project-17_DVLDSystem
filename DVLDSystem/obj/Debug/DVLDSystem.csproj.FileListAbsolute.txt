@@ -34,3 +34,4 @@ C:\My_Projects\Project 17 _ DVLD System\DVLDSystem\obj\Debug\DVLDSystem.exe
 C:\My_Projects\Project 17 _ DVLD System\DVLDSystem\obj\Debug\DVLDSystem.pdb
 C:\My_Projects\Project 17 _ DVLD System\DVLDSystem\obj\Debug\DVLDSystem.DVLD.People.Controls.ctrlPersonInfo.resources
 C:\My_Projects\Project 17 _ DVLD System\DVLDSystem\obj\Debug\DVLDSystem.FormTest.resources
+C:\My_Projects\Project 17 _ DVLD System\DVLDSystem\obj\Debug\DVLDSystem.DVLD.People.Controls.ctrlPersonInfoWithFilter.resources
