@@ -117,7 +117,7 @@
             this.llEditPersonInfo.Enabled = false;
             this.llEditPersonInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.llEditPersonInfo.LinkColor = System.Drawing.Color.Blue;
-            this.llEditPersonInfo.Location = new System.Drawing.Point(974, 133);
+            this.llEditPersonInfo.Location = new System.Drawing.Point(974, 123);
             this.llEditPersonInfo.Name = "llEditPersonInfo";
             this.llEditPersonInfo.Size = new System.Drawing.Size(112, 17);
             this.llEditPersonInfo.TabIndex = 64;
@@ -130,7 +130,7 @@
             this.lblCountry.AutoSize = true;
             this.lblCountry.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCountry.ForeColor = System.Drawing.Color.Black;
-            this.lblCountry.Location = new System.Drawing.Point(238, 305);
+            this.lblCountry.Location = new System.Drawing.Point(238, 281);
             this.lblCountry.Name = "lblCountry";
             this.lblCountry.Size = new System.Drawing.Size(53, 20);
             this.lblCountry.TabIndex = 62;
@@ -141,7 +141,7 @@
             this.lblPhone.AutoSize = true;
             this.lblPhone.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPhone.ForeColor = System.Drawing.Color.Black;
-            this.lblPhone.Location = new System.Drawing.Point(641, 240);
+            this.lblPhone.Location = new System.Drawing.Point(641, 222);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(53, 20);
             this.lblPhone.TabIndex = 61;
@@ -152,7 +152,7 @@
             this.lblDataOfBirth.AutoSize = true;
             this.lblDataOfBirth.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDataOfBirth.ForeColor = System.Drawing.Color.Black;
-            this.lblDataOfBirth.Location = new System.Drawing.Point(641, 176);
+            this.lblDataOfBirth.Location = new System.Drawing.Point(641, 164);
             this.lblDataOfBirth.Name = "lblDataOfBirth";
             this.lblDataOfBirth.Size = new System.Drawing.Size(53, 20);
             this.lblDataOfBirth.TabIndex = 60;
@@ -163,7 +163,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(11, 305);
+            this.label13.Location = new System.Drawing.Point(11, 281);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(81, 20);
             this.label13.TabIndex = 56;
@@ -174,7 +174,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(457, 240);
+            this.label14.Location = new System.Drawing.Point(457, 222);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(70, 20);
             this.label14.TabIndex = 55;
@@ -185,7 +185,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(395, 176);
+            this.label15.Location = new System.Drawing.Point(395, 164);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(125, 20);
             this.label15.TabIndex = 54;
@@ -195,7 +195,7 @@
             // 
             this.lblAddress.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAddress.ForeColor = System.Drawing.Color.Black;
-            this.lblAddress.Location = new System.Drawing.Point(238, 365);
+            this.lblAddress.Location = new System.Drawing.Point(238, 335);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(384, 48);
             this.lblAddress.TabIndex = 53;
@@ -205,7 +205,7 @@
             // 
             this.lblEmail.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmail.ForeColor = System.Drawing.Color.Black;
-            this.lblEmail.Location = new System.Drawing.Point(641, 300);
+            this.lblEmail.Location = new System.Drawing.Point(641, 276);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(276, 69);
             this.lblEmail.TabIndex = 52;
@@ -216,7 +216,7 @@
             this.lblGender.AutoSize = true;
             this.lblGender.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGender.ForeColor = System.Drawing.Color.Black;
-            this.lblGender.Location = new System.Drawing.Point(238, 240);
+            this.lblGender.Location = new System.Drawing.Point(238, 222);
             this.lblGender.Name = "lblGender";
             this.lblGender.Size = new System.Drawing.Size(53, 20);
             this.lblGender.TabIndex = 51;
@@ -227,7 +227,7 @@
             this.lblNationalNo.AutoSize = true;
             this.lblNationalNo.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNationalNo.ForeColor = System.Drawing.Color.Black;
-            this.lblNationalNo.Location = new System.Drawing.Point(238, 176);
+            this.lblNationalNo.Location = new System.Drawing.Point(238, 164);
             this.lblNationalNo.Name = "lblNationalNo";
             this.lblNationalNo.Size = new System.Drawing.Size(53, 20);
             this.lblNationalNo.TabIndex = 50;
@@ -238,7 +238,7 @@
             this.lblFullName.AutoSize = true;
             this.lblFullName.Font = new System.Drawing.Font("Georgia", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFullName.ForeColor = System.Drawing.Color.Red;
-            this.lblFullName.Location = new System.Drawing.Point(238, 111);
+            this.lblFullName.Location = new System.Drawing.Point(238, 105);
             this.lblFullName.Name = "lblFullName";
             this.lblFullName.Size = new System.Drawing.Size(66, 23);
             this.lblFullName.TabIndex = 49;
@@ -260,7 +260,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(11, 370);
+            this.label11.Location = new System.Drawing.Point(11, 340);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(85, 20);
             this.label11.TabIndex = 41;
@@ -271,7 +271,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(466, 305);
+            this.label9.Location = new System.Drawing.Point(466, 281);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(63, 20);
             this.label9.TabIndex = 40;
@@ -282,7 +282,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(11, 240);
+            this.label6.Location = new System.Drawing.Point(11, 222);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 20);
             this.label6.TabIndex = 39;
@@ -293,7 +293,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(11, 177);
+            this.label7.Location = new System.Drawing.Point(11, 165);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(107, 18);
             this.label7.TabIndex = 38;
@@ -304,7 +304,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(11, 112);
+            this.label2.Location = new System.Drawing.Point(11, 106);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 20);
             this.label2.TabIndex = 37;
@@ -325,7 +325,7 @@
             // 
             this.pbPersonImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPersonImage.Image = global::DVLDSystem.Properties.Resources.Male_512;
-            this.pbPersonImage.Location = new System.Drawing.Point(923, 176);
+            this.pbPersonImage.Location = new System.Drawing.Point(923, 164);
             this.pbPersonImage.Name = "pbPersonImage";
             this.pbPersonImage.Size = new System.Drawing.Size(214, 219);
             this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -335,7 +335,7 @@
             // pictureBox9
             // 
             this.pictureBox9.Image = global::DVLDSystem.Properties.Resources.Country_32;
-            this.pictureBox9.Location = new System.Drawing.Point(159, 300);
+            this.pictureBox9.Location = new System.Drawing.Point(159, 276);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(54, 30);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -345,7 +345,7 @@
             // pictureBox7
             // 
             this.pictureBox7.Image = global::DVLDSystem.Properties.Resources.Phone_32;
-            this.pictureBox7.Location = new System.Drawing.Point(559, 235);
+            this.pictureBox7.Location = new System.Drawing.Point(559, 217);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(54, 30);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -355,7 +355,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::DVLDSystem.Properties.Resources.Calendar_32;
-            this.pictureBox4.Location = new System.Drawing.Point(559, 171);
+            this.pictureBox4.Location = new System.Drawing.Point(559, 159);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(54, 30);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -365,7 +365,7 @@
             // pictureBox10
             // 
             this.pictureBox10.Image = global::DVLDSystem.Properties.Resources.Address_32;
-            this.pictureBox10.Location = new System.Drawing.Point(159, 365);
+            this.pictureBox10.Location = new System.Drawing.Point(159, 335);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(54, 30);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -375,7 +375,7 @@
             // pbGenderImage
             // 
             this.pbGenderImage.Image = global::DVLDSystem.Properties.Resources.Man_32;
-            this.pbGenderImage.Location = new System.Drawing.Point(159, 235);
+            this.pbGenderImage.Location = new System.Drawing.Point(158, 217);
             this.pbGenderImage.Name = "pbGenderImage";
             this.pbGenderImage.Size = new System.Drawing.Size(57, 30);
             this.pbGenderImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -385,7 +385,7 @@
             // pictureBox8
             // 
             this.pictureBox8.Image = global::DVLDSystem.Properties.Resources.Phone_32;
-            this.pictureBox8.Location = new System.Drawing.Point(559, 300);
+            this.pictureBox8.Location = new System.Drawing.Point(559, 276);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(54, 30);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -395,7 +395,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::DVLDSystem.Properties.Resources.Number_32;
-            this.pictureBox3.Location = new System.Drawing.Point(159, 171);
+            this.pictureBox3.Location = new System.Drawing.Point(159, 159);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(54, 30);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -405,7 +405,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::DVLDSystem.Properties.Resources.Person_32;
-            this.pictureBox2.Location = new System.Drawing.Point(159, 107);
+            this.pictureBox2.Location = new System.Drawing.Point(159, 101);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(54, 30);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

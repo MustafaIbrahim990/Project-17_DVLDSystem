@@ -19,7 +19,7 @@ namespace DVLDSystem
 
         private void FormTest_Load(object sender, EventArgs e)
         {
-            ctrlPersonInfo1.LoadPersonInfo(1);
+            
         }
     }
 }
