@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLDSystem_BusinessLayer;
+using System.IO;
+using DVLDSystem.Gobal_Classes;
+using DVLDSystem.DVLD.People;
 
 namespace DVLDSystem
 {
@@ -246,7 +249,17 @@ namespace DVLDSystem
         //Show Person Details :-
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int PersonID = (int)dgvPeopleLists.CurrentRow.Cells[0].Value;
 
+            if (!clsPerson.IsExist(PersonID))
+            {
+                MessageBox.Show($"Error : No Person With ID [{PersonID}] in The System!", "Person Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            frmShowPersonInfo frm = new frmShowPersonInfo(PersonID);
+            frm.ShowDialog();
+            _RefreshDataInGrid();
         }
         private void dgvPeopleLists_DoubleClick(object sender, EventArgs e)
         {
@@ -275,7 +288,33 @@ namespace DVLDSystem
         //Delete Person :-
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int PersonID = (int)dgvPeopleLists.CurrentRow.Cells[0].Value;
 
+            if (!clsPerson.IsExist(PersonID))
+            {
+                MessageBox.Show($"Error : No Person With ID [{PersonID}] in The System!", "Person Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (MessageBox.Show($"Are You Sure You Want to Delete Person [{PersonID}] From The System?", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                clsPerson PersonInfo = clsPerson.Find(PersonID);
+
+                if (clsPerson.Delete(PersonID))
+                {
+                    if (!clsValidation.IsEmpty(PersonInfo.ImagePath) && File.Exists(PersonInfo.ImagePath))
+                    {
+                        File.Delete(PersonInfo.ImagePath);
+                    }
+
+                    MessageBox.Show($"Person Deleted Successfully.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _RefreshDataInGrid();
+                }
+                else
+                {
+                    MessageBox.Show($"Error : Person Was Not Deleted because it has Data Linked to it in The System.", "Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
 
