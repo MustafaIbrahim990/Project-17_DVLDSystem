@@ -117,12 +117,11 @@ namespace DVLDSystem.DVLD.Login
                 return;
             }
 
-            //clsGlobal.CurrentUser = UserInfo;
-            //this.Hide();
-            //frmMainScreen frm = new frmMainScreen(this);
-            //frm.ShowDialog();
+            clsGlobal.CurrentUser = UserInfo;
+            this.Hide();
 
-            MessageBox.Show("You Sign in Successful");
+            frmMainScreen frm = new frmMainScreen(this);
+            frm.ShowDialog();
         }
     }
 }
