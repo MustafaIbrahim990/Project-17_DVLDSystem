@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLDSystem.DVLD.Login;
 using DVLDSystem.DVLD.Global_User;
+using DVLDSystem.DVLD.User;
 
 namespace DVLDSystem.DVLD
 {
@@ -71,7 +72,8 @@ namespace DVLDSystem.DVLD
         //Manage Users :-
         private void UsersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            frmManageUsers frm = new frmManageUsers();
+            frm.ShowDialog();
         }
 
 
