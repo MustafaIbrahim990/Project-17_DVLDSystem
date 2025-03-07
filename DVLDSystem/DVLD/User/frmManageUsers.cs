@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLDSystem_BusinessLayer;
 using DVLDSystem.Gobal_Classes;
+using DVLDSystem.DVLD.User.Controls;
 
 namespace DVLDSystem.DVLD.User
 {
@@ -228,7 +229,15 @@ namespace DVLDSystem.DVLD.User
         //Add New User :-
         private void btnAddNewUser_Click(object sender, EventArgs e)
         {
+            frmAddEditUser frm = new frmAddEditUser();
+            frm.ShowDialog();
 
+            //Refresh :-
+            frmManageUsers_Load(null, null);
+        }
+        private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnAddNewUser.PerformClick();
         }
 
 
@@ -240,20 +249,25 @@ namespace DVLDSystem.DVLD.User
         private void dgvUserLists_DoubleClick(object sender, EventArgs e)
         {
             showDetailsToolStripMenuItem.PerformClick();
-        }
-
-
-        //Add New User :-
-        private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            btnAddNewUser.PerformClick();
-        }
+        }        
 
 
         //Edit User :-
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int UserID = (int)dgvUserLists.CurrentRow.Cells[0].Value;
 
+            if (!clsUser.IsExist(UserID))
+            {
+                MessageBox.Show($"No User With ID [{UserID}] in The System!", "User Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            frmAddEditUser frm = new frmAddEditUser(UserID);
+            frm.ShowDialog();
+
+            //Refresh :-
+            frmManageUsers_Load(null, null);
         }
 
 

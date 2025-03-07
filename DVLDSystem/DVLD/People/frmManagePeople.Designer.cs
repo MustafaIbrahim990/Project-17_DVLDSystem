@@ -33,6 +33,8 @@
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.dgvPeopleLists = new System.Windows.Forms.DataGridView();
             this.cmsPeopleLists = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.label3 = new System.Windows.Forms.Label();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,8 +49,6 @@
             this.phoneCallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAddNewPerson = new System.Windows.Forms.Button();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleLists)).BeginInit();
             this.cmsPeopleLists.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -110,6 +110,16 @@
             this.phoneCallToolStripMenuItem});
             this.cmsPeopleLists.Name = "contextMenuStrip1";
             this.cmsPeopleLists.Size = new System.Drawing.Size(215, 292);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(211, 6);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(211, 6);
             // 
             // label3
             // 
@@ -182,7 +192,7 @@
             this.btnCloseForm.BackColor = System.Drawing.Color.White;
             this.btnCloseForm.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCloseForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCloseForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCloseForm.Image = global::DVLDSystem.Properties.Resources.Close_32;
             this.btnCloseForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCloseForm.Location = new System.Drawing.Point(1310, 684);
@@ -263,16 +273,6 @@
             this.btnAddNewPerson.TabIndex = 16;
             this.btnAddNewPerson.UseVisualStyleBackColor = false;
             this.btnAddNewPerson.Click += new System.EventHandler(this.btnAddNewPerson_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(211, 6);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(211, 6);
             // 
             // frmManagePeople
             // 
