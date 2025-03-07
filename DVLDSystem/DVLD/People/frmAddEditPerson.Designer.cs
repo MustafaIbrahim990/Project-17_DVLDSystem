@@ -484,7 +484,7 @@
             this.btnSavePersonData.BackColor = System.Drawing.Color.White;
             this.btnSavePersonData.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSavePersonData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSavePersonData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSavePersonData.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSavePersonData.Image = global::DVLDSystem.Properties.Resources.Save_32;
             this.btnSavePersonData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSavePersonData.Location = new System.Drawing.Point(693, 418);
@@ -500,7 +500,7 @@
             this.btnCloseForm.BackColor = System.Drawing.Color.White;
             this.btnCloseForm.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCloseForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCloseForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCloseForm.Image = global::DVLDSystem.Properties.Resources.Close_32;
             this.btnCloseForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCloseForm.Location = new System.Drawing.Point(513, 418);

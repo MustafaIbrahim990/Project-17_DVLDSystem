@@ -29,16 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbIsActive = new System.Windows.Forms.ComboBox();
-            this.btnCloseForm = new System.Windows.Forms.Button();
-            this.btnAddNewUser = new System.Windows.Forms.Button();
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblRecordCount = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cmsUsers = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dgvUserLists = new System.Windows.Forms.DataGridView();
+            this.btnCloseForm = new System.Windows.Forms.Button();
+            this.btnAddNewUser = new System.Windows.Forms.Button();
             this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,15 +51,10 @@
             this.ChangePassWordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SendEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.phoneCallToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dgvUserLists = new System.Windows.Forms.DataGridView();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.cmsUsers.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserLists)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // cbIsActive
@@ -72,35 +72,6 @@
             this.cbIsActive.Size = new System.Drawing.Size(214, 25);
             this.cbIsActive.TabIndex = 32;
             this.cbIsActive.SelectedIndexChanged += new System.EventHandler(this.cbIsActive_SelectedIndexChanged);
-            // 
-            // btnCloseForm
-            // 
-            this.btnCloseForm.BackColor = System.Drawing.Color.White;
-            this.btnCloseForm.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCloseForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCloseForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCloseForm.Image = global::DVLDSystem.Properties.Resources.Close_32;
-            this.btnCloseForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCloseForm.Location = new System.Drawing.Point(1310, 684);
-            this.btnCloseForm.Name = "btnCloseForm";
-            this.btnCloseForm.Size = new System.Drawing.Size(161, 47);
-            this.btnCloseForm.TabIndex = 31;
-            this.btnCloseForm.Text = "Close";
-            this.btnCloseForm.UseVisualStyleBackColor = false;
-            this.btnCloseForm.Click += new System.EventHandler(this.btnCloseForm_Click);
-            // 
-            // btnAddNewUser
-            // 
-            this.btnAddNewUser.BackColor = System.Drawing.Color.White;
-            this.btnAddNewUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddNewUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddNewUser.Image = global::DVLDSystem.Properties.Resources.Add_Person_40;
-            this.btnAddNewUser.Location = new System.Drawing.Point(1383, 273);
-            this.btnAddNewUser.Name = "btnAddNewUser";
-            this.btnAddNewUser.Size = new System.Drawing.Size(88, 55);
-            this.btnAddNewUser.TabIndex = 30;
-            this.btnAddNewUser.UseVisualStyleBackColor = false;
-            this.btnAddNewUser.Click += new System.EventHandler(this.btnAddNewUser_Click);
             // 
             // txtFilterValue
             // 
@@ -183,6 +154,89 @@
             this.cmsUsers.Name = "contextMenuStrip1";
             this.cmsUsers.Size = new System.Drawing.Size(225, 344);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(221, 6);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(221, 6);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft JhengHei", 20F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label3.Location = new System.Drawing.Point(642, 233);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(200, 35);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Manage Users";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dgvUserLists
+            // 
+            this.dgvUserLists.AllowUserToAddRows = false;
+            this.dgvUserLists.AllowUserToDeleteRows = false;
+            this.dgvUserLists.AllowUserToOrderColumns = true;
+            this.dgvUserLists.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvUserLists.BackgroundColor = System.Drawing.Color.White;
+            this.dgvUserLists.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUserLists.ContextMenuStrip = this.cmsUsers;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUserLists.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvUserLists.GridColor = System.Drawing.Color.Black;
+            this.dgvUserLists.Location = new System.Drawing.Point(13, 343);
+            this.dgvUserLists.Name = "dgvUserLists";
+            this.dgvUserLists.ReadOnly = true;
+            this.dgvUserLists.RowHeadersWidth = 51;
+            this.dgvUserLists.RowTemplate.Height = 24;
+            this.dgvUserLists.Size = new System.Drawing.Size(1458, 322);
+            this.dgvUserLists.TabIndex = 28;
+            this.dgvUserLists.DoubleClick += new System.EventHandler(this.dgvUserLists_DoubleClick);
+            // 
+            // btnCloseForm
+            // 
+            this.btnCloseForm.BackColor = System.Drawing.Color.White;
+            this.btnCloseForm.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCloseForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCloseForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseForm.Image = global::DVLDSystem.Properties.Resources.Close_32;
+            this.btnCloseForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCloseForm.Location = new System.Drawing.Point(1310, 684);
+            this.btnCloseForm.Name = "btnCloseForm";
+            this.btnCloseForm.Size = new System.Drawing.Size(161, 47);
+            this.btnCloseForm.TabIndex = 31;
+            this.btnCloseForm.Text = "Close";
+            this.btnCloseForm.UseVisualStyleBackColor = false;
+            this.btnCloseForm.Click += new System.EventHandler(this.btnCloseForm_Click);
+            // 
+            // btnAddNewUser
+            // 
+            this.btnAddNewUser.BackColor = System.Drawing.Color.White;
+            this.btnAddNewUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddNewUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNewUser.Image = global::DVLDSystem.Properties.Resources.Add_New_User_72;
+            this.btnAddNewUser.Location = new System.Drawing.Point(1383, 256);
+            this.btnAddNewUser.Name = "btnAddNewUser";
+            this.btnAddNewUser.Size = new System.Drawing.Size(88, 72);
+            this.btnAddNewUser.TabIndex = 30;
+            this.btnAddNewUser.UseVisualStyleBackColor = false;
+            this.btnAddNewUser.Click += new System.EventHandler(this.btnAddNewUser_Click);
+            // 
             // showDetailsToolStripMenuItem
             // 
             this.showDetailsToolStripMenuItem.Image = global::DVLDSystem.Properties.Resources.PersonDetails_32;
@@ -239,23 +293,6 @@
             this.phoneCallToolStripMenuItem1.Text = "Phone Call";
             this.phoneCallToolStripMenuItem1.Click += new System.EventHandler(this.phoneCallToolStripMenuItem1_Click);
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft JhengHei", 20F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(642, 233);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(200, 35);
-            this.label3.TabIndex = 26;
-            this.label3.Text = "Manage Users";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::DVLDSystem.Properties.Resources.Users_2_400;
@@ -265,42 +302,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 27;
             this.pictureBox1.TabStop = false;
-            // 
-            // dgvUserLists
-            // 
-            this.dgvUserLists.AllowUserToAddRows = false;
-            this.dgvUserLists.AllowUserToDeleteRows = false;
-            this.dgvUserLists.AllowUserToOrderColumns = true;
-            this.dgvUserLists.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvUserLists.BackgroundColor = System.Drawing.Color.White;
-            this.dgvUserLists.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUserLists.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvUserLists.GridColor = System.Drawing.Color.Black;
-            this.dgvUserLists.Location = new System.Drawing.Point(13, 343);
-            this.dgvUserLists.Name = "dgvUserLists";
-            this.dgvUserLists.ReadOnly = true;
-            this.dgvUserLists.RowHeadersWidth = 51;
-            this.dgvUserLists.RowTemplate.Height = 24;
-            this.dgvUserLists.Size = new System.Drawing.Size(1458, 322);
-            this.dgvUserLists.TabIndex = 28;
-            this.dgvUserLists.DoubleClick += new System.EventHandler(this.dgvUserLists_DoubleClick);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(221, 6);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(221, 6);
             // 
             // frmManageUsers
             // 
@@ -324,8 +325,8 @@
             this.Text = "Manage Users";
             this.Load += new System.EventHandler(this.frmManageUsers_Load);
             this.cmsUsers.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserLists)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

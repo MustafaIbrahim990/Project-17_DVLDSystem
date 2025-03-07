@@ -50,7 +50,7 @@
             this.btnCloseForm.BackColor = System.Drawing.Color.White;
             this.btnCloseForm.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCloseForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCloseForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCloseForm.Image = global::DVLDSystem.Properties.Resources.Close_32;
             this.btnCloseForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCloseForm.Location = new System.Drawing.Point(1008, 624);
