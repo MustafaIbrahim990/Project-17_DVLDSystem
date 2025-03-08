@@ -41,14 +41,30 @@ namespace DVLDSystem.DVLD
         //Current User Info :-
         private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (clsGlobal.CurrentUser == null)
+            {
+                MessageBox.Show($"Error : Could Not Find User With ID [{clsGlobal.CurrentUser.UserID}] in The System!", "User Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
+            frmShowUserInfo frm = new frmShowUserInfo(clsGlobal.CurrentUser.UserID);
+            frm.ShowDialog();
         }
 
 
         //Chaange PassWord :-
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (clsGlobal.CurrentUser == null)
+            {
+                MessageBox.Show($"Error : Could Not Find User With ID [{clsGlobal.CurrentUser.UserID}] in The System!", "User Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
+            frmChangePassWord frm = new frmChangePassWord(clsGlobal.CurrentUser.UserID);
+            frm.ShowDialog();
         }
 
 
