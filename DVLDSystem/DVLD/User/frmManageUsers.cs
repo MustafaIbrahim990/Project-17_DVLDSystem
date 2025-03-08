@@ -244,7 +244,19 @@ namespace DVLDSystem.DVLD.User
         //Show User Details(Info) :-
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int UserID = (int)dgvUserLists.CurrentRow.Cells[0].Value;
 
+            if (!clsUser.IsExist(UserID))
+            {
+                MessageBox.Show($"Error : No User With ID [{UserID}] in The System!", "User Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            frmShowUserInfo frm = new frmShowUserInfo(UserID);
+            frm.ShowDialog();
+
+            //Refresh :-
+            frmManageUsers_Load(null, null);
         }
         private void dgvUserLists_DoubleClick(object sender, EventArgs e)
         {
