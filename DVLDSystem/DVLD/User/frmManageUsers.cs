@@ -314,7 +314,19 @@ namespace DVLDSystem.DVLD.User
         //Change User PassWord :-
         private void ChangePassWordToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int UserID = (int)dgvUserLists.CurrentRow.Cells[0].Value;
 
+            if (!clsUser.IsExist(UserID))
+            {
+                MessageBox.Show($"Error : No User With ID [{UserID}] in The System!", "User Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            frmChangePassWord frm = new frmChangePassWord(UserID);
+            frm.ShowDialog();
+
+            //Refresh :-
+            frmManageUsers_Load(null, null);
         }
 
 
