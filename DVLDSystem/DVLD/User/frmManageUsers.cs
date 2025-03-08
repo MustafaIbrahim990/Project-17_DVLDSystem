@@ -286,7 +286,28 @@ namespace DVLDSystem.DVLD.User
         //Delete User :-
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int UserID = (int)dgvUserLists.CurrentRow.Cells[0].Value;
 
+            if (!clsUser.IsExist(UserID))
+            {
+                MessageBox.Show($"Error : No User With ID [{UserID}] in The System!", "User Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (MessageBox.Show($"Are You Sure You Want to Delete User [{UserID}] From The System?", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                if (clsUser.Delete(UserID))
+                {
+                    MessageBox.Show($"User Deleted Successfully.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    //Refresh :-
+                    frmManageUsers_Load(null, null);
+                }
+                else
+                {
+                    MessageBox.Show($"User Was Not Deleted because it has Data Linked to it in The System.", "Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
 
