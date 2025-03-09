@@ -20,7 +20,7 @@ namespace DVLDSystem
 
         private void FormTest_Load(object sender, EventArgs e)
         {
-            
+            ctrlApplicationTypeCard1.LoadApplicationTypeInfo(1);
         }
     }
 }
