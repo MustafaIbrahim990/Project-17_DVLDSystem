@@ -89,7 +89,19 @@ namespace DVLDSystem.DVLD.Applications.Application_Types
         //Edit Application Types :-
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int ApplicationTypeID = (int)dgvApplicationTypeLists.CurrentRow.Cells[0].Value;
 
+            if (!clsApplicationType.IsExist(ApplicationTypeID))
+            {
+                MessageBox.Show($"Error : No Application Type With ID [{ApplicationTypeID}] in The System!", "Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            frmEditApplicationTypes frm = new frmEditApplicationTypes(ApplicationTypeID);
+            frm.ShowDialog();
+
+            //Refresh :-
+            frmManageApplicationTypes_Load(null, null);
         }
     }
 }
