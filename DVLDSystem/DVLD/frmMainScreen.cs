@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DVLDSystem.DVLD.Login;
 using DVLDSystem.DVLD.Global_User;
 using DVLDSystem.DVLD.User;
+using DVLDSystem.DVLD.Applications.Application_Types;
 
 namespace DVLDSystem.DVLD
 {
@@ -173,7 +174,8 @@ namespace DVLDSystem.DVLD
         //Manage Application Types :-
         private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            frmManageApplicationTypes frm = new frmManageApplicationTypes();
+            frm.ShowDialog();
         }
 
 
