@@ -126,6 +126,12 @@
     <Compile Include="DVLD\People\frmShowPersonInfo.Designer.cs">
       <DependentUpon>frmShowPersonInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="DVLD\Tests\Test Types\ctrlTestTypeCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DVLD\Tests\Test Types\ctrlTestTypeCard.Designer.cs">
+      <DependentUpon>ctrlTestTypeCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="DVLD\Tests\Test Types\frmEditTestType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD\People\frmShowPersonInfo.resx">
       <DependentUpon>frmShowPersonInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD\Tests\Test Types\ctrlTestTypeCard.resx">
+      <DependentUpon>ctrlTestTypeCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD\Tests\Test Types\frmEditTestType.resx">
       <DependentUpon>frmEditTestType.cs</DependentUpon>
