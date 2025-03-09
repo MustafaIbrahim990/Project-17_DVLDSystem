@@ -46,3 +46,4 @@ C:\My_Projects\Project 17 _ DVLD System\DVLDSystem\obj\Debug\DVLDSystem.DVLD.Use
 C:\My_Projects\Project 17 _ DVLD System\DVLDSystem\obj\Debug\DVLDSystem.DVLD.User.frmShowUserInfo.resources
 C:\My_Projects\Project 17 _ DVLD System\DVLDSystem\obj\Debug\DVLDSystem.DVLD.User.frmChangePassWord.resources
 C:\My_Projects\Project 17 _ DVLD System\DVLDSystem\obj\Debug\DVLDSystem.DVLD.Applications.Application_Types.frmManageApplicationTypes.resources
+C:\My_Projects\Project 17 _ DVLD System\DVLDSystem\obj\Debug\DVLDSystem.DVLD.Applications.Application_Types.frmEditApplicationTypes.resources
