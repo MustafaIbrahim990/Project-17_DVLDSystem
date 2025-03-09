@@ -92,7 +92,19 @@ namespace DVLDSystem.DVLD.Tests.Test_Types
         //Edit Test Types :-
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            clsTestType.enTestType TestTypeID = (clsTestType.enTestType)dgvTestTypeLists.CurrentRow.Cells[0].Value;
 
+            if (!clsTestType.IsExist(TestTypeID))
+            {
+                MessageBox.Show($"Error : Could Not Find Test Type With ID [{(byte)TestTypeID}] in The System!", "Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            frmEditTestType frm = new frmEditTestType((clsTestType.enTestType)TestTypeID);
+            frm.ShowDialog();
+
+            //Refresh :-
+            frmManageTestTypes_Load(null, null);
         }
     }
 }
