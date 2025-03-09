@@ -11,6 +11,7 @@ using DVLDSystem.DVLD.Login;
 using DVLDSystem.DVLD.Global_User;
 using DVLDSystem.DVLD.User;
 using DVLDSystem.DVLD.Applications.Application_Types;
+using DVLDSystem.DVLD.Tests.Test_Types;
 
 namespace DVLDSystem.DVLD
 {
@@ -182,7 +183,8 @@ namespace DVLDSystem.DVLD
         //Manage Test Types :-
         private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            frmManageTestTypes frm = new frmManageTestTypes();
+            frm.ShowDialog();
         }
     }
 }
