@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DVLD\Applications\Application Types\Controls\ctrlApplicationTypeCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DVLD\Applications\Application Types\Controls\ctrlApplicationTypeCard.Designer.cs">
+      <DependentUpon>ctrlApplicationTypeCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="DVLD\Applications\Application Types\frmEditApplicationTypes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DVLD\Applications\Application Types\Controls\ctrlApplicationTypeCard.resx">
+      <DependentUpon>ctrlApplicationTypeCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DVLD\Applications\Application Types\frmEditApplicationTypes.resx">
       <DependentUpon>frmEditApplicationTypes.cs</DependentUpon>
     </EmbeddedResource>
