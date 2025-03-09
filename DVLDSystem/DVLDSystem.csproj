@@ -126,10 +126,10 @@
     <Compile Include="DVLD\People\frmShowPersonInfo.Designer.cs">
       <DependentUpon>frmShowPersonInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="DVLD\Tests\Test Types\ctrlTestTypeCard.cs">
+    <Compile Include="DVLD\Tests\Test Types\Controls\ctrlTestTypeCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DVLD\Tests\Test Types\ctrlTestTypeCard.Designer.cs">
+    <Compile Include="DVLD\Tests\Test Types\Controls\ctrlTestTypeCard.Designer.cs">
       <DependentUpon>ctrlTestTypeCard.cs</DependentUpon>
     </Compile>
     <Compile Include="DVLD\Tests\Test Types\frmEditTestType.cs">
@@ -143,6 +143,12 @@
     </Compile>
     <Compile Include="DVLD\Tests\Test Types\frmManageTestTypes.Designer.cs">
       <DependentUpon>frmManageTestTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD\Tests\Test Types\frmShowTestTypeInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD\Tests\Test Types\frmShowTestTypeInfo.Designer.cs">
+      <DependentUpon>frmShowTestTypeInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="DVLD\User\Controls\ctrlUserInfo.cs">
       <SubType>UserControl</SubType>
@@ -218,7 +224,7 @@
     <EmbeddedResource Include="DVLD\People\frmShowPersonInfo.resx">
       <DependentUpon>frmShowPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DVLD\Tests\Test Types\ctrlTestTypeCard.resx">
+    <EmbeddedResource Include="DVLD\Tests\Test Types\Controls\ctrlTestTypeCard.resx">
       <DependentUpon>ctrlTestTypeCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD\Tests\Test Types\frmEditTestType.resx">
@@ -226,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD\Tests\Test Types\frmManageTestTypes.resx">
       <DependentUpon>frmManageTestTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD\Tests\Test Types\frmShowTestTypeInfo.resx">
+      <DependentUpon>frmShowTestTypeInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD\User\Controls\ctrlUserInfo.resx">
       <DependentUpon>ctrlUserInfo.cs</DependentUpon>

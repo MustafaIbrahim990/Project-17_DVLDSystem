@@ -81,7 +81,19 @@ namespace DVLDSystem.DVLD.Tests.Test_Types
         //Show Test Types Details :-
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            clsTestType.enTestType TestTypeID = (clsTestType.enTestType)dgvTestTypeLists.CurrentRow.Cells[0].Value;
 
+            if (!clsTestType.IsExist(TestTypeID))
+            {
+                MessageBox.Show($"Error : Could Not Find Test Type With ID [{(byte)TestTypeID}] in The System!", "Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            frmShowTestTypeInfo frm = new frmShowTestTypeInfo(TestTypeID);
+            frm.ShowDialog();
+
+            //Refresh :-
+            frmManageTestTypes_Load(null, null);
         }
         private void dgvTestTypeLists_DoubleClick(object sender, EventArgs e)
         {
