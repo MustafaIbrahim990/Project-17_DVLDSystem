@@ -69,6 +69,12 @@
     <Compile Include="DVLD\Applications\Application Types\frmManageApplicationTypes.Designer.cs">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="DVLD\Applications\Application Types\frmShowApplicationTypeCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD\Applications\Application Types\frmShowApplicationTypeCard.Designer.cs">
+      <DependentUpon>frmShowApplicationTypeCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="DVLD\frmMainScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD\Applications\Application Types\frmManageApplicationTypes.resx">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD\Applications\Application Types\frmShowApplicationTypeCard.resx">
+      <DependentUpon>frmShowApplicationTypeCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD\frmMainScreen.resx">
       <DependentUpon>frmMainScreen.cs</DependentUpon>
