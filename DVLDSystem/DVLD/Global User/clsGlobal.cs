@@ -7,6 +7,8 @@ using System.IO;
 using System.Windows.Forms;
 using DVLDSystem_BusinessLayer;
 using DVLDSystem.Gobal_Classes;
+using Microsoft.Win32;
+using System.Security.Cryptography;
 
 namespace DVLDSystem.DVLD.Global_User
 {
@@ -14,71 +16,108 @@ namespace DVLDSystem.DVLD.Global_User
     {
         public static clsUser CurrentUser;
 
-        public static bool RememberUserNameANDPassWord(string UserName, string PassWord)
+        public static bool DeleteSubKeyFromLocalRegistry(string ValueName)
         {
+            string KeyPath = @"Software\DVDL";
+
             try
             {
-                //This We Get The Current Project Directory Folder :-
-                string CurrentDirectory = System.IO.Directory.GetCurrentDirectory();
-
-                string FilePath = CurrentDirectory + @"\Data.txt";
-
-                if (clsValidation.IsEmpty(UserName) && File.Exists(FilePath))
+                // Open the registry key in read/write mode with explicit registry view
+                using (RegistryKey baseKey = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, RegistryView.Registry64))
                 {
-                    File.Delete(FilePath);
-                    return true;
+                    using (RegistryKey Subkey = baseKey.OpenSubKey(KeyPath, true))
+                    {
+                        if (Subkey != null)
+                        {
+                            // Delete the specified value
+                            if (Subkey.GetValue(ValueName) != null)
+                            {
+                                Subkey.DeleteValue(ValueName);
+                            }
+                            return true;
+                        }
+                    }
                 }
-
-                string DataTosave = UserName + "#//#" + PassWord;
-
-                using (StreamWriter writer = new StreamWriter(FilePath))
-                {
-                    writer.WriteLine(DataTosave);
-                    return true;
-                }
+            }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show("UnauthorizedAccessException: Run the program with administrative privileges.");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}");
+                MessageBox.Show("An Error Occurred : " + ex.Message);
+            }
+            return false;
+        }
+
+        public static bool SaveDataToLocalRegistry(string ValueName, string ValueData)
+        {
+            string KeyPath = @"HKEY_CURRENT_USER\Software\DVDL";
+            try
+            {
+                if (string.IsNullOrWhiteSpace(ValueData))
+                {
+                    return DeleteSubKeyFromLocalRegistry(ValueName);
+                }
+
+                Registry.SetValue(KeyPath, ValueName, ValueData, RegistryValueKind.String);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An Error Occurred : " + ex.Message);
                 return false;
             }
         }
 
-        public static bool GetStoredCredential(ref string UserName, ref string PassWord)
+        public static string GetDataFromLocalRegistry(string ValueName)
         {
+            string KeyPath = @"HKEY_CURRENT_USER\Software\DVDL";
+            string ValueData = "";
+
             try
             {
-                //This We Get The Current Project Directory Folder :-
-                string CurrentDirectory = System.IO.Directory.GetCurrentDirectory();
-
-                string FilePath = CurrentDirectory + @"\Data.txt";
-
-                if (File.Exists(FilePath))
-                {
-                    using (StreamReader reader = new StreamReader(FilePath))
-                    {
-                        string Line = "";
-
-                        while ((Line = reader.ReadLine()) != null)
-                        {
-                            Console.WriteLine(Line);
-                            string[] result = Line.Split(new string[] { "#//#" }, StringSplitOptions.None);
-
-                            UserName = result[0];
-                            PassWord = result[1];
-                        }
-                        return true;
-                    }
-                }
-                else
-                {
-                    return false;
-                }
+                ValueData = (string)Registry.GetValue(KeyPath, ValueName, null);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}");
-                return false;
+                MessageBox.Show("An Error Occurred : " + ex.Message);
+                return null;
+            }
+            return ValueData;
+        }
+
+        public static bool SaveUserNameANDPassWord(string UserName, string PassWord)
+        {
+            return SaveDataToLocalRegistry("UserName", UserName) && SaveDataToLocalRegistry("PassWord", PassWord);
+        }
+
+        public static bool GetUserNameANDPassWord(ref string UserName, ref string PassWord)
+        {
+            UserName = GetDataFromLocalRegistry("UserName");
+            PassWord = GetDataFromLocalRegistry("PassWord");
+
+            return (UserName != null && PassWord != null) ? true : false;
+        }
+
+        public static string GenerateSalt()
+        {
+            byte[] SaltBytes = new byte[32];
+
+            using (RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())
+            {
+                rng.GetBytes(SaltBytes);
+            }
+            return BitConverter.ToString(SaltBytes).Replace("-", "");
+        }
+
+        public static string GenerateHash(string input)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] HashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(input));
+
+                return BitConverter.ToString(HashBytes).Replace("-", "");
             }
         }
     }

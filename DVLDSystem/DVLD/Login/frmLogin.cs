@@ -16,9 +16,16 @@ namespace DVLDSystem.DVLD.Login
     public partial class frmLogin : Form
     {
         //Private Methods :-
-        private bool _RememberUser()
+        private bool _RememberUserNameANDPassWord()
         {
-            return chbRememberMe.Checked;
+            if (chbRememberMe.Checked)
+            {
+                return clsGlobal.SaveUserNameANDPassWord(txtUserName.Text.Trim(), txtPassWord.Text.Trim());
+            }
+            else
+            {
+                return clsGlobal.SaveUserNameANDPassWord(null, null);
+            }
         }
 
 
@@ -27,12 +34,11 @@ namespace DVLDSystem.DVLD.Login
         {
             InitializeComponent();
         }
-
         private void frmLogin_Load(object sender, EventArgs e)
         {
             string UserName = "", PassWord = "";
 
-            if (clsGlobal.GetStoredCredential(ref UserName, ref PassWord))
+            if (clsGlobal.GetUserNameANDPassWord(ref UserName, ref PassWord))
             {
                 chbRememberMe.Checked = true;
                 txtUserName.Text = UserName;
@@ -93,7 +99,7 @@ namespace DVLDSystem.DVLD.Login
                 return;
             }
 
-            clsUser UserInfo = clsUser.Find(txtUserName.Text.Trim(), txtPassWord.Text.Trim());
+            clsUser UserInfo = clsUser.Find(txtUserName.Text.Trim(), clsGlobal.GenerateHash(txtPassWord.Text.Trim()));
 
             if (UserInfo == null)
             {
@@ -101,14 +107,8 @@ namespace DVLDSystem.DVLD.Login
                 return;
             }
 
-            if (_RememberUser())
-            {
-                clsGlobal.RememberUserNameANDPassWord(txtUserName.Text.Trim(), txtPassWord.Text.Trim());
-            }
-            else
-            {
-                clsGlobal.RememberUserNameANDPassWord(null, null);
-            }
+            if (!_RememberUserNameANDPassWord())
+                return;
 
             if (!UserInfo.IsActive)
             {
