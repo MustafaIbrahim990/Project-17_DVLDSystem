@@ -12,6 +12,7 @@ using DVLDSystem.DVLD.Global_User;
 using DVLDSystem.DVLD.User;
 using DVLDSystem.DVLD.Applications.Application_Types;
 using DVLDSystem.DVLD.Tests.Test_Types;
+using DVLDSystem.DVLD.Applications.Local_Driving_License;
 
 namespace DVLDSystem.DVLD
 {
@@ -109,7 +110,8 @@ namespace DVLDSystem.DVLD
         }
         private void manageLocalDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            frmManageLocalDrivingLicenseApplications frm = new frmManageLocalDrivingLicenseApplications();
+            frm.ShowDialog();
         }
 
 
