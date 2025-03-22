@@ -184,6 +184,12 @@ namespace DVLDSystem_BusinessLayer
             return clsApplicationData.GetActiveApplicationID(PersonID, (int)ApplicationTypeID);
         }
 
+        //Dose Person have Active Application :-
+        public static bool DoesPersonHaveActiveApplication(int PersonID, enApplicationType ApplicationID)
+        {
+            return clsApplication.GetActiveApplicationID(PersonID, ApplicationID) != -1;
+        }
+
 
         //Get Active Application ID For License Class :-
         public static int GetActiveApplicationIDForLicenseClass(int PersonID, enApplicationType ApplicationTypeID, int LicenseClassID)
@@ -191,18 +197,11 @@ namespace DVLDSystem_BusinessLayer
             return clsApplicationData.GetActiveApplicationIDForLicenseClass(PersonID, (int)ApplicationTypeID, LicenseClassID);
         }
 
-
+       
         //Dose Person Have Active Application For License Class :-
         public static bool DosePersonHaveActiveApplicationForLicenseClass(int PersonID, enApplicationType ApplicationTypeID, int LicenseClassID)
         {
             return (clsApplication.GetActiveApplicationIDForLicenseClass(PersonID, ApplicationTypeID, LicenseClassID) != -1);
-        }
-
-
-        //Dose Person have Active Application :-
-        public static bool DoesPersonHaveActiveApplication(int PersonID, enApplicationType ApplicationID)
-        {
-            return clsApplication.GetActiveApplicationID(PersonID, ApplicationID) != -1;
         }
 
 
