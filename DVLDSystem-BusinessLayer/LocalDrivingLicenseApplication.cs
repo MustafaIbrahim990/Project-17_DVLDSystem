@@ -15,7 +15,7 @@ namespace DVLDSystem_BusinessLayer
         public int LocalDrivingLicenseApplicationID { get; set; }
         public int LicenseClassID { get; set; }
 
-        //public clsLicenseClass LicenseClassInfo;
+        public clsLicenseClass LicenseClassInfo;
         public string PersonFullName
         {
             get { return base.PersonInfo.FullName; }
@@ -29,7 +29,7 @@ namespace DVLDSystem_BusinessLayer
             LocalDrivingLicenseApplicationID = -1;
             LicenseClassID = -1;
 
-           // LicenseClassInfo = null;
+            LicenseClassInfo = null;
         }
         private clsLocalDrivingLicenseApplication(int LocalDrivingLicenseApplicationID, int ApplicationID, DateTime ApplicationDate, int ApplicantPersonID,
         int ApplicationTypeID, enApplicationStatus ApplicationStatus, DateTime LastStatusDate, float PaidFees, int CreatedByUserID, int LicenseClassID)
@@ -37,7 +37,7 @@ namespace DVLDSystem_BusinessLayer
             _Mode1 = enMode1.Update;
             this.LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
             this.LicenseClassID = LicenseClassID;
-            //this.LicenseClassInfo = clsLicenseClass.Find(LicenseClassID);
+            this.LicenseClassInfo = clsLicenseClass.Find(LicenseClassID);
             //
             this.ApplicationID = ApplicationID;
             this.ApplicationDate = ApplicationDate;
@@ -165,7 +165,7 @@ namespace DVLDSystem_BusinessLayer
         //Dose Attend Test Type By (LocalDrivingLicenseAppliationID AND TestTypeID) :-
         public static bool DoesAttendTestType(int LocalDrivingLicenseApplicationID, clsTestType.enTestType TestTypeID)
         {
-            //return clsTest.DoesAttendTestType(LocalDrivingLicenseApplicationID, TestTypeID);
+           //return clsTest.DoesAttendTestType(LocalDrivingLicenseApplicationID, TestTypeID);
             return false;
         }
         public bool DoesAttendTestType(clsTestType.enTestType TestTypeID)

@@ -201,7 +201,11 @@ namespace DVLDSystem.DVLD.Applications.Local_Driving_License
         //Add New Local Driving License Application :-
         private void btnAddNewLocalDrivingLicenseApplication_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            frmAddEditLocalDrivingLicenseApplication frm = new frmAddEditLocalDrivingLicenseApplication();
+            frm.ShowDialog();
+
+            //Refresh :-
+            frmManageLocalDrivingLicenseApplications_Load(null, null);
         }
         private void addNewToolStripMenuItem_Click(object sender, EventArgs e)
         {

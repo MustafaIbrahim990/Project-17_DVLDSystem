@@ -42,7 +42,7 @@
             this.btnCloseForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCloseForm.Image = global::DVLDSystem.Properties.Resources.Close_32;
             this.btnCloseForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCloseForm.Location = new System.Drawing.Point(871, 725);
+            this.btnCloseForm.Location = new System.Drawing.Point(737, 581);
             this.btnCloseForm.Name = "btnCloseForm";
             this.btnCloseForm.Size = new System.Drawing.Size(161, 47);
             this.btnCloseForm.TabIndex = 123;
@@ -57,7 +57,7 @@
             this.btnSaveUserData.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveUserData.Image = global::DVLDSystem.Properties.Resources.Save_32;
             this.btnSaveUserData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveUserData.Location = new System.Drawing.Point(1051, 725);
+            this.btnSaveUserData.Location = new System.Drawing.Point(925, 581);
             this.btnSaveUserData.Name = "btnSaveUserData";
             this.btnSaveUserData.Size = new System.Drawing.Size(161, 47);
             this.btnSaveUserData.TabIndex = 122;
