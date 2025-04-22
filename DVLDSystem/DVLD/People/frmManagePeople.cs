@@ -48,6 +48,9 @@ namespace DVLDSystem
 
         private void _RefreshDataInGrid()
         {
+            //When We Refresh Data in Grid We Select None.
+            cbFilterBy.SelectedIndex = 0;
+
             _GetPeopleLists();
             _ShowPeopleListsInGrid();
             _ShowRecordCountInGrid();
