@@ -201,8 +201,8 @@ namespace DVLDSystem.DVLD.Applications.Local_Driving_License
             frmAddEditLocalDrivingLicenseApplication frm = new frmAddEditLocalDrivingLicenseApplication();
             frm.ShowDialog();
 
-            //Refresh :-
-            _RefreshDataInGrid();
+            //Refresh the Form.
+            frmManageLocalDrivingLicenseApplications_Load(null, null);
         }
         private void addNewToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -227,15 +227,34 @@ namespace DVLDSystem.DVLD.Applications.Local_Driving_License
             frmAddEditLocalDrivingLicenseApplication frm = new frmAddEditLocalDrivingLicenseApplication((int)dgvLocalDrivingLicenseApplicationLists.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
 
-            //Refresh :-
-            _RefreshDataInGrid();
+            //Refresh the Form.
+            frmManageLocalDrivingLicenseApplications_Load(null, null);
         }
 
 
         //Delete Local Driving License Application :-
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //Just Delete Local
+            if (MessageBox.Show("Are You Sure Do You Want to Delete This Application?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                return;
+
+            clsLocalDrivingLicenseApplication LocalDrivingLicenseApplicationInfo = clsLocalDrivingLicenseApplication.FindLocal((int)dgvLocalDrivingLicenseApplicationLists.CurrentRow.Cells[0].Value);
+
+            if (LocalDrivingLicenseApplicationInfo != null)
+            {
+                if (LocalDrivingLicenseApplicationInfo.Delete())
+                {
+                    MessageBox.Show("Application Deleted Successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    //Refresh the Form.
+                    frmManageLocalDrivingLicenseApplications_Load(null, null);
+                }
+                else
+                {
+                    MessageBox.Show("Could Not Delete This Applicatoin, Other Data Depends On it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
 
