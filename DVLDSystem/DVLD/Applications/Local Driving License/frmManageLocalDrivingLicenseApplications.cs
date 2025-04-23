@@ -49,6 +49,8 @@ namespace DVLDSystem.DVLD.Applications.Local_Driving_License
             _GetLocalDrivingLicenseApplicationLists();
             _ShowLocalDrivingLicenseApplicationListsInGrid();
             _ShowRecordCountInGrid();
+
+            cbFilterBy.SelectedIndex = 0;
         }
 
         private void _FilterDataInGridByIntValue(string ColumnName, int Value)
@@ -144,11 +146,6 @@ namespace DVLDSystem.DVLD.Applications.Local_Driving_License
         private void frmManageLocalDrivingLicenseApplications_Load(object sender, EventArgs e)
         {
             _RefreshDataInGrid();
-
-            txtFilterValue.Text = null;
-            txtFilterValue.Visible = false;
-            cbFilterBy.SelectedIndex = 0;
-
             _ResetColumnsInGrid();
         }
 
@@ -205,7 +202,7 @@ namespace DVLDSystem.DVLD.Applications.Local_Driving_License
             frm.ShowDialog();
 
             //Refresh :-
-            frmManageLocalDrivingLicenseApplications_Load(null, null);
+            _RefreshDataInGrid();
         }
         private void addNewToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -227,7 +224,11 @@ namespace DVLDSystem.DVLD.Applications.Local_Driving_License
         //Edit Local Driving License Application :-
         private void editToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            frmAddEditLocalDrivingLicenseApplication frm = new frmAddEditLocalDrivingLicenseApplication((int)dgvLocalDrivingLicenseApplicationLists.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+
+            //Refresh :-
+            _RefreshDataInGrid();
         }
 
 

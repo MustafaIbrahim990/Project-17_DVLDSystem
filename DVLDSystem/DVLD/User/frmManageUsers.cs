@@ -50,6 +50,8 @@ namespace DVLDSystem.DVLD.User
             _GetUserLists();
             _ShowUserListsInGrid();
             _ShowRecordCountInGrid();
+
+            cbFilterBy.SelectedIndex = 0;
         }
 
         private void _FilterDataInGridByIntValue(string ColumnName, int Value)
@@ -141,8 +143,6 @@ namespace DVLDSystem.DVLD.User
         private void frmManageUsers_Load(object sender, EventArgs e)
         {
             _RefreshDataInGrid();
-            cbFilterBy.SelectedIndex = 0;
-
             _ResetColumnsInGrid();
         }
 
@@ -233,7 +233,7 @@ namespace DVLDSystem.DVLD.User
             frm.ShowDialog();
 
             //Refresh :-
-            frmManageUsers_Load(null, null);
+            _RefreshDataInGrid();
         }
         private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -256,7 +256,7 @@ namespace DVLDSystem.DVLD.User
             frm.ShowDialog();
 
             //Refresh :-
-            frmManageUsers_Load(null, null);
+            _RefreshDataInGrid();
         }
         private void dgvUserLists_DoubleClick(object sender, EventArgs e)
         {
@@ -279,7 +279,7 @@ namespace DVLDSystem.DVLD.User
             frm.ShowDialog();
 
             //Refresh :-
-            frmManageUsers_Load(null, null);
+            _RefreshDataInGrid();
         }
 
 
@@ -301,7 +301,7 @@ namespace DVLDSystem.DVLD.User
                     MessageBox.Show($"User Deleted Successfully.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     //Refresh :-
-                    frmManageUsers_Load(null, null);
+                    _RefreshDataInGrid();
                 }
                 else
                 {
@@ -326,7 +326,7 @@ namespace DVLDSystem.DVLD.User
             frm.ShowDialog();
 
             //Refresh :-
-            frmManageUsers_Load(null, null);
+            _RefreshDataInGrid();
         }
 
 

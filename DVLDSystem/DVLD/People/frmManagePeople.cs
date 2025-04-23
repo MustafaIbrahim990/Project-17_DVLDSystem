@@ -51,6 +51,8 @@ namespace DVLDSystem
             _GetPeopleLists();
             _ShowPeopleListsInGrid();
             _ShowRecordCountInGrid();
+
+            cbFilterBy.SelectedIndex = 0;
         }
 
         private void _FilterPeopleListsInGridByIntValue(string ColumnName, int Value)
@@ -179,8 +181,6 @@ namespace DVLDSystem
         private void frmManagePeople_Load(object sender, EventArgs e)
         {
             _RefreshDataInGrid();
-            cbFilterBy.SelectedIndex = 0;
-
             _ResetColumnsInGrid();
         }
         private void frmManagePeople_Activated(object sender, EventArgs e)
@@ -259,6 +259,8 @@ namespace DVLDSystem
 
             frmShowPersonInfo frm = new frmShowPersonInfo(PersonID);
             frm.ShowDialog();
+
+            //Refresh :-
             _RefreshDataInGrid();
         }
         private void dgvPeopleLists_DoubleClick(object sender, EventArgs e)
@@ -308,6 +310,8 @@ namespace DVLDSystem
                     }
 
                     MessageBox.Show($"Person Deleted Successfully.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    //Refresh :-
                     _RefreshDataInGrid();
                 }
                 else
