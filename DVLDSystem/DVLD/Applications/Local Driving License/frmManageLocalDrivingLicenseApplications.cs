@@ -261,7 +261,25 @@ namespace DVLDSystem.DVLD.Applications.Local_Driving_License
         //Cancel Local Driving License Application :-
         private void cancelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (MessageBox.Show("Are You Sure Do You Want to Cancel This Application?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                return;
+
+            clsLocalDrivingLicenseApplication LocalDrivingLicenseApplicationInfo = clsLocalDrivingLicenseApplication.FindLocal((int)dgvLocalDrivingLicenseApplicationLists.CurrentRow.Cells[0].Value);
+
+            if (LocalDrivingLicenseApplicationInfo != null)
+            {
+                if (LocalDrivingLicenseApplicationInfo.Cancel())
+                {
+                    MessageBox.Show("Application Cancelled Successfully.", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    //refresh the form.
+                    frmManageLocalDrivingLicenseApplications_Load(null, null);
+                }
+                else
+                {
+                    MessageBox.Show("Could Not Cancel This Applicatoin.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
 
