@@ -213,7 +213,11 @@ namespace DVLDSystem.DVLD.Applications.Local_Driving_License
         //Show Details :-
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            frmShowLocalDrivingLicenseApplicationCard frm = new frmShowLocalDrivingLicenseApplicationCard((int)dgvLocalDrivingLicenseApplicationLists.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+
+            //Refresh :-
+            frmManageLocalDrivingLicenseApplications_Load(null, null);
         }
         private void dgvLocalDrivingLicenseApplicationLists_DoubleClick(object sender, EventArgs e)
         {

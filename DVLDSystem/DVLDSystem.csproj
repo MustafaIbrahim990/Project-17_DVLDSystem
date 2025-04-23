@@ -99,6 +99,12 @@
     <Compile Include="DVLD\Applications\Local Driving License\frmManageLocalDrivingLicenseApplications.Designer.cs">
       <DependentUpon>frmManageLocalDrivingLicenseApplications.cs</DependentUpon>
     </Compile>
+    <Compile Include="DVLD\Applications\Local Driving License\frmShowLocalDrivingLicenseApplicationCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD\Applications\Local Driving License\frmShowLocalDrivingLicenseApplicationCard.Designer.cs">
+      <DependentUpon>frmShowLocalDrivingLicenseApplicationCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="DVLD\frmMainScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD\Applications\Local Driving License\frmManageLocalDrivingLicenseApplications.resx">
       <DependentUpon>frmManageLocalDrivingLicenseApplications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD\Applications\Local Driving License\frmShowLocalDrivingLicenseApplicationCard.resx">
+      <DependentUpon>frmShowLocalDrivingLicenseApplicationCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD\frmMainScreen.resx">
       <DependentUpon>frmMainScreen.cs</DependentUpon>
