@@ -75,6 +75,18 @@
     <Compile Include="DVLD\Applications\Application Types\frmShowApplicationTypeCard.Designer.cs">
       <DependentUpon>frmShowApplicationTypeCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="DVLD\Applications\Controls\ctrlApplicationBasicInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DVLD\Applications\Controls\ctrlApplicationBasicInfo.Designer.cs">
+      <DependentUpon>ctrlApplicationBasicInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD\Applications\Local Driving License\Controls\ctrlLocalDrivingLicenseApplication.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DVLD\Applications\Local Driving License\Controls\ctrlLocalDrivingLicenseApplication.Designer.cs">
+      <DependentUpon>ctrlLocalDrivingLicenseApplication.cs</DependentUpon>
+    </Compile>
     <Compile Include="DVLD\Applications\Local Driving License\frmAddEditLocalDrivingLicenseApplication.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +223,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD\Applications\Application Types\frmShowApplicationTypeCard.resx">
       <DependentUpon>frmShowApplicationTypeCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD\Applications\Controls\ctrlApplicationBasicInfo.resx">
+      <DependentUpon>ctrlApplicationBasicInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD\Applications\Local Driving License\Controls\ctrlLocalDrivingLicenseApplication.resx">
+      <DependentUpon>ctrlLocalDrivingLicenseApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD\Applications\Local Driving License\frmAddEditLocalDrivingLicenseApplication.resx">
       <DependentUpon>frmAddEditLocalDrivingLicenseApplication.cs</DependentUpon>
@@ -467,7 +485,7 @@
     <None Include="Resources\TestType 512.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DVLD\Applications\Local Driving License\Controls\" />
+    <None Include="Resources\ApplicationType.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Manage Applications 641.png" />
@@ -501,6 +519,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Street Test 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User 32 -2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PassedTests 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\License View 32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
