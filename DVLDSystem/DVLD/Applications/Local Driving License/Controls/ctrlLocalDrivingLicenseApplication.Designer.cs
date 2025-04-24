@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrlApplicationBasicInfo1 = new DVLDSystem.DVLD.Applications.Controls.ctrlApplicationBasicInfo();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
@@ -41,20 +39,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.ctrlApplicationBasicInfo1 = new DVLDSystem.DVLD.Applications.Controls.ctrlApplicationBasicInfo();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ctrlApplicationBasicInfo1
-            // 
-            this.ctrlApplicationBasicInfo1.BackColor = System.Drawing.Color.White;
-            this.ctrlApplicationBasicInfo1.Location = new System.Drawing.Point(6, 5);
-            this.ctrlApplicationBasicInfo1.Name = "ctrlApplicationBasicInfo1";
-            this.ctrlApplicationBasicInfo1.Size = new System.Drawing.Size(1174, 404);
-            this.ctrlApplicationBasicInfo1.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -70,22 +62,12 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Font = new System.Drawing.Font("Lucida Bright", 12F);
-            this.groupBox1.Location = new System.Drawing.Point(15, 415);
+            this.groupBox1.Location = new System.Drawing.Point(14, 342);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1154, 162);
             this.groupBox1.TabIndex = 73;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Local Driving License Application Info";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::DVLDSystem.Properties.Resources.License_View_32;
-            this.pictureBox1.Location = new System.Drawing.Point(730, 118);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(54, 30);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 69;
-            this.pictureBox1.TabStop = false;
             // 
             // pictureBox6
             // 
@@ -146,7 +128,7 @@
             this.lblPassedTests.AutoSize = true;
             this.lblPassedTests.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 12F, System.Drawing.FontStyle.Bold);
             this.lblPassedTests.ForeColor = System.Drawing.Color.Black;
-            this.lblPassedTests.Location = new System.Drawing.Point(277, 124);
+            this.lblPassedTests.Location = new System.Drawing.Point(277, 123);
             this.lblPassedTests.Name = "lblPassedTests";
             this.lblPassedTests.Size = new System.Drawing.Size(53, 20);
             this.lblPassedTests.TabIndex = 50;
@@ -196,6 +178,24 @@
             this.label9.TabIndex = 15;
             this.label9.Text = "L.D.L.App ID :";
             // 
+            // ctrlApplicationBasicInfo1
+            // 
+            this.ctrlApplicationBasicInfo1.BackColor = System.Drawing.Color.White;
+            this.ctrlApplicationBasicInfo1.Location = new System.Drawing.Point(6, 5);
+            this.ctrlApplicationBasicInfo1.Name = "ctrlApplicationBasicInfo1";
+            this.ctrlApplicationBasicInfo1.Size = new System.Drawing.Size(1174, 330);
+            this.ctrlApplicationBasicInfo1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DVLDSystem.Properties.Resources.Driver_License_48;
+            this.pictureBox1.Location = new System.Drawing.Point(730, 118);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(54, 30);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 69;
+            this.pictureBox1.TabStop = false;
+            // 
             // ctrlLocalDrivingLicenseApplication
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -203,14 +203,14 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ctrlApplicationBasicInfo1);
             this.Name = "ctrlLocalDrivingLicenseApplication";
-            this.Size = new System.Drawing.Size(1187, 586);
+            this.Size = new System.Drawing.Size(1187, 516);
             this.Load += new System.EventHandler(this.ctrlLocalDrivingLicenseApplication_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -219,7 +219,6 @@
 
         private Applications.Controls.ctrlApplicationBasicInfo ctrlApplicationBasicInfo1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
@@ -230,5 +229,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

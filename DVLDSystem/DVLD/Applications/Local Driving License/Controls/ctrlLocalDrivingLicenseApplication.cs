@@ -48,7 +48,7 @@ namespace DVLDSystem.DVLD.Applications.Local_Driving_License.Controls
             ctrlApplicationBasicInfo1.LoadApplicationInfo(_LocalDrivingLicenseApplicationInfo.ApplicationID);
             lblLocalDrivingLicenseApplicationID.Text = _LocalDrivingLicenseApplicationInfo.LocalDrivingLicenseApplicationID.ToString();
             lblAppliedForLicense.Text = _LocalDrivingLicenseApplicationInfo.LicenseClassInfo.ClassName;
-            //lblPassedTests.Text = clsTest.GetPassTestCount(_LocalDrivingLicenseApplicationInfo.LocalDrivingLicenseApplicationID).ToString() + "/3";
+            lblPassedTests.Text = clsTest.GetPassTestCount(_LocalDrivingLicenseApplicationInfo.LocalDrivingLicenseApplicationID).ToString() + "/3";
 
             llShowLicenseInfo.Enabled = clsDrivingLicense.DosePersonHaveDrivingLicense(_LocalDrivingLicenseApplicationInfo.ApplicantPersonID, _LocalDrivingLicenseApplicationInfo.LicenseClassID);
         }
