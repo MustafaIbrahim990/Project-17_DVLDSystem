@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLDSystem_BusinessLayer;
+using DVLDSystem.DVLD.Tests.Schedule_Tests;
 
 namespace DVLDSystem.DVLD.Tests.Schedule_Tests
 {
@@ -125,9 +126,55 @@ namespace DVLDSystem.DVLD.Tests.Schedule_Tests
                 return;
             }
 
-            //frmAddEditTestAppointments frm = new frmAddEditTestAppointments(_LocalDrivingLicenseApplicationID, _TestTypeID);
+            frmAddEditTestAppointment frm = new frmAddEditTestAppointment(_LocalDrivingLicenseApplicationID, _TestTypeID);
+            frm.ShowDialog();
+
+            //Refresh The Form :-
+            frmManageTestAppointments_Load(null, null);
+        }
+
+
+        //Edit Test Appointment :-
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvTestAppointmentLists.Rows.Count == 0)
+                return;
+
+            int TestAppointmentID = (int)dgvTestAppointmentLists.CurrentRow.Cells[0].Value;
+
+            if (!clsTestAppointment.IsExist(TestAppointmentID))
+            {
+                MessageBox.Show($"No Test Appointment With ID [{TestAppointmentID}] in The System!", "Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            frmAddEditTestAppointment frm = new frmAddEditTestAppointment(_LocalDrivingLicenseApplicationID, _TestTypeID, TestAppointmentID);
+            frm.ShowDialog();
+
+            //Refresh The Form :-
+            frmManageTestAppointments_Load(null, null);
+        }
+
+
+        //Take Test :-
+        private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvTestAppointmentLists.Rows.Count == 0)
+                return;
+
+            int TestAppointmentID = (int)dgvTestAppointmentLists.CurrentRow.Cells[0].Value;
+
+            if (!clsTestAppointment.IsExist(TestAppointmentID))
+            {
+                MessageBox.Show($"No Test Appointment With ID [{TestAppointmentID}] in The System!", "Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //frmTakeTests frm = new frmTakeTests(TestAppointmentID, _TestTypeID);
             //frm.ShowDialog();
-            //frmManageScheduleTests_Load(null, null);
+
+            //Refresh The Form :-
+            frmManageTestAppointments_Load(null, null);
         }
 
 

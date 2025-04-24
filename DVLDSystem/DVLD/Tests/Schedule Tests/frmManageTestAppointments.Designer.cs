@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvTestAppointmentLists = new System.Windows.Forms.DataGridView();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblRecordCount = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.ctrlLocalDrivingLicenseApplication1 = new DVLDSystem.DVLD.Applications.Local_Driving_License.Controls.ctrlLocalDrivingLicenseApplication();
             this.cmsTestAppointments = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnAddTestAppointment = new System.Windows.Forms.Button();
             this.btnCloseForm = new System.Windows.Forms.Button();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.takeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctrlLocalDrivingLicenseApplication1 = new DVLDSystem.DVLD.Applications.Local_Driving_License.Controls.ctrlLocalDrivingLicenseApplication();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTestAppointmentLists)).BeginInit();
             this.cmsTestAppointments.SuspendLayout();
             this.SuspendLayout();
@@ -54,14 +54,15 @@
             this.dgvTestAppointmentLists.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTestAppointmentLists.BackgroundColor = System.Drawing.Color.White;
             this.dgvTestAppointmentLists.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTestAppointmentLists.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvTestAppointmentLists.ContextMenuStrip = this.cmsTestAppointments;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTestAppointmentLists.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTestAppointmentLists.GridColor = System.Drawing.Color.Black;
             this.dgvTestAppointmentLists.Location = new System.Drawing.Point(24, 643);
             this.dgvTestAppointmentLists.Name = "dgvTestAppointmentLists";
@@ -113,14 +114,6 @@
             this.label2.TabIndex = 43;
             this.label2.Text = "Appointments :";
             // 
-            // ctrlLocalDrivingLicenseApplication1
-            // 
-            this.ctrlLocalDrivingLicenseApplication1.BackColor = System.Drawing.Color.White;
-            this.ctrlLocalDrivingLicenseApplication1.Location = new System.Drawing.Point(10, 66);
-            this.ctrlLocalDrivingLicenseApplication1.Name = "ctrlLocalDrivingLicenseApplication1";
-            this.ctrlLocalDrivingLicenseApplication1.Size = new System.Drawing.Size(1187, 508);
-            this.ctrlLocalDrivingLicenseApplication1.TabIndex = 44;
-            // 
             // cmsTestAppointments
             // 
             this.cmsTestAppointments.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -171,6 +164,7 @@
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(138, 38);
             this.editToolStripMenuItem.Text = "&Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // takeTestToolStripMenuItem
             // 
@@ -179,6 +173,15 @@
             this.takeTestToolStripMenuItem.Name = "takeTestToolStripMenuItem";
             this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(138, 38);
             this.takeTestToolStripMenuItem.Text = "Take Test";
+            this.takeTestToolStripMenuItem.Click += new System.EventHandler(this.takeTestToolStripMenuItem_Click);
+            // 
+            // ctrlLocalDrivingLicenseApplication1
+            // 
+            this.ctrlLocalDrivingLicenseApplication1.BackColor = System.Drawing.Color.White;
+            this.ctrlLocalDrivingLicenseApplication1.Location = new System.Drawing.Point(10, 66);
+            this.ctrlLocalDrivingLicenseApplication1.Name = "ctrlLocalDrivingLicenseApplication1";
+            this.ctrlLocalDrivingLicenseApplication1.Size = new System.Drawing.Size(1187, 508);
+            this.ctrlLocalDrivingLicenseApplication1.TabIndex = 44;
             // 
             // frmManageTestAppointments
             // 
