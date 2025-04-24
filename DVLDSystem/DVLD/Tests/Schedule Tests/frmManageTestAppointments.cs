@@ -170,8 +170,8 @@ namespace DVLDSystem.DVLD.Tests.Schedule_Tests
                 return;
             }
 
-            //frmTakeTests frm = new frmTakeTests(TestAppointmentID, _TestTypeID);
-            //frm.ShowDialog();
+            frmTakeTest frm = new frmTakeTest(TestAppointmentID, _TestTypeID);
+            frm.ShowDialog();
 
             //Refresh The Form :-
             frmManageTestAppointments_Load(null, null);

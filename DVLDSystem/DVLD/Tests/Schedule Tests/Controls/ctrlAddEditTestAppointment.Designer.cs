@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gbTestType = new System.Windows.Forms.GroupBox();
+            this.lblUserMessage = new System.Windows.Forms.Label();
             this.gbRetakeTestInfo = new System.Windows.Forms.GroupBox();
             this.lblRetakeTestApplicationID = new System.Windows.Forms.Label();
             this.lblRetakeApplicationFees = new System.Windows.Forms.Label();
@@ -36,7 +37,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.dtpAppointmentDate = new System.Windows.Forms.DateTimePicker();
             this.lblDrivingClass = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,7 +49,6 @@
             this.lblLocalDrivingLicenseApplicationID = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.lblUserMessage = new System.Windows.Forms.Label();
             this.btnSaveData = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
@@ -61,6 +60,7 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dtpAppointmentDate = new System.Windows.Forms.DateTimePicker();
             this.gbTestType.SuspendLayout();
             this.gbRetakeTestInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -108,6 +108,19 @@
             this.gbTestType.TabStop = false;
             this.gbTestType.Text = "Test Type";
             // 
+            // lblUserMessage
+            // 
+            this.lblUserMessage.AutoSize = true;
+            this.lblUserMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserMessage.ForeColor = System.Drawing.Color.Red;
+            this.lblUserMessage.Location = new System.Drawing.Point(323, 234);
+            this.lblUserMessage.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblUserMessage.Name = "lblUserMessage";
+            this.lblUserMessage.Size = new System.Drawing.Size(485, 22);
+            this.lblUserMessage.TabIndex = 189;
+            this.lblUserMessage.Text = "Cannot Sechule, Vision Test Should be Passed First.";
+            this.lblUserMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // gbRetakeTestInfo
             // 
             this.gbRetakeTestInfo.Controls.Add(this.pictureBox5);
@@ -134,9 +147,9 @@
             this.lblRetakeTestApplicationID.ForeColor = System.Drawing.Color.Black;
             this.lblRetakeTestApplicationID.Location = new System.Drawing.Point(270, 51);
             this.lblRetakeTestApplicationID.Name = "lblRetakeTestApplicationID";
-            this.lblRetakeTestApplicationID.Size = new System.Drawing.Size(60, 23);
+            this.lblRetakeTestApplicationID.Size = new System.Drawing.Size(46, 23);
             this.lblRetakeTestApplicationID.TabIndex = 51;
-            this.lblRetakeTestApplicationID.Text = "[????]";
+            this.lblRetakeTestApplicationID.Text = "N/A";
             // 
             // lblRetakeApplicationFees
             // 
@@ -192,18 +205,6 @@
             this.label14.Size = new System.Drawing.Size(143, 20);
             this.label14.TabIndex = 15;
             this.label14.Text = "R. Test App. ID :";
-            // 
-            // dtpAppointmentDate
-            // 
-            this.dtpAppointmentDate.CustomFormat = "dd/M/yyyy";
-            this.dtpAppointmentDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpAppointmentDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpAppointmentDate.Location = new System.Drawing.Point(277, 406);
-            this.dtpAppointmentDate.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.dtpAppointmentDate.Name = "dtpAppointmentDate";
-            this.dtpAppointmentDate.Size = new System.Drawing.Size(198, 26);
-            this.dtpAppointmentDate.TabIndex = 91;
-            this.dtpAppointmentDate.Value = new System.DateTime(2000, 12, 31, 0, 0, 0, 0);
             // 
             // lblDrivingClass
             // 
@@ -311,9 +312,9 @@
             this.lblLocalDrivingLicenseApplicationID.ForeColor = System.Drawing.Color.Black;
             this.lblLocalDrivingLicenseApplicationID.Location = new System.Drawing.Point(277, 284);
             this.lblLocalDrivingLicenseApplicationID.Name = "lblLocalDrivingLicenseApplicationID";
-            this.lblLocalDrivingLicenseApplicationID.Size = new System.Drawing.Size(60, 23);
+            this.lblLocalDrivingLicenseApplicationID.Size = new System.Drawing.Size(46, 23);
             this.lblLocalDrivingLicenseApplicationID.TabIndex = 68;
-            this.lblLocalDrivingLicenseApplicationID.Text = "[????]";
+            this.lblLocalDrivingLicenseApplicationID.Text = "N/A";
             // 
             // label9
             // 
@@ -337,19 +338,6 @@
             this.lblTitle.TabIndex = 28;
             this.lblTitle.Text = "Schedule Test";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblUserMessage
-            // 
-            this.lblUserMessage.AutoSize = true;
-            this.lblUserMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblUserMessage.Location = new System.Drawing.Point(323, 234);
-            this.lblUserMessage.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.lblUserMessage.Name = "lblUserMessage";
-            this.lblUserMessage.Size = new System.Drawing.Size(485, 22);
-            this.lblUserMessage.TabIndex = 189;
-            this.lblUserMessage.Text = "Cannot Sechule, Vision Test Should be Passed First.";
-            this.lblUserMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnSaveData
             // 
@@ -467,6 +455,18 @@
             this.pictureBox1.TabIndex = 29;
             this.pictureBox1.TabStop = false;
             // 
+            // dtpAppointmentDate
+            // 
+            this.dtpAppointmentDate.CustomFormat = "dd/M/yyyy";
+            this.dtpAppointmentDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpAppointmentDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpAppointmentDate.Location = new System.Drawing.Point(277, 406);
+            this.dtpAppointmentDate.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.dtpAppointmentDate.Name = "dtpAppointmentDate";
+            this.dtpAppointmentDate.Size = new System.Drawing.Size(198, 26);
+            this.dtpAppointmentDate.TabIndex = 91;
+            this.dtpAppointmentDate.Value = new System.DateTime(2000, 12, 31, 0, 0, 0, 0);
+            // 
             // ctrlAddEditTestAppointment
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -515,7 +515,6 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label lblTestFees;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dtpAppointmentDate;
         private System.Windows.Forms.GroupBox gbRetakeTestInfo;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox9;
@@ -528,5 +527,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnSaveData;
         private System.Windows.Forms.Label lblUserMessage;
+        private System.Windows.Forms.DateTimePicker dtpAppointmentDate;
     }
 }
