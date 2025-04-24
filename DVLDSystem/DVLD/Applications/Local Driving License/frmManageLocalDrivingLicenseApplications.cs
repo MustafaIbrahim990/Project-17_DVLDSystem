@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLDSystem_BusinessLayer;
 using DVLDSystem.Gobal_Classes;
+using DVLDSystem.DVLD.Tests.Schedule_Tests;
 
 namespace DVLDSystem.DVLD.Applications.Local_Driving_License
 {
@@ -135,6 +136,23 @@ namespace DVLDSystem.DVLD.Applications.Local_Driving_License
             {
                 MessageBox.Show("There Are Not Record in The System.", "No Record!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void _ScheduleTest(clsTestType.enTestType TestType)
+        {
+            int LocalDrivingLicenseApplicationID = (int)dgvLocalDrivingLicenseApplicationLists.CurrentRow.Cells[0].Value;
+
+            if (!clsLocalDrivingLicenseApplication.IsExistLocal(LocalDrivingLicenseApplicationID))
+            {
+                MessageBox.Show($"No Local Driving License Application With ID [{LocalDrivingLicenseApplicationID}] in The System!", "Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            frmManageTestAppointments frm = new frmManageTestAppointments(LocalDrivingLicenseApplicationID, TestType);
+            frm.ShowDialog();
+
+            //Refresh The Form :-
+            frmManageLocalDrivingLicenseApplications_Load(null, null);
         }
 
 
@@ -290,21 +308,21 @@ namespace DVLDSystem.DVLD.Applications.Local_Driving_License
         //Sechdule Vision Test :-
         private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            _ScheduleTest(clsTestType.enTestType.eVisionTest);
         }
 
 
         //Sechdule Written Test :-
         private void scheduleWrittenTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            _ScheduleTest(clsTestType.enTestType.eWrittenTest);
         }
 
 
         //Sechdule Street Test :-
         private void scheduleStreetTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            _ScheduleTest(clsTestType.enTestType.eStreetTest);
         }
 
 
@@ -326,6 +344,44 @@ namespace DVLDSystem.DVLD.Applications.Local_Driving_License
         private void showPersonLicneseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+
+        //We Call This Function When We Open cmsLocalDrivingLicenseApplications :-
+        private void cmsLocalDrivingLicenseApplications_Opening(object sender, CancelEventArgs e)
+        {
+            int LocalDrivingLicenseApplicationID = (int)dgvLocalDrivingLicenseApplicationLists.CurrentRow.Cells[0].Value;
+            clsLocalDrivingLicenseApplication LocalDrivingLicenseApplicationInfo = clsLocalDrivingLicenseApplication.FindLocal(LocalDrivingLicenseApplicationID);
+
+            int PassedCount = clsTest.GetPassTestCount(LocalDrivingLicenseApplicationID);
+            bool DrivingLicneseExists = clsDrivingLicense.IsExist(LocalDrivingLicenseApplicationInfo.ApplicantPersonID, LocalDrivingLicenseApplicationInfo.LicenseClassID);
+
+            editToolStripMenuItem1.Enabled = (LocalDrivingLicenseApplicationInfo.ApplicationStatus == clsApplication.enApplicationStatus.New);
+
+            deleteToolStripMenuItem.Enabled = (LocalDrivingLicenseApplicationInfo.ApplicationStatus == clsApplication.enApplicationStatus.New);
+
+            cancelApplicationToolStripMenuItem.Enabled = (LocalDrivingLicenseApplicationInfo.ApplicationStatus == clsApplication.enApplicationStatus.New);
+
+            sechduleTestsToolStripMenuItem.Enabled = !DrivingLicneseExists;
+
+            issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = (!DrivingLicneseExists && PassedCount == 3);
+
+            showLicenseToolStripMenuItem.Enabled = (DrivingLicneseExists);
+
+
+            bool VisionTestResult = clsTestAppointment.DoesPassTestType(LocalDrivingLicenseApplicationInfo.LocalDrivingLicenseApplicationID, clsTestType.enTestType.eVisionTest);
+            bool WrittenTestResult = clsTestAppointment.DoesPassTestType(LocalDrivingLicenseApplicationInfo.LocalDrivingLicenseApplicationID, clsTestType.enTestType.eWrittenTest);
+            bool StreetTestResult = clsTestAppointment.DoesPassTestType(LocalDrivingLicenseApplicationInfo.LocalDrivingLicenseApplicationID, clsTestType.enTestType.eStreetTest);
+
+
+            sechduleTestsToolStripMenuItem.Enabled = (!VisionTestResult || !WrittenTestResult || !StreetTestResult) && (LocalDrivingLicenseApplicationInfo.ApplicationStatus == clsApplication.enApplicationStatus.New);
+
+            if (sechduleTestsToolStripMenuItem.Enabled)
+            {
+                scheduleVisionTestToolStripMenuItem.Enabled = !VisionTestResult;
+                scheduleWrittenTestToolStripMenuItem.Enabled = VisionTestResult && !WrittenTestResult;
+                scheduleStreetTestToolStripMenuItem.Enabled = VisionTestResult && WrittenTestResult && !StreetTestResult;
+            }
         }
     }
 }
