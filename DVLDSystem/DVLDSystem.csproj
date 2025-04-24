@@ -162,6 +162,12 @@
     <Compile Include="DVLD\Tests\Schedule Tests\Controls\ctrlAddEditTestAppointment.Designer.cs">
       <DependentUpon>ctrlAddEditTestAppointment.cs</DependentUpon>
     </Compile>
+    <Compile Include="DVLD\Tests\Schedule Tests\Controls\ctrlTakeTest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DVLD\Tests\Schedule Tests\Controls\ctrlTakeTest.Designer.cs">
+      <DependentUpon>ctrlTakeTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="DVLD\Tests\Schedule Tests\frmAddEditTestAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +179,12 @@
     </Compile>
     <Compile Include="DVLD\Tests\Schedule Tests\frmManageTestAppointments.Designer.cs">
       <DependentUpon>frmManageTestAppointments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD\Tests\Schedule Tests\frmTakeTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD\Tests\Schedule Tests\frmTakeTest.Designer.cs">
+      <DependentUpon>frmTakeTest.cs</DependentUpon>
     </Compile>
     <Compile Include="DVLD\Tests\Test Types\Controls\ctrlTestTypeCard.cs">
       <SubType>UserControl</SubType>
@@ -290,11 +302,17 @@
     <EmbeddedResource Include="DVLD\Tests\Schedule Tests\Controls\ctrlAddEditTestAppointment.resx">
       <DependentUpon>ctrlAddEditTestAppointment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DVLD\Tests\Schedule Tests\Controls\ctrlTakeTest.resx">
+      <DependentUpon>ctrlTakeTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DVLD\Tests\Schedule Tests\frmAddEditTestAppointment.resx">
       <DependentUpon>frmAddEditTestAppointment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD\Tests\Schedule Tests\frmManageTestAppointments.resx">
       <DependentUpon>frmManageTestAppointments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD\Tests\Schedule Tests\frmTakeTest.resx">
+      <DependentUpon>frmTakeTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD\Tests\Test Types\Controls\ctrlTestTypeCard.resx">
       <DependentUpon>ctrlTestTypeCard.cs</DependentUpon>
@@ -588,6 +606,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\License Type 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notes 32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
