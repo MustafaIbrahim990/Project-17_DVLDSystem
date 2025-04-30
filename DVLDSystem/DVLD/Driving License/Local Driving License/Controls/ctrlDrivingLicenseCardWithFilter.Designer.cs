@@ -1,6 +1,6 @@
-﻿namespace DVLDSystem.DVLD.People.Controls
+﻿namespace DVLDSystem.DVLD.Driving_License.Local_Driving_License.Controls
 {
-    partial class ctrlPersonInfoWithFilter
+    partial class ctrlDrivingLicenseCardWithFilter
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,58 +29,43 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.gbFilterPerson = new System.Windows.Forms.GroupBox();
-            this.btnAddNewPerson = new System.Windows.Forms.Button();
-            this.btnFindPersonInfo = new System.Windows.Forms.Button();
+            this.gbDrivingLicenseFilter = new System.Windows.Forms.GroupBox();
+            this.btnFindDrivingLicenseCard = new System.Windows.Forms.Button();
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.ctrlDrivingLicenseCard1 = new DVLDSystem.DVLD.Driving_License.Local_Driving_License.Controls.ctrlDrivingLicenseCard();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ctrlPersonInfo1 = new DVLDSystem.DVLD.People.Controls.ctrlPersonInfo();
-            this.gbFilterPerson.SuspendLayout();
+            this.gbDrivingLicenseFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // gbFilterPerson
+            // gbDrivingLicenseFilter
             // 
-            this.gbFilterPerson.Controls.Add(this.btnAddNewPerson);
-            this.gbFilterPerson.Controls.Add(this.btnFindPersonInfo);
-            this.gbFilterPerson.Controls.Add(this.txtFilterValue);
-            this.gbFilterPerson.Controls.Add(this.cbFilterBy);
-            this.gbFilterPerson.Controls.Add(this.label3);
-            this.gbFilterPerson.Font = new System.Drawing.Font("Lucida Bright", 12F);
-            this.gbFilterPerson.Location = new System.Drawing.Point(12, 3);
-            this.gbFilterPerson.Name = "gbFilterPerson";
-            this.gbFilterPerson.Size = new System.Drawing.Size(1155, 97);
-            this.gbFilterPerson.TabIndex = 4;
-            this.gbFilterPerson.TabStop = false;
-            this.gbFilterPerson.Text = "Filter";
+            this.gbDrivingLicenseFilter.Controls.Add(this.btnFindDrivingLicenseCard);
+            this.gbDrivingLicenseFilter.Controls.Add(this.txtFilterValue);
+            this.gbDrivingLicenseFilter.Controls.Add(this.cbFilterBy);
+            this.gbDrivingLicenseFilter.Controls.Add(this.label3);
+            this.gbDrivingLicenseFilter.Font = new System.Drawing.Font("Lucida Bright", 12F);
+            this.gbDrivingLicenseFilter.Location = new System.Drawing.Point(10, 6);
+            this.gbDrivingLicenseFilter.Name = "gbDrivingLicenseFilter";
+            this.gbDrivingLicenseFilter.Size = new System.Drawing.Size(1247, 97);
+            this.gbDrivingLicenseFilter.TabIndex = 5;
+            this.gbDrivingLicenseFilter.TabStop = false;
+            this.gbDrivingLicenseFilter.Text = "Filter";
             // 
-            // btnAddNewPerson
+            // btnFindDrivingLicenseCard
             // 
-            this.btnAddNewPerson.BackColor = System.Drawing.Color.White;
-            this.btnAddNewPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddNewPerson.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddNewPerson.Image = global::DVLDSystem.Properties.Resources.AddPerson_321;
-            this.btnAddNewPerson.Location = new System.Drawing.Point(1009, 27);
-            this.btnAddNewPerson.Name = "btnAddNewPerson";
-            this.btnAddNewPerson.Size = new System.Drawing.Size(73, 48);
-            this.btnAddNewPerson.TabIndex = 69;
-            this.btnAddNewPerson.UseVisualStyleBackColor = false;
-            this.btnAddNewPerson.Click += new System.EventHandler(this.btnAddNewPerson_Click);
-            // 
-            // btnFindPersonInfo
-            // 
-            this.btnFindPersonInfo.BackColor = System.Drawing.Color.White;
-            this.btnFindPersonInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFindPersonInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFindPersonInfo.Image = global::DVLDSystem.Properties.Resources.SearchPerson;
-            this.btnFindPersonInfo.Location = new System.Drawing.Point(911, 27);
-            this.btnFindPersonInfo.Name = "btnFindPersonInfo";
-            this.btnFindPersonInfo.Size = new System.Drawing.Size(73, 48);
-            this.btnFindPersonInfo.TabIndex = 68;
-            this.btnFindPersonInfo.UseVisualStyleBackColor = false;
-            this.btnFindPersonInfo.Click += new System.EventHandler(this.btnFindPersonInfo_Click);
+            this.btnFindDrivingLicenseCard.BackColor = System.Drawing.Color.White;
+            this.btnFindDrivingLicenseCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFindDrivingLicenseCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFindDrivingLicenseCard.Image = global::DVLDSystem.Properties.Resources.License_View_32;
+            this.btnFindDrivingLicenseCard.Location = new System.Drawing.Point(911, 27);
+            this.btnFindDrivingLicenseCard.Name = "btnFindDrivingLicenseCard";
+            this.btnFindDrivingLicenseCard.Size = new System.Drawing.Size(73, 48);
+            this.btnFindDrivingLicenseCard.TabIndex = 68;
+            this.btnFindDrivingLicenseCard.UseVisualStyleBackColor = false;
+            this.btnFindDrivingLicenseCard.Click += new System.EventHandler(this.btnShowDrivingLicense_Click);
             // 
             // txtFilterValue
             // 
@@ -110,7 +95,6 @@
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.Size = new System.Drawing.Size(236, 23);
             this.cbFilterBy.TabIndex = 66;
-            this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -123,42 +107,41 @@
             this.label3.TabIndex = 65;
             this.label3.Text = "Find By :";
             // 
+            // ctrlDrivingLicenseCard1
+            // 
+            this.ctrlDrivingLicenseCard1.BackColor = System.Drawing.Color.White;
+            this.ctrlDrivingLicenseCard1.Location = new System.Drawing.Point(3, 109);
+            this.ctrlDrivingLicenseCard1.Name = "ctrlDrivingLicenseCard1";
+            this.ctrlDrivingLicenseCard1.Size = new System.Drawing.Size(1262, 482);
+            this.ctrlDrivingLicenseCard1.TabIndex = 6;
+            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // ctrlPersonInfo1
-            // 
-            this.ctrlPersonInfo1.BackColor = System.Drawing.Color.White;
-            this.ctrlPersonInfo1.Location = new System.Drawing.Point(6, 106);
-            this.ctrlPersonInfo1.Name = "ctrlPersonInfo1";
-            this.ctrlPersonInfo1.Size = new System.Drawing.Size(1170, 440);
-            this.ctrlPersonInfo1.TabIndex = 5;
-            // 
-            // ctrlPersonInfoWithFilter
+            // ctrlDrivingLicenseCardWithFilter
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.ctrlPersonInfo1);
-            this.Controls.Add(this.gbFilterPerson);
-            this.Name = "ctrlPersonInfoWithFilter";
-            this.Size = new System.Drawing.Size(1183, 551);
-            this.Load += new System.EventHandler(this.ctrlPersonInfoWithFilter_Load);
-            this.gbFilterPerson.ResumeLayout(false);
-            this.gbFilterPerson.PerformLayout();
+            this.Controls.Add(this.ctrlDrivingLicenseCard1);
+            this.Controls.Add(this.gbDrivingLicenseFilter);
+            this.Name = "ctrlDrivingLicenseCardWithFilter";
+            this.Size = new System.Drawing.Size(1268, 598);
+            this.Load += new System.EventHandler(this.ctrlDrivingLicenseCardWithFilter_Load);
+            this.gbDrivingLicenseFilter.ResumeLayout(false);
+            this.gbDrivingLicenseFilter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox gbFilterPerson;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox gbDrivingLicenseFilter;
+        private System.Windows.Forms.Button btnFindDrivingLicenseCard;
         private System.Windows.Forms.TextBox txtFilterValue;
         private System.Windows.Forms.ComboBox cbFilterBy;
-        private System.Windows.Forms.Button btnAddNewPerson;
-        private System.Windows.Forms.Button btnFindPersonInfo;
-        private ctrlPersonInfo ctrlPersonInfo1;
+        private System.Windows.Forms.Label label3;
+        private ctrlDrivingLicenseCard ctrlDrivingLicenseCard1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
