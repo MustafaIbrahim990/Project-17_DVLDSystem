@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DVLDSystem_BusinessLayer;
 using DVLDSystem.Gobal_Classes;
 using DVLDSystem.DVLD.Tests.Schedule_Tests;
+using DVLDSystem.DVLD.Driving_License;
 
 namespace DVLDSystem.DVLD.Applications.Local_Driving_License
 {
@@ -329,7 +330,27 @@ namespace DVLDSystem.DVLD.Applications.Local_Driving_License
         //Issue Local Driving License For First Time :-
         private void issueDrivingLicenseFirstTimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            int LocalDrivingLicenseApplicationID = (int)dgvLocalDrivingLicenseApplicationLists.CurrentRow.Cells[0].Value;
+
+            if (!clsLocalDrivingLicenseApplication.IsExistLocal(LocalDrivingLicenseApplicationID))
+            {
+                MessageBox.Show($"Error : No Local Driving License Application With ID [{LocalDrivingLicenseApplicationID}] in The System!", "Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            clsLocalDrivingLicenseApplication LocalDrivingLicenseApplicationInfo = clsLocalDrivingLicenseApplication.FindLocal(LocalDrivingLicenseApplicationID);
+
+            if (clsDrivingLicense.DosePersonHaveDrivingLicense(LocalDrivingLicenseApplicationInfo.ApplicantPersonID, LocalDrivingLicenseApplicationInfo.LicenseClassID))
+            {
+                MessageBox.Show($"You Already have a License With Class [{LocalDrivingLicenseApplicationInfo.LicenseClassInfo.ClassName}] You Can't Take License With The Same Class!", "Not Allowed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            frmIssueDrivingLicense frm = new frmIssueDrivingLicense(LocalDrivingLicenseApplicationID);
+            frm.ShowDialog();
+
+            //Refresh The Form :-
+            frmManageLocalDrivingLicenseApplications_Load(null, null);
         }
 
 

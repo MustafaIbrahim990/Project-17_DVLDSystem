@@ -28,50 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnCloseForm = new System.Windows.Forms.Button();
-            this.btnSavePersonData = new System.Windows.Forms.Button();
             this.lblUserMessage = new System.Windows.Forms.Label();
             this.txtNotes = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.rbFail = new System.Windows.Forms.RadioButton();
             this.rbPass = new System.Windows.Forms.RadioButton();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.ctrlTakeTest1 = new DVLDSystem.DVLD.Tests.Schedule_Tests.Controls.ctrlTakeTest();
+            this.btnCloseForm = new System.Windows.Forms.Button();
+            this.btnSavePersonData = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnCloseForm
-            // 
-            this.btnCloseForm.BackColor = System.Drawing.Color.White;
-            this.btnCloseForm.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCloseForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCloseForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCloseForm.Image = global::DVLDSystem.Properties.Resources.Close_32;
-            this.btnCloseForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCloseForm.Location = new System.Drawing.Point(881, 742);
-            this.btnCloseForm.Name = "btnCloseForm";
-            this.btnCloseForm.Size = new System.Drawing.Size(161, 47);
-            this.btnCloseForm.TabIndex = 213;
-            this.btnCloseForm.Text = "Close";
-            this.btnCloseForm.UseVisualStyleBackColor = false;
-            // 
-            // btnSavePersonData
-            // 
-            this.btnSavePersonData.BackColor = System.Drawing.Color.White;
-            this.btnSavePersonData.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnSavePersonData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSavePersonData.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSavePersonData.Image = global::DVLDSystem.Properties.Resources.Save_32;
-            this.btnSavePersonData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSavePersonData.Location = new System.Drawing.Point(1061, 742);
-            this.btnSavePersonData.Name = "btnSavePersonData";
-            this.btnSavePersonData.Size = new System.Drawing.Size(161, 47);
-            this.btnSavePersonData.TabIndex = 212;
-            this.btnSavePersonData.Text = "Save";
-            this.btnSavePersonData.UseVisualStyleBackColor = false;
             // 
             // lblUserMessage
             // 
@@ -99,16 +69,6 @@
             this.txtNotes.Name = "txtNotes";
             this.txtNotes.Size = new System.Drawing.Size(846, 67);
             this.txtNotes.TabIndex = 210;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::DVLDSystem.Properties.Resources.Notes_32;
-            this.pictureBox1.Location = new System.Drawing.Point(292, 661);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(54, 30);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 209;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -145,16 +105,6 @@
             this.rbPass.Text = "Pass";
             this.rbPass.UseVisualStyleBackColor = true;
             // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = global::DVLDSystem.Properties.Resources.Number_32;
-            this.pictureBox8.Location = new System.Drawing.Point(292, 602);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(54, 30);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 205;
-            this.pictureBox8.TabStop = false;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -174,11 +124,61 @@
             this.ctrlTakeTest1.Size = new System.Drawing.Size(1147, 600);
             this.ctrlTakeTest1.TabIndex = 203;
             // 
+            // btnCloseForm
+            // 
+            this.btnCloseForm.BackColor = System.Drawing.Color.White;
+            this.btnCloseForm.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCloseForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCloseForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseForm.Image = global::DVLDSystem.Properties.Resources.Close_32;
+            this.btnCloseForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCloseForm.Location = new System.Drawing.Point(881, 742);
+            this.btnCloseForm.Name = "btnCloseForm";
+            this.btnCloseForm.Size = new System.Drawing.Size(161, 47);
+            this.btnCloseForm.TabIndex = 213;
+            this.btnCloseForm.Text = "Close";
+            this.btnCloseForm.UseVisualStyleBackColor = false;
+            // 
+            // btnSavePersonData
+            // 
+            this.btnSavePersonData.BackColor = System.Drawing.Color.White;
+            this.btnSavePersonData.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnSavePersonData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSavePersonData.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSavePersonData.Image = global::DVLDSystem.Properties.Resources.Save_32;
+            this.btnSavePersonData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSavePersonData.Location = new System.Drawing.Point(1061, 742);
+            this.btnSavePersonData.Name = "btnSavePersonData";
+            this.btnSavePersonData.Size = new System.Drawing.Size(161, 47);
+            this.btnSavePersonData.TabIndex = 212;
+            this.btnSavePersonData.Text = "Save";
+            this.btnSavePersonData.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DVLDSystem.Properties.Resources.Notes_32;
+            this.pictureBox1.Location = new System.Drawing.Point(292, 661);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(54, 30);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 209;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::DVLDSystem.Properties.Resources.Number_32;
+            this.pictureBox8.Location = new System.Drawing.Point(292, 602);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(54, 30);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 205;
+            this.pictureBox8.TabStop = false;
+            // 
             // FormTest
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1319, 786);
+            this.ClientSize = new System.Drawing.Size(1319, 815);
             this.Controls.Add(this.btnCloseForm);
             this.Controls.Add(this.btnSavePersonData);
             this.Controls.Add(this.lblUserMessage);

@@ -165,69 +165,66 @@ namespace DVLDSystem_BusinessLayer
         //Dose Attend Test Type By (LocalDrivingLicenseAppliationID AND TestTypeID) :-
         public static bool DoesAttendTestType(int LocalDrivingLicenseApplicationID, clsTestType.enTestType TestTypeID)
         {
-           //return clsTest.DoesAttendTestType(LocalDrivingLicenseApplicationID, TestTypeID);
-            return false;
+           return clsTest.DoesAttendTestType(LocalDrivingLicenseApplicationID, TestTypeID);
         }
         public bool DoesAttendTestType(clsTestType.enTestType TestTypeID)
         {
-            //return clsTest.DoesAttendTestType(this.LocalDrivingLicenseApplicationID, TestTypeID);
-            return false;
+            return clsTest.DoesAttendTestType(this.LocalDrivingLicenseApplicationID, TestTypeID);
         }
 
 
         //Issue Driving License For The First Time :-
         public int IssueDrivingLicneseForTheFirstTime(string Notes, int CreatedByUserID)
         {
-            //int DriverID = -1;
+            int DriverID = -1;
 
-            //clsDriver DriverInfo = clsDriver.FindBy(this.ApplicantPersonID);
+            clsDriver DriverInfo = clsDriver.FindBy(this.ApplicantPersonID);
 
-            //if (DriverInfo == null)
-            //{
-            //    DriverInfo = new clsDriver();
+            if (DriverInfo == null)
+            {
+                DriverInfo = new clsDriver();
 
-            //    DriverInfo.PersonID = this.ApplicantPersonID;
-            //    DriverInfo.CreatedDate = DateTime.Now;
-            //    DriverInfo.CreatedByUserID = CreatedByUserID;
+                DriverInfo.PersonID = this.ApplicantPersonID;
+                DriverInfo.CreatedDate = DateTime.Now;
+                DriverInfo.CreatedByUserID = CreatedByUserID;
 
-            //    if (DriverInfo.Save())
-            //    {
-            //        DriverID = DriverInfo.ID;
-            //    }
-            //    else
-            //    {
-            //        return -1;
-            //    }
-            //}
-            //else
-            //{
-            //    DriverID = DriverInfo.ID;
-            //}
+                if (DriverInfo.Save())
+                {
+                    DriverID = DriverInfo.ID;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+            else
+            {
+                DriverID = DriverInfo.ID;
+            }
 
-            //clsDrivingLicense DrivingLicenseInfo = new clsDrivingLicense();
+            clsDrivingLicense DrivingLicenseInfo = new clsDrivingLicense();
 
-            //DrivingLicenseInfo.ApplicationID = this.ApplicationID;
-            //DrivingLicenseInfo.DriverID = DriverID;
-            //DrivingLicenseInfo.LicenseClassID = this.LicenseClassID;
-            //DrivingLicenseInfo.IssueDate = DateTime.Now;
-            //DrivingLicenseInfo.ExpriationDate = DateTime.Now.AddYears(this.LicenseClassInfo.DefaultValidityLength);
-            //DrivingLicenseInfo.Notes = Notes;
-            //DrivingLicenseInfo.PaidFees = this.PaidFees;
-            //DrivingLicenseInfo.IsActive = true;
-            //DrivingLicenseInfo.IssueReason = clsDrivingLicense.enIssueReason.FirstTime;
-            //DrivingLicenseInfo.CreatedByUserID = CreatedByUserID;
+            DrivingLicenseInfo.ApplicationID = this.ApplicationID;
+            DrivingLicenseInfo.DriverID = DriverID;
+            DrivingLicenseInfo.LicenseClassID = this.LicenseClassID;
+            DrivingLicenseInfo.IssueDate = DateTime.Now;
+            DrivingLicenseInfo.ExpriationDate = DateTime.Now.AddYears(this.LicenseClassInfo.DefaultValidityLength);
+            DrivingLicenseInfo.Notes = Notes;
+            DrivingLicenseInfo.PaidFees = this.PaidFees;
+            DrivingLicenseInfo.IsActive = true;
+            DrivingLicenseInfo.IssueReason = clsDrivingLicense.enIssueReason.FirstTime;
+            DrivingLicenseInfo.CreatedByUserID = CreatedByUserID;
 
-            //if (DrivingLicenseInfo.Save())
-            //{
-            //    //Now We Should Set The Application Status to Complete.
-            //    this.Complete();
-            //    return DrivingLicenseInfo.ID;
-            //}
-            //else
-            //{
-            //    return -1;
-            //}
-            return -1;
+            if (DrivingLicenseInfo.Save())
+            {
+                //Now We Should Set The Application Status to Complete.
+                this.Complete();
+                return DrivingLicenseInfo.ID;
+            }
+            else
+            {
+                return -1;
+            }
         }
     }
 }
