@@ -105,11 +105,23 @@
     <Compile Include="DVLD\Applications\Local Driving License\frmShowLocalDrivingLicenseApplicationCard.Designer.cs">
       <DependentUpon>frmShowLocalDrivingLicenseApplicationCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="DVLD\Driving License\Controls\ctrlDrivingLicenses.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DVLD\Driving License\Controls\ctrlDrivingLicenses.Designer.cs">
+      <DependentUpon>ctrlDrivingLicenses.cs</DependentUpon>
+    </Compile>
     <Compile Include="DVLD\Driving License\frmIssueDrivingLicense.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DVLD\Driving License\frmIssueDrivingLicense.Designer.cs">
       <DependentUpon>frmIssueDrivingLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD\Driving License\frmShowPersonDrivingLicenseHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD\Driving License\frmShowPersonDrivingLicenseHistory.Designer.cs">
+      <DependentUpon>frmShowPersonDrivingLicenseHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="DVLD\Driving License\Local Driving License\Controls\ctrlDrivingLicenseCard.cs">
       <SubType>UserControl</SubType>
@@ -299,8 +311,14 @@
     <EmbeddedResource Include="DVLD\Applications\Local Driving License\frmShowLocalDrivingLicenseApplicationCard.resx">
       <DependentUpon>frmShowLocalDrivingLicenseApplicationCard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DVLD\Driving License\Controls\ctrlDrivingLicenses.resx">
+      <DependentUpon>ctrlDrivingLicenses.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DVLD\Driving License\frmIssueDrivingLicense.resx">
       <DependentUpon>frmIssueDrivingLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD\Driving License\frmShowPersonDrivingLicenseHistory.resx">
+      <DependentUpon>frmShowPersonDrivingLicenseHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD\Driving License\Local Driving License\Controls\ctrlDrivingLicenseCard.resx">
       <DependentUpon>ctrlDrivingLicenseCard.cs</DependentUpon>
@@ -650,7 +668,6 @@
     <None Include="Resources\IssueDrivingLicense 321.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DVLD\Driving License\Controls\" />
     <Folder Include="DVLD\Driving License\International Driving License\Controls\" />
   </ItemGroup>
   <ItemGroup>

@@ -385,7 +385,27 @@ namespace DVLDSystem.DVLD.Applications.Local_Driving_License
         //Show Person License History :-
         private void showPersonLicneseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            int LocalDrivingLicenseApplicationID = (int)dgvLocalDrivingLicenseApplicationLists.CurrentRow.Cells[0].Value;
+
+            if (!clsLocalDrivingLicenseApplication.IsExistLocal(LocalDrivingLicenseApplicationID))
+            {
+                MessageBox.Show($"Error : No Local Driving License Application With ID [{LocalDrivingLicenseApplicationID}] in The System!", "Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int PersonID = clsLocalDrivingLicenseApplication.FindLocal(LocalDrivingLicenseApplicationID).ApplicantPersonID;
+
+            if (!clsPerson.IsExist(PersonID))
+            {
+                MessageBox.Show($"Error : No Person With ID [{PersonID}] in The System!", "Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            frmShowPersonDrivingLicenseHistory frm = new frmShowPersonDrivingLicenseHistory(PersonID);
+            frm.ShowDialog();
+
+            //Refresh :-
+            frmManageLocalDrivingLicenseApplications_Load(null, null);
         }
 
 
