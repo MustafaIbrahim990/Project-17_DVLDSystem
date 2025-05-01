@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
@@ -40,12 +41,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.ctrlApplicationBasicInfo1 = new DVLDSystem.DVLD.Applications.Controls.ctrlApplicationBasicInfo();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -68,6 +68,16 @@
             this.groupBox1.TabIndex = 73;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Local Driving License Application Info";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DVLDSystem.Properties.Resources.Driver_License_48;
+            this.pictureBox1.Location = new System.Drawing.Point(730, 118);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(54, 30);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 69;
+            this.pictureBox1.TabStop = false;
             // 
             // pictureBox6
             // 
@@ -111,6 +121,7 @@
             this.llShowLicenseInfo.TabIndex = 65;
             this.llShowLicenseInfo.TabStop = true;
             this.llShowLicenseInfo.Text = "Show License Info.";
+            this.llShowLicenseInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llShowLicenseInfo_LinkClicked_1);
             // 
             // lblLocalDrivingLicenseApplicationID
             // 
@@ -186,16 +197,6 @@
             this.ctrlApplicationBasicInfo1.Size = new System.Drawing.Size(1174, 330);
             this.ctrlApplicationBasicInfo1.TabIndex = 0;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::DVLDSystem.Properties.Resources.Driver_License_48;
-            this.pictureBox1.Location = new System.Drawing.Point(730, 118);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(54, 30);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 69;
-            this.pictureBox1.TabStop = false;
-            // 
             // ctrlLocalDrivingLicenseApplication
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -207,10 +208,10 @@
             this.Load += new System.EventHandler(this.ctrlLocalDrivingLicenseApplication_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

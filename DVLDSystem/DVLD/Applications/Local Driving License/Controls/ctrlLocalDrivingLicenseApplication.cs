@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DVLDSystem_BusinessLayer;
 using DVLDSystem.DVLD.Applications;
 using DVLDSystem.DVLD.Tests;
+using DVLDSystem.DVLD.Driving_License.Local_Driving_License;
 
 namespace DVLDSystem.DVLD.Applications.Local_Driving_License.Controls
 {
@@ -92,8 +93,8 @@ namespace DVLDSystem.DVLD.Applications.Local_Driving_License.Controls
         }
 
 
-        //Show Driving License Info :-
-        private void llShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        //Show Local Driving License Info :-
+        private void llShowLicenseInfo_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (!clsDrivingLicense.DosePersonHaveDrivingLicense(_LocalDrivingLicenseApplicationInfo.ApplicantPersonID, _LocalDrivingLicenseApplicationInfo.LicenseClassID))
             {
@@ -101,8 +102,8 @@ namespace DVLDSystem.DVLD.Applications.Local_Driving_License.Controls
                 return;
             }
 
-            //frmShowDrivingLicenseInfo frm = new frmShowDrivingLicenseInfo(clsDrivingLicense.GetDrivingLicenseID(_LocalDrivingLicenseApplicationID));
-            //frm.ShowDialog();
+            frmShowDrivingLicenseCard frm = new frmShowDrivingLicenseCard(clsDrivingLicense.GetDrivingLicenseID(_LocalDrivingLicenseApplicationID));
+            frm.ShowDialog();
 
             //Refresh :-
             LoadLocalDrivingLicenseApplicationInfoByLocalID(_LocalDrivingLicenseApplicationID);
