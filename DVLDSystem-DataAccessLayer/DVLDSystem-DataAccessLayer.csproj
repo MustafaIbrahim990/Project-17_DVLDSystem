@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ApplicationData.cs" />
     <Compile Include="ApplicationTypeData.cs" />
+    <Compile Include="clsInternationalDrivingLicenseData.cs" />
     <Compile Include="CountryData.cs" />
     <Compile Include="DataSettings.cs" />
     <Compile Include="DetainedDrivingLicenseData.cs" />

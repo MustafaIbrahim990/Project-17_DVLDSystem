@@ -77,7 +77,7 @@ namespace DVLDSystem.DVLD.Applications.Local_Driving_License
 
             switch (cbFilterBy.Text)
             {
-                case "L.D.L.AppID":
+                case "Local License ID":
                     FilterColumn = "LocalDrivingLicenseApplicationID";
                     break;
 
@@ -113,11 +113,11 @@ namespace DVLDSystem.DVLD.Applications.Local_Driving_License
         {
             if (dgvLocalDrivingLicenseApplicationLists.Rows.Count > 0)
             {
-                dgvLocalDrivingLicenseApplicationLists.Columns[0].HeaderText = "L.D.L.AppID";
-                dgvLocalDrivingLicenseApplicationLists.Columns[0].Width = 50;
+                dgvLocalDrivingLicenseApplicationLists.Columns[0].HeaderText = "Local License ID";
+                dgvLocalDrivingLicenseApplicationLists.Columns[0].Width = 70;
 
                 dgvLocalDrivingLicenseApplicationLists.Columns[1].HeaderText = "Driving Class";
-                dgvLocalDrivingLicenseApplicationLists.Columns[1].Width = 150;
+                dgvLocalDrivingLicenseApplicationLists.Columns[1].Width = 130;
 
                 dgvLocalDrivingLicenseApplicationLists.Columns[2].HeaderText = "National No.";
                 dgvLocalDrivingLicenseApplicationLists.Columns[2].Width = 80;
@@ -426,7 +426,7 @@ namespace DVLDSystem.DVLD.Applications.Local_Driving_License
 
             sechduleTestsToolStripMenuItem.Enabled = !DrivingLicneseExists;
 
-            issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = (!DrivingLicneseExists && PassedCount == 3);
+            issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = (!DrivingLicneseExists && PassedCount == 3 && LocalDrivingLicenseApplicationInfo.ApplicationStatus != clsApplication.enApplicationStatus.Cancelled);
 
             showLicenseToolStripMenuItem.Enabled = (DrivingLicneseExists);
 
