@@ -81,6 +81,18 @@
     <Compile Include="DVLD\Applications\Controls\ctrlApplicationBasicInfo.Designer.cs">
       <DependentUpon>ctrlApplicationBasicInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="DVLD\Applications\International Driving License\Controls\ctrlInternationalDrivingLicenseApplicationCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DVLD\Applications\International Driving License\Controls\ctrlInternationalDrivingLicenseApplicationCard.Designer.cs">
+      <DependentUpon>ctrlInternationalDrivingLicenseApplicationCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD\Applications\International Driving License\frmIssueInternationalDrivingLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD\Applications\International Driving License\frmIssueInternationalDrivingLicense.Designer.cs">
+      <DependentUpon>frmIssueInternationalDrivingLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="DVLD\Applications\Local Driving License\Controls\ctrlLocalDrivingLicenseApplication.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -111,10 +123,16 @@
     <Compile Include="DVLD\Driving License\Controls\ctrlDrivingLicenses.Designer.cs">
       <DependentUpon>ctrlDrivingLicenses.cs</DependentUpon>
     </Compile>
-    <Compile Include="DVLD\Driving License\frmIssueDrivingLicense.cs">
+    <Compile Include="DVLD\Applications\International Driving License\frmManageInternationalDrivingLicenseApplications.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DVLD\Driving License\frmIssueDrivingLicense.Designer.cs">
+    <Compile Include="DVLD\Applications\International Driving License\frmManageInternationalDrivingLicenseApplications.Designer.cs">
+      <DependentUpon>frmManageInternationalDrivingLicenseApplications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD\Driving License\Local Driving License\frmIssueDrivingLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD\Driving License\Local Driving License\frmIssueDrivingLicense.Designer.cs">
       <DependentUpon>frmIssueDrivingLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="DVLD\Driving License\frmShowPersonDrivingLicenseHistory.cs">
@@ -299,6 +317,12 @@
     <EmbeddedResource Include="DVLD\Applications\Controls\ctrlApplicationBasicInfo.resx">
       <DependentUpon>ctrlApplicationBasicInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DVLD\Applications\International Driving License\Controls\ctrlInternationalDrivingLicenseApplicationCard.resx">
+      <DependentUpon>ctrlInternationalDrivingLicenseApplicationCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD\Applications\International Driving License\frmIssueInternationalDrivingLicense.resx">
+      <DependentUpon>frmIssueInternationalDrivingLicense.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DVLD\Applications\Local Driving License\Controls\ctrlLocalDrivingLicenseApplication.resx">
       <DependentUpon>ctrlLocalDrivingLicenseApplication.cs</DependentUpon>
     </EmbeddedResource>
@@ -314,7 +338,10 @@
     <EmbeddedResource Include="DVLD\Driving License\Controls\ctrlDrivingLicenses.resx">
       <DependentUpon>ctrlDrivingLicenses.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DVLD\Driving License\frmIssueDrivingLicense.resx">
+    <EmbeddedResource Include="DVLD\Applications\International Driving License\frmManageInternationalDrivingLicenseApplications.resx">
+      <DependentUpon>frmManageInternationalDrivingLicenseApplications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD\Driving License\Local Driving License\frmIssueDrivingLicense.resx">
       <DependentUpon>frmIssueDrivingLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD\Driving License\frmShowPersonDrivingLicenseHistory.resx">
@@ -675,6 +702,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LicenseView 4001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\International 321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Manage Applications 642.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Manage Applications 643.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
