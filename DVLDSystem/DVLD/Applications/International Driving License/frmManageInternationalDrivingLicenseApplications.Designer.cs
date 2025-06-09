@@ -32,6 +32,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.dgvInterationalDrivingLicenseApplicationLists = new System.Windows.Forms.DataGridView();
+            this.cmsInternationalApplications = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.showLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.showPersonLicneseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,16 +48,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCloseForm = new System.Windows.Forms.Button();
             this.cbIsActive = new System.Windows.Forms.ComboBox();
-            this.cmsInternationalApplications = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.showLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.showPersonLicneseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInterationalDrivingLicenseApplicationLists)).BeginInit();
+            this.cmsInternationalApplications.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.cmsInternationalApplications.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtFilterValue
@@ -93,6 +93,54 @@
             this.dgvInterationalDrivingLicenseApplicationLists.RowTemplate.Height = 24;
             this.dgvInterationalDrivingLicenseApplicationLists.Size = new System.Drawing.Size(1458, 322);
             this.dgvInterationalDrivingLicenseApplicationLists.TabIndex = 42;
+            this.dgvInterationalDrivingLicenseApplicationLists.DoubleClick += new System.EventHandler(this.dgvInterationalDrivingLicenseApplicationLists_DoubleClick);
+            // 
+            // cmsInternationalApplications
+            // 
+            this.cmsInternationalApplications.Font = new System.Drawing.Font("Perpetua", 13F);
+            this.cmsInternationalApplications.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.cmsInternationalApplications.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showDetailsToolStripMenuItem,
+            this.toolStripSeparator5,
+            this.showLicenseToolStripMenuItem,
+            this.toolStripSeparator6,
+            this.showPersonLicneseHistoryToolStripMenuItem});
+            this.cmsInternationalApplications.Name = "contextMenuStrip1";
+            this.cmsInternationalApplications.Size = new System.Drawing.Size(294, 176);
+            // 
+            // showDetailsToolStripMenuItem
+            // 
+            this.showDetailsToolStripMenuItem.Image = global::DVLDSystem.Properties.Resources.PersonDetails_32;
+            this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
+            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(293, 46);
+            this.showDetailsToolStripMenuItem.Text = "Show Person Details";
+            this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(290, 6);
+            // 
+            // showLicenseToolStripMenuItem
+            // 
+            this.showLicenseToolStripMenuItem.Image = global::DVLDSystem.Properties.Resources.License_View_32;
+            this.showLicenseToolStripMenuItem.Name = "showLicenseToolStripMenuItem";
+            this.showLicenseToolStripMenuItem.Size = new System.Drawing.Size(293, 46);
+            this.showLicenseToolStripMenuItem.Text = "show International License";
+            this.showLicenseToolStripMenuItem.Click += new System.EventHandler(this.showLicenseToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(290, 6);
+            // 
+            // showPersonLicneseHistoryToolStripMenuItem
+            // 
+            this.showPersonLicneseHistoryToolStripMenuItem.Image = global::DVLDSystem.Properties.Resources.PersonLicenseHistory_32;
+            this.showPersonLicneseHistoryToolStripMenuItem.Name = "showPersonLicneseHistoryToolStripMenuItem";
+            this.showPersonLicneseHistoryToolStripMenuItem.Size = new System.Drawing.Size(293, 46);
+            this.showPersonLicneseHistoryToolStripMenuItem.Text = "Show Person Licnese History";
+            this.showPersonLicneseHistoryToolStripMenuItem.Click += new System.EventHandler(this.showPersonLicneseHistoryToolStripMenuItem_Click);
             // 
             // label3
             // 
@@ -222,53 +270,6 @@
             this.cbIsActive.TabIndex = 46;
             this.cbIsActive.SelectedIndexChanged += new System.EventHandler(this.cbIsActive_SelectedIndexChanged);
             // 
-            // cmsInternationalApplications
-            // 
-            this.cmsInternationalApplications.Font = new System.Drawing.Font("Perpetua", 13F);
-            this.cmsInternationalApplications.ImageScalingSize = new System.Drawing.Size(40, 40);
-            this.cmsInternationalApplications.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showDetailsToolStripMenuItem,
-            this.toolStripSeparator5,
-            this.showLicenseToolStripMenuItem,
-            this.toolStripSeparator6,
-            this.showPersonLicneseHistoryToolStripMenuItem});
-            this.cmsInternationalApplications.Name = "contextMenuStrip1";
-            this.cmsInternationalApplications.Size = new System.Drawing.Size(294, 154);
-            // 
-            // showDetailsToolStripMenuItem
-            // 
-            this.showDetailsToolStripMenuItem.Image = global::DVLDSystem.Properties.Resources.PersonDetails_32;
-            this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
-            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(293, 46);
-            this.showDetailsToolStripMenuItem.Text = "Show Person Details";
-            this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(290, 6);
-            // 
-            // showLicenseToolStripMenuItem
-            // 
-            this.showLicenseToolStripMenuItem.Image = global::DVLDSystem.Properties.Resources.License_View_32;
-            this.showLicenseToolStripMenuItem.Name = "showLicenseToolStripMenuItem";
-            this.showLicenseToolStripMenuItem.Size = new System.Drawing.Size(293, 46);
-            this.showLicenseToolStripMenuItem.Text = "show License";
-            this.showLicenseToolStripMenuItem.Click += new System.EventHandler(this.showLicenseToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(290, 6);
-            // 
-            // showPersonLicneseHistoryToolStripMenuItem
-            // 
-            this.showPersonLicneseHistoryToolStripMenuItem.Image = global::DVLDSystem.Properties.Resources.PersonLicenseHistory_32;
-            this.showPersonLicneseHistoryToolStripMenuItem.Name = "showPersonLicneseHistoryToolStripMenuItem";
-            this.showPersonLicneseHistoryToolStripMenuItem.Size = new System.Drawing.Size(293, 46);
-            this.showPersonLicneseHistoryToolStripMenuItem.Text = "Show Person Licnese History";
-            this.showPersonLicneseHistoryToolStripMenuItem.Click += new System.EventHandler(this.showPersonLicneseHistoryToolStripMenuItem_Click);
-            // 
             // frmManageInternationalDrivingLicenseApplications
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -292,9 +293,9 @@
             this.Text = "Manage International Driving License Applications";
             this.Load += new System.EventHandler(this.frmManageInternationalDrivingLicenseApplications_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInterationalDrivingLicenseApplicationLists)).EndInit();
+            this.cmsInternationalApplications.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.cmsInternationalApplications.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

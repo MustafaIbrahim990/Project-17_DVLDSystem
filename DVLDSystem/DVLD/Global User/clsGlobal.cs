@@ -14,6 +14,8 @@ namespace DVLDSystem.DVLD.Global_User
 {
     public static class clsGlobal
     {
+        //Path Of Local Registry :-
+        public static string KeyPath = @"HKEY_CURRENT_USER\Software\DVDL";
         public static clsUser CurrentUser;
 
         public static bool DeleteSubKeyFromLocalRegistry(string ValueName)
@@ -52,7 +54,7 @@ namespace DVLDSystem.DVLD.Global_User
 
         public static bool SaveDataToLocalRegistry(string ValueName, string ValueData)
         {
-            string KeyPath = @"HKEY_CURRENT_USER\Software\DVDL";
+            //string KeyPath = @"HKEY_CURRENT_USER\Software\DVDL";
             try
             {
                 if (string.IsNullOrWhiteSpace(ValueData))
@@ -72,7 +74,7 @@ namespace DVLDSystem.DVLD.Global_User
 
         public static string GetDataFromLocalRegistry(string ValueName)
         {
-            string KeyPath = @"HKEY_CURRENT_USER\Software\DVDL";
+            //string KeyPath = @"HKEY_CURRENT_USER\Software\DVDL";
             string ValueData = "";
 
             try

@@ -17,7 +17,6 @@ namespace DVLDSystem
         {
             InitializeComponent();
         }
-
         private void FormTest_Load(object sender, EventArgs e)
         {
             
