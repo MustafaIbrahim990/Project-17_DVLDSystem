@@ -55,7 +55,7 @@ namespace DVLDSystem.DVLD.Driving_License.International_Driving_License
             cbFilterBy.SelectedIndex = 0;
         }
 
-        private void _ResetColumnsNameInGrid()
+        private void _ResetColumnsInGrid()
         {
             if (dgvInterationalDrivingLicenseApplicationLists.Rows.Count > 0)
             {
@@ -153,9 +153,7 @@ namespace DVLDSystem.DVLD.Driving_License.International_Driving_License
         private void frmManageInternationalDrivingLicenseApplications_Load(object sender, EventArgs e)
         {
             _RefreshDataInGrid();
-            cbFilterBy.SelectedIndex = 0;
-
-            _ResetColumnsNameInGrid();
+            _ResetColumnsInGrid();
         }
 
 
@@ -267,6 +265,10 @@ namespace DVLDSystem.DVLD.Driving_License.International_Driving_License
 
             //Refresh The Form :-
             frmManageInternationalDrivingLicenseApplications_Load(null, null);
+        }
+        private void dgvInterationalDrivingLicenseApplicationLists_DoubleClick(object sender, EventArgs e)
+        {
+            showLicenseToolStripMenuItem.PerformClick();
         }
 
 

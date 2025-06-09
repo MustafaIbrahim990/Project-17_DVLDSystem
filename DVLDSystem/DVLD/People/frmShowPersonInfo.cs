@@ -34,5 +34,10 @@ namespace DVLDSystem.DVLD.People
         {
             this.Close();
         }
+
+        private void ctrlPersonInfo1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

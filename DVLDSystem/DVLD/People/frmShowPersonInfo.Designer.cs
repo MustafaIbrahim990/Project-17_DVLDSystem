@@ -68,6 +68,7 @@
             this.ctrlPersonInfo1.Name = "ctrlPersonInfo1";
             this.ctrlPersonInfo1.Size = new System.Drawing.Size(1170, 439);
             this.ctrlPersonInfo1.TabIndex = 122;
+            this.ctrlPersonInfo1.Load += new System.EventHandler(this.ctrlPersonInfo1_Load);
             // 
             // frmShowPersonInfo
             // 

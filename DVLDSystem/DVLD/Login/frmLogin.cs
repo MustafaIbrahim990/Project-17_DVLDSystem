@@ -15,6 +15,10 @@ namespace DVLDSystem.DVLD.Login
 {
     public partial class frmLogin : Form
     {
+        //Private Properties :-
+        private clsUser _UserInfo;
+
+
         //Private Methods :-
         private bool _RememberUserNameANDPassWord()
         {
@@ -26,6 +30,18 @@ namespace DVLDSystem.DVLD.Login
             {
                 return clsGlobal.SaveUserNameANDPassWord(null, null);
             }
+        }
+
+        private bool _GetUserInfo()
+        {
+            _UserInfo = clsUser.Find(txtUserName.Text.Trim(), clsGlobal.GenerateHash(txtPassWord.Text.Trim()));
+
+            if (_UserInfo == null)
+            {
+                MessageBox.Show("Invalid UserName Or PassWord!", "Wrong Credentials", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
         }
 
 
@@ -99,25 +115,20 @@ namespace DVLDSystem.DVLD.Login
                 return;
             }
 
-            clsUser UserInfo = clsUser.Find(txtUserName.Text.Trim(), clsGlobal.GenerateHash(txtPassWord.Text.Trim()));
-
-            if (UserInfo == null)
-            {
-                MessageBox.Show("Invalid UserName Or PassWord!", "Wrong Credentials", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (!_GetUserInfo())
                 return;
-            }
 
             if (!_RememberUserNameANDPassWord())
                 return;
 
-            if (!UserInfo.IsActive)
+            if (!_UserInfo.IsActive)
             {
                 txtUserName.Focus();
                 MessageBox.Show("Invalid Your Account is Not Active, Contact With Admin!", "In Active Account", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            clsGlobal.CurrentUser = UserInfo;
+            clsGlobal.CurrentUser = _UserInfo;
             this.Hide();
 
             frmMainScreen frm = new frmMainScreen(this);
