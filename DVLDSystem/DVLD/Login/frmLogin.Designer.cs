@@ -200,7 +200,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Black;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::DVLDSystem.Properties.Resources.IconLogo;
+            this.pictureBox1.Image = global::DVLDSystem.Properties.Resources.LetterMark_Logo;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(570, 350);

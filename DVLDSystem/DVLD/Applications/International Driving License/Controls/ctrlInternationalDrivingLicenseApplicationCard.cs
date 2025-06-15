@@ -9,69 +9,89 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLDSystem_BusinessLayer;
 using System.IO;
-using System.Text;
+using DVLDSystem.DVLD.Global_User;
 
 namespace DVLDSystem.DVLD.Applications.International_Driving_License.Controls
 {
     public partial class ctrlInternationalDrivingLicenseApplicationCard : UserControl
     {
-        //Error ////////////////////////////////////////////////////////////////////////////////////////
-        //Private Properties :-
-        private int _InternationalDrivingLicenseID;
+        //Properties :-
+        public int LocalDrivingLicenseID = -1;
+        private int _InternationalDrivingLicenseID = -1;
         private clsInternationalDrivingLicense _InternationalDrivingLicenseInfo;
 
-        //Public Properties :-
-        public int InternationalDrivingLicenseID
+        public int SelectedInternationalDrivingLicenseID
         {
             get { return _InternationalDrivingLicenseID; }
+        }
+        public clsInternationalDrivingLicense SelectedInternationalDrivingLicenseInfo
+        {
+            get { return _InternationalDrivingLicenseInfo; }
         }
 
 
         //Private Methods :-
-        private void _LoadPersonImage()
+        private void _DataBack(int LocalLicenseID)
         {
-            //if (_InternationalDrivingLicenseInfo.DriverInfo.PersonInfo.Gender == 0) 
-            //    pbPersonImage.Image = Resources.Male_512;
-            //else
-            //    pbPersonImage.Image = Resources.Female_512;
+            LocalDrivingLicenseID = LocalLicenseID;
 
-            //string ImagePath = _InternationalDrivingLicenseInfo.DriverInfo.PersonInfo.ImagePath;
-
-            //if (ImagePath != "")
-            //    if (File.Exists(ImagePath))
-            //        pbPersonImage.Load(ImagePath);
-            //    else
-            //        MessageBox.Show("Could not find this image: = " + ImagePath, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+            if (LocalDrivingLicenseID != -1)
+            {
+                LoadInternationalDrivingLicenseApplicationInfoByDriverID(clsDrivingLicense.Find(LocalDrivingLicenseID).DriverID);
+            }
         }
-
-        public void LoadInfo(int InternationalLicenseID)
+        private void _FillInfo()
         {
-            //_InternationalLicenseID = InternationalLicenseID;
-            //_InternationalLicense = clsInternationalLicense.Find(_InternationalLicenseID);
-            //if (_InternationalLicense == null)
-            //{
-            //    MessageBox.Show("Could not find Internationa License ID = " + _InternationalLicenseID.ToString(),
-            //        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    _InternationalLicenseID = -1;
-            //    return;
-            //}
-
-            //lblInternationalLicenseID.Text = _InternationalDrivingLicenseInfo.ID.ToString();
-            //lblApplicationID.Text = _InternationalDrivingLicenseInfo.ApplicationID.ToString();
-            //lblIsActive.Text = _InternationalDrivingLicenseInfo.IsActive ? "Yes" : "No";
-            //lblLocalLicenseID.Text = _InternationalDrivingLicenseInfo.IssuedUsingDrivingLicenseID.ToString();
-            //lblFullName.Text = _InternationalDrivingLicenseInfo.DriverInfo.PersonInfo.FullName;
-            //lblNationalNo.Text = _InternationalDrivingLicenseInfo.DriverInfo.PersonInfo.NationalNo;
-            //lblGendor.Text = _InternationalDrivingLicenseInfo.DriverInfo.PersonInfo.Gender == 0 ? "Male" : "Female";
-            //lblDateOfBirth.Text = _InternationalDrivingLicenseInfo.DriverInfo.PersonInfo.DateOfBirth.ToShortDateString();
-
-            //lblDriverID.Text = _InternationalDrivingLicenseInfo.DriverID.ToString();
+            lblInternationalApplicationID.Text = _InternationalDrivingLicenseInfo.ApplicationID.ToString();
+            lblInternationalLicenseID.Text = _InternationalDrivingLicenseInfo.InternationalDrivingLicenseID.ToString();
+            lblLocalLicenseID.Text = _InternationalDrivingLicenseInfo.IssuedUsingDrivingLicenseID.ToString();
+            //lblInternationalApplicationDate.Text = _InternationalDrivingLicenseInfo.ApplicationDate.ToShortDateString();
             //lblIssueDate.Text = _InternationalDrivingLicenseInfo.IssueDate.ToShortDateString();
-            //lblExpirationDate.Text = _InternationalDrivingLicenseInfo.ExpriationDate.ToShortDateString();.
-
-            //_LoadPersonImage();
+            //lblFees.Text = _InternationalDrivingLicenseInfo.PaidFees.ToString();
+            //lblExpirationDate.Text = _InternationalDrivingLicenseInfo.ExpriationDate.ToShortDateString();
+            //lblCreatedBy.Text = _InternationalDrivingLicenseInfo.CreatedByUserID.ToString();
         }
+
+
+        //Public Methods :-
+        public void ResetInfo()
+        {
+            lblInternationalApplicationID.Text = "N/A";
+            lblInternationalLicenseID.Text = "N/A";
+            lblLocalLicenseID.Text = "N/A";
+            lblInternationalApplicationDate.Text = DateTime.Now.ToShortDateString();
+            lblIssueDate.Text = DateTime.Now.ToShortDateString();
+            lblFees.Text = clsApplicationType.Find((int)clsApplication.enApplicationType.NewInternationalDrivingLicense).Fees.ToString() + " $";
+            lblExpirationDate.Text = DateTime.Now.AddYears(1).ToShortDateString();
+            lblCreatedBy.Text = clsGlobal.CurrentUser.UserID.ToString();
+
+            ctrlDrivingLicenseCardWithFilter1.OnDrivingLicenseSelected += _DataBack;
+        }
+        public void LoadInternationalDrivingLicenseApplicationInfoByInternationalID(int InternationalDrivingLicenseID)
+        {
+            _InternationalDrivingLicenseInfo = clsInternationalDrivingLicense.FindInternational(InternationalDrivingLicenseID);
+
+            if (_InternationalDrivingLicenseInfo == null)
+            {
+                ResetInfo();
+                MessageBox.Show($"Error : No International Driving License With ID [{InternationalDrivingLicenseID}] in The System!", "Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            _FillInfo();
+        }
+        public void LoadInternationalDrivingLicenseApplicationInfoByDriverID(int DriverID)
+        {
+            _InternationalDrivingLicenseInfo = clsInternationalDrivingLicense.FindByDriverID(DriverID);
+
+            if (_InternationalDrivingLicenseInfo == null)
+            {
+                ResetInfo();
+                MessageBox.Show($"Error : No International Driving License With Driver ID [{DriverID}] in The System!", "Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            _FillInfo();
+        }
+
 
         //Constructor :-
         public ctrlInternationalDrivingLicenseApplicationCard()

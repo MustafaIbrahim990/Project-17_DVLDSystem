@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainScreen));
             this.msMainMenue = new System.Windows.Forms.MenuStrip();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.servicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drivingLicensesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oNewDrivingLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,7 +67,6 @@
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.msMainMenue.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -88,6 +88,18 @@
             this.msMainMenue.Size = new System.Drawing.Size(1040, 72);
             this.msMainMenue.TabIndex = 2;
             this.msMainMenue.Text = "menuStrip1";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Black;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::DVLDSystem.Properties.Resources.WordMark_Logo3;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 72);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1040, 543);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // servicesToolStripMenuItem
             // 
@@ -399,17 +411,6 @@
             this.signOutToolStripMenuItem.Size = new System.Drawing.Size(230, 38);
             this.signOutToolStripMenuItem.Text = "Sign &Out";
             this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::DVLDSystem.Properties.Resources.Logo_Final;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 72);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1040, 543);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
             // 
             // frmMainScreen
             // 

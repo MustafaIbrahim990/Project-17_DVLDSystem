@@ -31,28 +31,29 @@
             this.gbInternationalDrivingLicenseApplicationInfo = new System.Windows.Forms.GroupBox();
             this.lblCreatedBy = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblExpirationDate = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.lblLocalLicenseID = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.lblFees = new System.Windows.Forms.Label();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.lblIssueDate = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.lblInternationalDrivingLicenseID = new System.Windows.Forms.Label();
-            this.lblApplicationDate = new System.Windows.Forms.Label();
+            this.lblInternationalApplicationID = new System.Windows.Forms.Label();
+            this.lblInternationalApplicationDate = new System.Windows.Forms.Label();
             this.lblInternationalLicenseID = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.ctrlDrivingLicenseCardWithFilter1 = new DVLDSystem.DVLD.Driving_License.Local_Driving_License.Controls.ctrlDrivingLicenseCardWithFilter();
             this.gbInternationalDrivingLicenseApplicationInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
@@ -84,16 +85,16 @@
             this.gbInternationalDrivingLicenseApplicationInfo.Controls.Add(this.pictureBox6);
             this.gbInternationalDrivingLicenseApplicationInfo.Controls.Add(this.pictureBox7);
             this.gbInternationalDrivingLicenseApplicationInfo.Controls.Add(this.pictureBox8);
-            this.gbInternationalDrivingLicenseApplicationInfo.Controls.Add(this.lblInternationalDrivingLicenseID);
-            this.gbInternationalDrivingLicenseApplicationInfo.Controls.Add(this.lblApplicationDate);
+            this.gbInternationalDrivingLicenseApplicationInfo.Controls.Add(this.lblInternationalApplicationID);
+            this.gbInternationalDrivingLicenseApplicationInfo.Controls.Add(this.lblInternationalApplicationDate);
             this.gbInternationalDrivingLicenseApplicationInfo.Controls.Add(this.lblInternationalLicenseID);
             this.gbInternationalDrivingLicenseApplicationInfo.Controls.Add(this.label7);
             this.gbInternationalDrivingLicenseApplicationInfo.Controls.Add(this.label8);
             this.gbInternationalDrivingLicenseApplicationInfo.Controls.Add(this.label9);
             this.gbInternationalDrivingLicenseApplicationInfo.Font = new System.Drawing.Font("Lucida Bright", 12F);
-            this.gbInternationalDrivingLicenseApplicationInfo.Location = new System.Drawing.Point(9, 6);
+            this.gbInternationalDrivingLicenseApplicationInfo.Location = new System.Drawing.Point(14, 601);
             this.gbInternationalDrivingLicenseApplicationInfo.Name = "gbInternationalDrivingLicenseApplicationInfo";
-            this.gbInternationalDrivingLicenseApplicationInfo.Size = new System.Drawing.Size(1251, 251);
+            this.gbInternationalDrivingLicenseApplicationInfo.Size = new System.Drawing.Size(1249, 251);
             this.gbInternationalDrivingLicenseApplicationInfo.TabIndex = 74;
             this.gbInternationalDrivingLicenseApplicationInfo.TabStop = false;
             this.gbInternationalDrivingLicenseApplicationInfo.Text = "Application Basic Info";
@@ -120,16 +121,6 @@
             this.label2.TabIndex = 85;
             this.label2.Text = "Created By :";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::DVLDSystem.Properties.Resources.User_32__2;
-            this.pictureBox1.Location = new System.Drawing.Point(796, 196);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(54, 30);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 84;
-            this.pictureBox1.TabStop = false;
-            // 
             // lblExpirationDate
             // 
             this.lblExpirationDate.AutoSize = true;
@@ -151,16 +142,6 @@
             this.label19.Size = new System.Drawing.Size(143, 18);
             this.label19.TabIndex = 82;
             this.label19.Text = "Expioration Date :";
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.Image = global::DVLDSystem.Properties.Resources.Calendar_32;
-            this.pictureBox12.Location = new System.Drawing.Point(796, 148);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(54, 30);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox12.TabIndex = 81;
-            this.pictureBox12.TabStop = false;
             // 
             // lblLocalLicenseID
             // 
@@ -184,16 +165,6 @@
             this.label16.TabIndex = 79;
             this.label16.Text = "Local License ID :";
             // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Image = global::DVLDSystem.Properties.Resources.money_32;
-            this.pictureBox10.Location = new System.Drawing.Point(218, 196);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(54, 30);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox10.TabIndex = 76;
-            this.pictureBox10.TabStop = false;
-            // 
             // lblFees
             // 
             this.lblFees.AutoSize = true;
@@ -204,16 +175,6 @@
             this.lblFees.Size = new System.Drawing.Size(52, 18);
             this.lblFees.TabIndex = 75;
             this.lblFees.Text = "[????]";
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = global::DVLDSystem.Properties.Resources.Calendar_32;
-            this.pictureBox9.Location = new System.Drawing.Point(218, 148);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(54, 30);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox9.TabIndex = 74;
-            this.pictureBox9.TabStop = false;
             // 
             // lblIssueDate
             // 
@@ -248,67 +209,27 @@
             this.label10.TabIndex = 70;
             this.label10.Text = "Issue Date :";
             // 
-            // pictureBox5
+            // lblInternationalApplicationID
             // 
-            this.pictureBox5.Image = global::DVLDSystem.Properties.Resources.Local_32;
-            this.pictureBox5.Location = new System.Drawing.Point(796, 100);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(54, 30);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 69;
-            this.pictureBox5.TabStop = false;
+            this.lblInternationalApplicationID.AutoSize = true;
+            this.lblInternationalApplicationID.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInternationalApplicationID.ForeColor = System.Drawing.Color.Black;
+            this.lblInternationalApplicationID.Location = new System.Drawing.Point(294, 57);
+            this.lblInternationalApplicationID.Name = "lblInternationalApplicationID";
+            this.lblInternationalApplicationID.Size = new System.Drawing.Size(41, 20);
+            this.lblInternationalApplicationID.TabIndex = 51;
+            this.lblInternationalApplicationID.Text = "N\\A";
             // 
-            // pictureBox6
+            // lblInternationalApplicationDate
             // 
-            this.pictureBox6.Image = global::DVLDSystem.Properties.Resources.International_32;
-            this.pictureBox6.Location = new System.Drawing.Point(796, 52);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(54, 30);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 68;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::DVLDSystem.Properties.Resources.Calendar_32;
-            this.pictureBox7.Location = new System.Drawing.Point(218, 100);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(54, 30);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 67;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = global::DVLDSystem.Properties.Resources.Number_32;
-            this.pictureBox8.Location = new System.Drawing.Point(218, 52);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(54, 30);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 66;
-            this.pictureBox8.TabStop = false;
-            // 
-            // lblInternationalDrivingLicenseID
-            // 
-            this.lblInternationalDrivingLicenseID.AutoSize = true;
-            this.lblInternationalDrivingLicenseID.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInternationalDrivingLicenseID.ForeColor = System.Drawing.Color.Black;
-            this.lblInternationalDrivingLicenseID.Location = new System.Drawing.Point(294, 57);
-            this.lblInternationalDrivingLicenseID.Name = "lblInternationalDrivingLicenseID";
-            this.lblInternationalDrivingLicenseID.Size = new System.Drawing.Size(41, 20);
-            this.lblInternationalDrivingLicenseID.TabIndex = 51;
-            this.lblInternationalDrivingLicenseID.Text = "N\\A";
-            // 
-            // lblApplicationDate
-            // 
-            this.lblApplicationDate.AutoSize = true;
-            this.lblApplicationDate.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 12F, System.Drawing.FontStyle.Bold);
-            this.lblApplicationDate.ForeColor = System.Drawing.Color.Black;
-            this.lblApplicationDate.Location = new System.Drawing.Point(294, 106);
-            this.lblApplicationDate.Name = "lblApplicationDate";
-            this.lblApplicationDate.Size = new System.Drawing.Size(53, 20);
-            this.lblApplicationDate.TabIndex = 50;
-            this.lblApplicationDate.Text = "[????]";
+            this.lblInternationalApplicationDate.AutoSize = true;
+            this.lblInternationalApplicationDate.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 12F, System.Drawing.FontStyle.Bold);
+            this.lblInternationalApplicationDate.ForeColor = System.Drawing.Color.Black;
+            this.lblInternationalApplicationDate.Location = new System.Drawing.Point(294, 106);
+            this.lblInternationalApplicationDate.Name = "lblInternationalApplicationDate";
+            this.lblInternationalApplicationDate.Size = new System.Drawing.Size(53, 20);
+            this.lblInternationalApplicationDate.TabIndex = 50;
+            this.lblInternationalApplicationDate.Text = "[????]";
             // 
             // lblInternationalLicenseID
             // 
@@ -350,17 +271,108 @@
             this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(32, 58);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(89, 18);
+            this.label9.Size = new System.Drawing.Size(135, 18);
             this.label9.TabIndex = 15;
-            this.label9.Text = "I.D.L.A.ID :";
+            this.label9.Text = "I. Application ID :";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DVLDSystem.Properties.Resources.User_32__2;
+            this.pictureBox1.Location = new System.Drawing.Point(796, 196);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(54, 30);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 84;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Image = global::DVLDSystem.Properties.Resources.Calendar_32;
+            this.pictureBox12.Location = new System.Drawing.Point(796, 148);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(54, 30);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox12.TabIndex = 81;
+            this.pictureBox12.TabStop = false;
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = global::DVLDSystem.Properties.Resources.money_32;
+            this.pictureBox10.Location = new System.Drawing.Point(218, 196);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(54, 30);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 76;
+            this.pictureBox10.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = global::DVLDSystem.Properties.Resources.Calendar_32;
+            this.pictureBox9.Location = new System.Drawing.Point(218, 148);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(54, 30);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox9.TabIndex = 74;
+            this.pictureBox9.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::DVLDSystem.Properties.Resources.Local_32;
+            this.pictureBox5.Location = new System.Drawing.Point(796, 100);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(54, 30);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 69;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::DVLDSystem.Properties.Resources.International_32;
+            this.pictureBox6.Location = new System.Drawing.Point(796, 52);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(54, 30);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 68;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::DVLDSystem.Properties.Resources.Calendar_32;
+            this.pictureBox7.Location = new System.Drawing.Point(218, 100);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(54, 30);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 67;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::DVLDSystem.Properties.Resources.Number_32;
+            this.pictureBox8.Location = new System.Drawing.Point(218, 52);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(54, 30);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 66;
+            this.pictureBox8.TabStop = false;
+            // 
+            // ctrlDrivingLicenseCardWithFilter1
+            // 
+            this.ctrlDrivingLicenseCardWithFilter1.BackColor = System.Drawing.Color.White;
+            this.ctrlDrivingLicenseCardWithFilter1.FilterDrivingLicenseEnabled = true;
+            this.ctrlDrivingLicenseCardWithFilter1.Location = new System.Drawing.Point(5, 6);
+            this.ctrlDrivingLicenseCardWithFilter1.Name = "ctrlDrivingLicenseCardWithFilter1";
+            this.ctrlDrivingLicenseCardWithFilter1.ShowDrivingLicenseButton = true;
+            this.ctrlDrivingLicenseCardWithFilter1.Size = new System.Drawing.Size(1266, 598);
+            this.ctrlDrivingLicenseCardWithFilter1.TabIndex = 75;
             // 
             // ctrlInternationalDrivingLicenseApplicationCard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.ctrlDrivingLicenseCardWithFilter1);
             this.Controls.Add(this.gbInternationalDrivingLicenseApplicationInfo);
             this.Name = "ctrlInternationalDrivingLicenseApplicationCard";
-            this.Size = new System.Drawing.Size(1270, 265);
+            this.Size = new System.Drawing.Size(1275, 861);
             this.Load += new System.EventHandler(this.ctrlInternationalDrivingLicenseApplicationCard_Load);
             this.gbInternationalDrivingLicenseApplicationInfo.ResumeLayout(false);
             this.gbInternationalDrivingLicenseApplicationInfo.PerformLayout();
@@ -397,11 +409,12 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.Label lblInternationalDrivingLicenseID;
-        private System.Windows.Forms.Label lblApplicationDate;
+        private System.Windows.Forms.Label lblInternationalApplicationID;
+        private System.Windows.Forms.Label lblInternationalApplicationDate;
         private System.Windows.Forms.Label lblInternationalLicenseID;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private Driving_License.Local_Driving_License.Controls.ctrlDrivingLicenseCardWithFilter ctrlDrivingLicenseCardWithFilter1;
     }
 }

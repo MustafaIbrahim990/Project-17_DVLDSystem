@@ -712,5 +712,20 @@
   <ItemGroup>
     <None Include="Resources\Manage Applications 643.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LetterMark Logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WordMark Logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WordMark Logo2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WordMark Logo3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\International 322.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

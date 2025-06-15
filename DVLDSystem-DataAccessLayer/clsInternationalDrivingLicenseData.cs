@@ -161,6 +161,51 @@ namespace DVLDSystem_DataAccessLayer
         }
 
 
+        //Get Info By DriverID :-
+        public static bool GetInfoBy(int DriverID, ref int InternationalDrivingLicenseID, ref int ApplicationID, ref int IssuedUsingDrivingLicenseID, ref DateTime IssueDate, ref DateTime ExpriationDate, ref bool IsActive, ref int CreatedByUserID) 
+        {
+            bool isFound = false;
+            SqlConnection connection = new SqlConnection(clsDataSettings.ConnectionString);
+
+            string query = @"SELECT * FROM InternationalDrivingLicenses
+                           WHERE InternationalDrivingLicenses.DriverID = @DriverID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            //Get Info By DriverID :-
+            command.Parameters.AddWithValue("@DriverID", DriverID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isFound = true;
+
+                    InternationalDrivingLicenseID = (int)reader["InternationalDrivingLicenseID"];
+                    ApplicationID = (int)reader["ApplicationID"];
+                    IssuedUsingDrivingLicenseID = (int)reader["IssuedUsingDrivingLicenseID"];
+                    IssueDate = (DateTime)reader["IssueDate"];
+                    ExpriationDate = (DateTime)reader["ExpriationDate"];
+                    IsActive = (bool)reader["IsActive"];
+                    CreatedByUserID = (int)reader["CreatedByUserID"];
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isFound;
+        }
+
+
         //Add New :-
         public static int AddNew(int ApplicationID, int DriverID, int IssuedUsingDrivingLicenseID, DateTime IssueDate, DateTime ExpriationDate, bool IsActive, int CreatedByUserID)
         {
