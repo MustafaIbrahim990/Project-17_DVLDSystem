@@ -11,6 +11,7 @@ using DVLDSystem_BusinessLayer;
 using DVLDSystem.Gobal_Classes;
 using DVLDSystem.DVLD.People;
 using DVLDSystem.DVLD.Driving_License.International_Driving_License;
+using DVLDSystem.DVLD.Applications.International_Driving_License;
 
 namespace DVLDSystem.DVLD.Driving_License.International_Driving_License
 {
@@ -231,11 +232,11 @@ namespace DVLDSystem.DVLD.Driving_License.International_Driving_License
         //Issue International Driving License :-
         private void btnIssueInternationalDrivingLicense_Click(object sender, EventArgs e)
         {
-            //frmIssueInternationalDrivingLicense frm = new frmIssueInternationalDrivingLicense();
-            //frm.ShowDialog();
+            frmIssueInternationalDrivingLicense frm = new frmIssueInternationalDrivingLicense();
+            frm.ShowDialog();
 
-            ////Refresh :-
-            //frmManageInternationalDrivingLicenseApplications_Load(null, null);
+            //Refresh :-
+            frmManageInternationalDrivingLicenseApplications_Load(null, null);
         }
 
 
@@ -258,7 +259,7 @@ namespace DVLDSystem.DVLD.Driving_License.International_Driving_License
 
 
         //Show International Driving License :-
-        private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        private void showInternationalLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //frmShowDrivingLicenseCard frm = new frmShowDrivingLicenseCard(clsInternationalDrivingLicense.Find((int)dgvInterationalDrivingLicenseApplicationLists.CurrentRow.Cells[2].Value).IssuedUsingDrivingLicenseID);
             //frm.ShowDialog();
@@ -268,7 +269,7 @@ namespace DVLDSystem.DVLD.Driving_License.International_Driving_License
         }
         private void dgvInterationalDrivingLicenseApplicationLists_DoubleClick(object sender, EventArgs e)
         {
-            showLicenseToolStripMenuItem.PerformClick();
+            showInternationalLicenseToolStripMenuItem.PerformClick();
         }
 
 

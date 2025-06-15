@@ -35,7 +35,7 @@
             this.cmsInternationalApplications = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.showLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showInternationalLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.showPersonLicneseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
@@ -102,7 +102,7 @@
             this.cmsInternationalApplications.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showDetailsToolStripMenuItem,
             this.toolStripSeparator5,
-            this.showLicenseToolStripMenuItem,
+            this.showInternationalLicenseToolStripMenuItem,
             this.toolStripSeparator6,
             this.showPersonLicneseHistoryToolStripMenuItem});
             this.cmsInternationalApplications.Name = "contextMenuStrip1";
@@ -121,13 +121,13 @@
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(290, 6);
             // 
-            // showLicenseToolStripMenuItem
+            // showInternationalLicenseToolStripMenuItem
             // 
-            this.showLicenseToolStripMenuItem.Image = global::DVLDSystem.Properties.Resources.License_View_32;
-            this.showLicenseToolStripMenuItem.Name = "showLicenseToolStripMenuItem";
-            this.showLicenseToolStripMenuItem.Size = new System.Drawing.Size(293, 46);
-            this.showLicenseToolStripMenuItem.Text = "show International License";
-            this.showLicenseToolStripMenuItem.Click += new System.EventHandler(this.showLicenseToolStripMenuItem_Click);
+            this.showInternationalLicenseToolStripMenuItem.Image = global::DVLDSystem.Properties.Resources.License_View_32;
+            this.showInternationalLicenseToolStripMenuItem.Name = "showInternationalLicenseToolStripMenuItem";
+            this.showInternationalLicenseToolStripMenuItem.Size = new System.Drawing.Size(293, 46);
+            this.showInternationalLicenseToolStripMenuItem.Text = "show International License";
+            this.showInternationalLicenseToolStripMenuItem.Click += new System.EventHandler(this.showInternationalLicenseToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
@@ -318,7 +318,7 @@
         private System.Windows.Forms.ContextMenuStrip cmsInternationalApplications;
         private System.Windows.Forms.ToolStripMenuItem showDetailsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripMenuItem showLicenseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showInternationalLicenseToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem showPersonLicneseHistoryToolStripMenuItem;
     }

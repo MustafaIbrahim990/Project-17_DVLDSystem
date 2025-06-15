@@ -383,6 +383,16 @@ namespace DVLDSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap International_322 {
+            get {
+                object obj = ResourceManager.GetObject("International 322", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap IssueDrivingLicense_32 {
             get {
                 object obj = ResourceManager.GetObject("IssueDrivingLicense 32", resourceCulture);
@@ -396,6 +406,16 @@ namespace DVLDSystem.Properties {
         internal static System.Drawing.Bitmap IssueDrivingLicense_321 {
             get {
                 object obj = ResourceManager.GetObject("IssueDrivingLicense 321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LetterMark_Logo {
+            get {
+                object obj = ResourceManager.GetObject("LetterMark Logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -886,6 +906,36 @@ namespace DVLDSystem.Properties {
         internal static System.Drawing.Bitmap Woman_32 {
             get {
                 object obj = ResourceManager.GetObject("Woman 32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WordMark_Logo {
+            get {
+                object obj = ResourceManager.GetObject("WordMark Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WordMark_Logo2 {
+            get {
+                object obj = ResourceManager.GetObject("WordMark Logo2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WordMark_Logo3 {
+            get {
+                object obj = ResourceManager.GetObject("WordMark Logo3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

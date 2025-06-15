@@ -118,7 +118,7 @@ namespace DVLDSystem.DVLD.Driving_License.Local_Driving_License.Controls
             _DrivingLicenseID = -1;
             lblClass.Text = "[????]";
             lblFullName.Text = "[????]";
-            lblDrivingLicenseID.Text = "[????]"; ;
+            lblDrivingLicenseID.Text = "N/A";
             lblNationalNumber.Text = "[????]";
             lblGender.Text = "[????]";
             lblIssueDate.Text = "[????]";
@@ -126,7 +126,7 @@ namespace DVLDSystem.DVLD.Driving_License.Local_Driving_License.Controls
             lblNotes.Text = "[????]";
             lblIsActive.Text = "[????]";
             lblDataOfBirth.Text = "[????]";
-            lblDriverID.Text = "[????]";
+            lblDriverID.Text = "N/A";
             lblExpirationDate.Text = "[????]";
             lblIsDetained.Text = "[????]";
             pbGenderImage.Image = Properties.Resources.Man_32;

@@ -4,61 +4,79 @@ using DVLDSystem_DataAccessLayer;
 
 namespace DVLDSystem_BusinessLayer
 {
-    public class clsInternationalDrivingLicense
+    public class clsInternationalDrivingLicense : clsApplication
     {
         //Enums :-
-        private enum enMode { AddNew = 0, Update = 1 };
-        private enMode _Mode;
+        private enum enMode1 { AddNew = 0, Update = 1 };
+        private enMode1 _Mode1;
 
 
         //Properties :-
-        public int ID { get; set; }
-        public int ApplicationID { get; set; }
+        public int InternationalDrivingLicenseID { get; set; }
         public int DriverID { get; set; }
         public int IssuedUsingDrivingLicenseID { get; set; }
         public DateTime IssueDate { get; set; }
         public DateTime ExpriationDate { get; set; }
         public bool IsActive { get; set; }
-        public int CreatedByUserID { get; set; }
-
-        public clsApplication ApplicationInfo;
         public clsDriver DriverInfo;
-        public clsDrivingLicense IssuedUsingDrivingLicenseInfo;
-        public clsUser CreatedByUserInfo;
+        public clsDrivingLicense IssuedUsingLocalDrivingLicenseInfo;
+        
 
         //Constructor :-
         public clsInternationalDrivingLicense()
         {
-            _Mode = enMode.AddNew;
-            ID = -1;
-            ApplicationID = -1;
+            _Mode1 = enMode1.AddNew;
+            InternationalDrivingLicenseID = -1;
             DriverID = -1;
             IssuedUsingDrivingLicenseID = -1;
             IssueDate = new DateTime();
             ExpriationDate = new DateTime();
             IsActive = false;
-            CreatedByUserID = -1;
-
-            ApplicationInfo = null;
             DriverInfo = null;
-            IssuedUsingDrivingLicenseInfo = null;
-            CreatedByUserInfo = null;
+            IssuedUsingLocalDrivingLicenseInfo = null;
+
+            //
+
+            this.ApplicationID = -1;
+            this.ApplicationDate = new DateTime();
+            this.ApplicantPersonID = -1;
+            this.ApplicationTypeID = -1;
+            this.ApplicationStatus = clsApplication.enApplicationStatus.New;
+            this.LastStatusDate = new DateTime();
+            this.PaidFees = -1;
+            this.CreatedByUserID = -1;
+
+            this.PersonInfo = null;
+            this.ApplicationTypeInfo = null;
+            this.CreatedByUserInfo = null;
         }
-        private clsInternationalDrivingLicense(int DrivingLicenseID, int ApplicationID, int DriverID, int IssuedUsingDrivingLicenseID, DateTime IssueDate, DateTime ExpriationDate, bool IsActive, int CreatedByUserID)
+        private clsInternationalDrivingLicense(int ApplicationID, DateTime ApplicationDate, int ApplicantPersonID, int ApplicationTypeID, enApplicationStatus ApplicationStatus,
+        DateTime LastStatusDate, float PaidFees, int InternationalDrivingLicenseID, int DriverID, int IssuedUsingDrivingLicenseID, DateTime IssueDate, DateTime ExpriationDate, 
+        bool IsActive, int CreatedByUserID)
         {
-            _Mode = enMode.Update;
-            this.ID = DrivingLicenseID;
-            this.ApplicationID = ApplicationID;
+            _Mode1 = enMode1.Update;
+            this.InternationalDrivingLicenseID = InternationalDrivingLicenseID;
             this.DriverID = DriverID;
             this.IssuedUsingDrivingLicenseID = IssuedUsingDrivingLicenseID;
             this.IssueDate = IssueDate;
             this.ExpriationDate = ExpriationDate;
+            this.DriverInfo = clsDriver.Find(DriverID);
+            this.IssuedUsingLocalDrivingLicenseInfo = clsDrivingLicense.Find(IssuedUsingDrivingLicenseID);
             this.IsActive = IsActive;
+
+            //
+
+            this.ApplicationID = ApplicationID;
+            this.ApplicationDate = ApplicationDate;
+            this.ApplicantPersonID = ApplicantPersonID;
+            this.ApplicationTypeID = ApplicationTypeID;
+            this.ApplicationStatus = ApplicationStatus;
+            this.LastStatusDate = LastStatusDate;
+            this.PaidFees = PaidFees;
             this.CreatedByUserID = CreatedByUserID;
 
-            this.ApplicationInfo = clsApplication.Find(ApplicationID);
-            this.DriverInfo = clsDriver.Find(DriverID);
-            this.IssuedUsingDrivingLicenseInfo = clsDrivingLicense.Find(IssuedUsingDrivingLicenseID);
+            this.PersonInfo = clsPerson.Find(ApplicantPersonID);
+            this.ApplicationTypeInfo = clsApplicationType.Find(ApplicationTypeID);
             this.CreatedByUserInfo = clsUser.Find(CreatedByUserID);
         }
 
@@ -77,58 +95,85 @@ namespace DVLDSystem_BusinessLayer
         }
 
 
-        //Is Exist By PersonID :-
-        public static bool IsExist(int ID)
+        //Is Exist By ID :-
+        public static bool IsInternationalLicenseExist(int ID)
         {
             return clsInternationalDrivingLicenseData.IsExist(ID);
         }
 
 
-        //Get Info By PersonID :-
-        public static clsInternationalDrivingLicense Find(int ID)
+        //Get Info By ID :-
+        public static clsInternationalDrivingLicense FindInternational(int InternationalDrivingLicenseID)
         {
             int ApplicationID = -1, DriverID = -1, IssuedUsingDrivingLicenseID = -1, CreatedByUserID = -1;
             DateTime IssueDate = new DateTime(), ExpriationDate = new DateTime();
             bool IsActive = false;
 
+            bool IsFound = clsInternationalDrivingLicenseData.GetInfo(InternationalDrivingLicenseID, ref ApplicationID, ref DriverID, ref IssuedUsingDrivingLicenseID, ref IssueDate, ref ExpriationDate, ref IsActive, ref CreatedByUserID);
 
-            if (clsInternationalDrivingLicenseData.GetInfo(ID, ref ApplicationID, ref DriverID, ref IssuedUsingDrivingLicenseID, ref IssueDate, ref ExpriationDate, ref IsActive, ref CreatedByUserID))
-            {
-                return new clsInternationalDrivingLicense(ID, ApplicationID, DriverID, IssuedUsingDrivingLicenseID, IssueDate, ExpriationDate, IsActive, CreatedByUserID);
-            }
-            else
-            {
+            if (!IsFound)
                 return null;
-            }
+
+            clsApplication ApplicationInfo = clsApplication.Find(ApplicationID);
+
+            return new clsInternationalDrivingLicense(ApplicationID, ApplicationInfo.ApplicationDate, ApplicationInfo.ApplicantPersonID, ApplicationInfo.ApplicationTypeID,
+            ApplicationInfo.ApplicationStatus, ApplicationInfo.LastStatusDate, ApplicationInfo.PaidFees, InternationalDrivingLicenseID, DriverID, IssuedUsingDrivingLicenseID,
+            IssueDate, ExpriationDate, IsActive, CreatedByUserID);
+        }
+
+
+        //Get Info By DriverID :-
+        public static clsInternationalDrivingLicense FindByDriverID(int DriverID)
+        {
+            int InternationalDrivingLicenseID = -1, ApplicationID = -1, IssuedUsingDrivingLicenseID = -1, CreatedByUserID = -1;
+            DateTime IssueDate = new DateTime(), ExpriationDate = new DateTime();
+            bool IsActive = false;
+
+
+            bool IsFound = clsInternationalDrivingLicenseData.GetInfoBy(DriverID, ref InternationalDrivingLicenseID, ref ApplicationID, ref IssuedUsingDrivingLicenseID, ref IssueDate, ref ExpriationDate, ref IsActive, ref CreatedByUserID);
+
+            if (!IsFound)
+                return null;
+
+            clsApplication ApplicationInfo = clsApplication.Find(ApplicationID);
+
+            return new clsInternationalDrivingLicense(ApplicationID, ApplicationInfo.ApplicationDate, ApplicationInfo.ApplicantPersonID, ApplicationInfo.ApplicationTypeID,
+            ApplicationInfo.ApplicationStatus, ApplicationInfo.LastStatusDate, ApplicationInfo.PaidFees, InternationalDrivingLicenseID, DriverID, IssuedUsingDrivingLicenseID,
+            IssueDate, ExpriationDate, IsActive, CreatedByUserID);
         }
 
 
         //Add New :-
         private bool _AddNew()
         {
-            //int PersonID = -1;
-            this.ID = clsInternationalDrivingLicenseData.AddNew(this.ApplicationID, this.DriverID, this.IssuedUsingDrivingLicenseID, this.IssueDate, this.ExpriationDate, this.IsActive, this.CreatedByUserID);
-            return (this.ID != -1);
+            //int ID = -1;
+            this.InternationalDrivingLicenseID = clsInternationalDrivingLicenseData.AddNew(this.ApplicationID, this.DriverID, this.IssuedUsingDrivingLicenseID, this.IssueDate, this.ExpriationDate, this.IsActive, this.CreatedByUserID);
+            return (this.InternationalDrivingLicenseID != -1);
         }
 
 
         //Update Person :-
         private bool _Update()
         {
-            return clsInternationalDrivingLicenseData.Update(this.ID, this.ApplicationID, this.DriverID, this.IssuedUsingDrivingLicenseID, this.IssueDate, this.ExpriationDate, this.IsActive, this.CreatedByUserID);
+            return clsInternationalDrivingLicenseData.Update(this.InternationalDrivingLicenseID, this.ApplicationID, this.DriverID, this.IssuedUsingDrivingLicenseID, this.IssueDate, this.ExpriationDate, this.IsActive, this.CreatedByUserID);
         }
 
 
-        //Save Mode in (Add New && Update) :-
-        public bool Save()
+        //Save Mode in (Add New && Update) :-//
+        public bool SaveInternational()
         {
-            switch (_Mode)
+            base.Mode = (clsApplication.enMode)_Mode1;
+
+            if (!base.Save())
+                return false;
+
+            switch (_Mode1)
             {
-                case enMode.AddNew:
+                case enMode1.AddNew:
                     {
                         if (_AddNew())
                         {
-                            _Mode = enMode.Update;
+                            _Mode1 = enMode1.Update;
                             return true;
                         }
                         else
@@ -136,7 +181,7 @@ namespace DVLDSystem_BusinessLayer
                             return false;
                         }
                     }
-                case enMode.Update:
+                case enMode1.Update:
                     {
                         return _Update();
                     }
@@ -148,10 +193,11 @@ namespace DVLDSystem_BusinessLayer
         }
 
 
-        //Delete Person :-
-        public static bool Delete(int ID)
+        //Delete :-
+        public bool DeleteInternational(int ID)
         {
-            return clsInternationalDrivingLicenseData.Delete(ID);
+            //return clsInternationalDrivingLicenseData.Delete(ID);
+            return false;
         }
 
 
