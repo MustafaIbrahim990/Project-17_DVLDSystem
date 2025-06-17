@@ -65,7 +65,6 @@
             // btnIssueInternationalDrivingLicense
             // 
             this.btnIssueInternationalDrivingLicense.BackColor = System.Drawing.Color.White;
-            this.btnIssueInternationalDrivingLicense.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnIssueInternationalDrivingLicense.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIssueInternationalDrivingLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIssueInternationalDrivingLicense.Image = global::DVLDSystem.Properties.Resources.International_322;
@@ -83,7 +82,7 @@
             this.ctrlInternationalDrivingLicenseApplicationCard1.BackColor = System.Drawing.Color.White;
             this.ctrlInternationalDrivingLicenseApplicationCard1.Location = new System.Drawing.Point(10, 68);
             this.ctrlInternationalDrivingLicenseApplicationCard1.Name = "ctrlInternationalDrivingLicenseApplicationCard1";
-            this.ctrlInternationalDrivingLicenseApplicationCard1.Size = new System.Drawing.Size(1275, 852);
+            this.ctrlInternationalDrivingLicenseApplicationCard1.Size = new System.Drawing.Size(1275, 861);
             this.ctrlInternationalDrivingLicenseApplicationCard1.TabIndex = 218;
             // 
             // frmIssueInternationalDrivingLicense

@@ -95,15 +95,22 @@ namespace DVLDSystem_BusinessLayer
         }
 
 
-        //Is Exist By ID :-
+        //Does Have Active International License By ID :-
         public static bool IsInternationalLicenseExist(int ID)
         {
             return clsInternationalDrivingLicenseData.IsExist(ID);
         }
 
 
+        //Is Exist By ID :-
+        public static bool DoesHaveActiveInternationalLicense(int ID)
+        {
+            return clsInternationalDrivingLicenseData.DoesHaveActiveInternationalLicense(ID);
+        }
+
+
         //Get Info By ID :-
-        public static clsInternationalDrivingLicense FindInternational(int InternationalDrivingLicenseID)
+        public static clsInternationalDrivingLicense FindInternationalID(int InternationalDrivingLicenseID)
         {
             int ApplicationID = -1, DriverID = -1, IssuedUsingDrivingLicenseID = -1, CreatedByUserID = -1;
             DateTime IssueDate = new DateTime(), ExpriationDate = new DateTime();

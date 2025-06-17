@@ -16,11 +16,11 @@ namespace DVLDSystem.DVLD.Driving_License.Local_Driving_License.Controls
     public partial class ctrlDrivingLicenseCardWithFilter : UserControl
     {
         //Event :-
-        public event Action<int> OnDrivingLicenseSelected;
+        public event Action<int> OnLocalDrivingLicenseSelected;
 
 
         //Privte Properties :-
-        private int _DrivingLicenseID = -1;
+        private int _LocalDrivingLicenseID = -1;
 
         private bool _ShowDrivingLicenseButton = true;
         private bool _FilterDrivingLicenseEnabled = true;
@@ -55,14 +55,14 @@ namespace DVLDSystem.DVLD.Driving_License.Local_Driving_License.Controls
 
 
         //Protected Methods :-
-        protected virtual void DrivingLicenseSelected(int DrivingLicenseID)
+        protected virtual void DrivingLicenseSelected(int LocalDrivingLicenseID)
         {
             //Action<int> handler = OnPersonSelected;
             //if (handler != null)
             //{
             //    handler(PersonID); // Raise the event with the parameter
             //}
-            OnDrivingLicenseSelected?.Invoke(DrivingLicenseID);
+            OnLocalDrivingLicenseSelected?.Invoke(LocalDrivingLicenseID);
         }
 
 
@@ -71,16 +71,24 @@ namespace DVLDSystem.DVLD.Driving_License.Local_Driving_License.Controls
         {
             txtFilterValue.Focus();
         }
-        public void LoadDrivingLicenseInfo(int DrivingLicenseID)
+        public void ResetInfo()
         {
-            txtFilterValue.Text = DrivingLicenseID.ToString();
-            ctrlDrivingLicenseCard1.LoadDrivingLicenseInfo(DrivingLicenseID);
+            txtFilterValue.Text = null;
+            ctrlDrivingLicenseCard1.ResetLocalDrivingLicenseInfo();
+        }
+        public void LoadLocalDrivingLicenseInfo(int LocalDrivingLicenseID)
+        {
+            txtFilterValue.Text = LocalDrivingLicenseID.ToString();
+            ctrlDrivingLicenseCard1.LoadLocalDrivingLicenseInfo(LocalDrivingLicenseID);
 
             if (ctrlDrivingLicenseCard1.SelectedDrivingLicenseID == -1)
+            {
                 FilterFocus();
+            }
 
-            //if (OnDrivingLicenseSelected != null && FilterDrivingLicenseEnabled)
-            //    OnDrivingLicenseSelected(DrivingLicenseID);
+            //Send Local Driving License ID to Subscriber :-
+            if (OnLocalDrivingLicenseSelected != null && FilterDrivingLicenseEnabled)
+                OnLocalDrivingLicenseSelected.Invoke(ctrlDrivingLicenseCard1.SelectedDrivingLicenseID);
         }
 
 
@@ -91,7 +99,7 @@ namespace DVLDSystem.DVLD.Driving_License.Local_Driving_License.Controls
         }
         private void ctrlDrivingLicenseCardWithFilter_Load(object sender, EventArgs e)
         {
-
+            FilterFocus();
         }
 
 
@@ -99,10 +107,12 @@ namespace DVLDSystem.DVLD.Driving_License.Local_Driving_License.Controls
         private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
         {
             //check if the preesed key is enter (character code 13 = Enter key)
-            e.Handled = !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar);
-
             if (e.KeyChar == (char)Keys.Enter)
+            {
                 btnFindDrivingLicenseCard.PerformClick();
+            }
+
+            e.Handled = !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar);
         }
         private void txtFilterValue_Validating(object sender, CancelEventArgs e)
         {
@@ -129,8 +139,8 @@ namespace DVLDSystem.DVLD.Driving_License.Local_Driving_License.Controls
                 FilterFocus();
                 return;
             }
-            _DrivingLicenseID = Convert.ToInt32(txtFilterValue.Text.Trim());
-            LoadDrivingLicenseInfo(_DrivingLicenseID);
+            _LocalDrivingLicenseID = Convert.ToInt32(txtFilterValue.Text.Trim());
+            LoadLocalDrivingLicenseInfo(_LocalDrivingLicenseID);
         }
     }
 }

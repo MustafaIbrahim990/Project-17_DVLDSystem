@@ -15,8 +15,12 @@ namespace DVLDSystem.DVLD.Applications.International_Driving_License.Controls
 {
     public partial class ctrlInternationalDrivingLicenseApplicationCard : UserControl
     {
+        //Event :-
+        public event Action<int> OnSelectedLocalDrivingLicenseID;
+
+
         //Properties :-
-        public int LocalDrivingLicenseID = -1;
+        private int _LocalDrivingLicenseID = -1;
         private int _InternationalDrivingLicenseID = -1;
         private clsInternationalDrivingLicense _InternationalDrivingLicenseInfo;
 
@@ -31,30 +35,18 @@ namespace DVLDSystem.DVLD.Applications.International_Driving_License.Controls
 
 
         //Private Methods :-
-        private void _DataBack(int LocalLicenseID)
+        private void _ResetInfo()
         {
-            LocalDrivingLicenseID = LocalLicenseID;
-
-            if (LocalDrivingLicenseID != -1)
-            {
-                LoadInternationalDrivingLicenseApplicationInfoByDriverID(clsDrivingLicense.Find(LocalDrivingLicenseID).DriverID);
-            }
+            lblInternationalApplicationID.Text = "N/A";
+            lblInternationalLicenseID.Text = "N/A";
+            lblLocalLicenseID.Text = "N/A";
+            lblInternationalApplicationDate.Text = "[????]";
+            lblIssueDate.Text = "[????]";
+            lblFees.Text = "[????]";
+            lblExpirationDate.Text = "[????]";
+            lblCreatedBy.Text = "[????]";
         }
-        private void _FillInfo()
-        {
-            lblInternationalApplicationID.Text = _InternationalDrivingLicenseInfo.ApplicationID.ToString();
-            lblInternationalLicenseID.Text = _InternationalDrivingLicenseInfo.InternationalDrivingLicenseID.ToString();
-            lblLocalLicenseID.Text = _InternationalDrivingLicenseInfo.IssuedUsingDrivingLicenseID.ToString();
-            //lblInternationalApplicationDate.Text = _InternationalDrivingLicenseInfo.ApplicationDate.ToShortDateString();
-            //lblIssueDate.Text = _InternationalDrivingLicenseInfo.IssueDate.ToShortDateString();
-            //lblFees.Text = _InternationalDrivingLicenseInfo.PaidFees.ToString();
-            //lblExpirationDate.Text = _InternationalDrivingLicenseInfo.ExpriationDate.ToShortDateString();
-            //lblCreatedBy.Text = _InternationalDrivingLicenseInfo.CreatedByUserID.ToString();
-        }
-
-
-        //Public Methods :-
-        public void ResetInfo()
+        private void _LoadApplicationBasicInfo()
         {
             lblInternationalApplicationID.Text = "N/A";
             lblInternationalLicenseID.Text = "N/A";
@@ -63,33 +55,43 @@ namespace DVLDSystem.DVLD.Applications.International_Driving_License.Controls
             lblIssueDate.Text = DateTime.Now.ToShortDateString();
             lblFees.Text = clsApplicationType.Find((int)clsApplication.enApplicationType.NewInternationalDrivingLicense).Fees.ToString() + " $";
             lblExpirationDate.Text = DateTime.Now.AddYears(1).ToShortDateString();
-            lblCreatedBy.Text = clsGlobal.CurrentUser.UserID.ToString();
-
-            ctrlDrivingLicenseCardWithFilter1.OnDrivingLicenseSelected += _DataBack;
+            lblCreatedBy.Text = clsGlobal.CurrentUser.UserName;
         }
-        public void LoadInternationalDrivingLicenseApplicationInfoByInternationalID(int InternationalDrivingLicenseID)
+        private void _DataBack(int LocalLicenseID)
         {
-            _InternationalDrivingLicenseInfo = clsInternationalDrivingLicense.FindInternational(InternationalDrivingLicenseID);
+            _LocalDrivingLicenseID = LocalLicenseID;
+            _LoadApplicationBasicInfo();
+            OnSelectedLocalDrivingLicenseID?.Invoke(_LocalDrivingLicenseID);
+        }
+        private void _FillInfo()
+        {
+            //lblInternationalApplicationID.Text = _InternationalDrivingLicenseInfo.ApplicationID.ToString();
+            //lblInternationalLicenseID.Text = _InternationalDrivingLicenseInfo.InternationalDrivingLicenseID.ToString();
+            //lblLocalLicenseID.Text = _LocalDrivingLicenseID.ToString();
+        }
+
+
+        //Protected Methods :-
+        protected void LocalLicenseIDSelected(int InternationalLicenseID)
+        {
+            OnSelectedLocalDrivingLicenseID?.Invoke(InternationalLicenseID);
+        }
+
+
+        //Public Methods :-
+        public void LoadInternationalDrivingLicenseInfo(int InternationalDrivingLicenseID)
+        {
+            _InternationalDrivingLicenseInfo = clsInternationalDrivingLicense.FindInternationalID(InternationalDrivingLicenseID);
 
             if (_InternationalDrivingLicenseInfo == null)
             {
-                ResetInfo();
-                MessageBox.Show($"Error : No International Driving License With ID [{InternationalDrivingLicenseID}] in The System!", "Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _ResetInfo();
+                MessageBox.Show($"Error : Could Not Find International Driving License With ID [{InternationalDrivingLicenseID}] in The System!", "Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             _FillInfo();
-        }
-        public void LoadInternationalDrivingLicenseApplicationInfoByDriverID(int DriverID)
-        {
-            _InternationalDrivingLicenseInfo = clsInternationalDrivingLicense.FindByDriverID(DriverID);
-
-            if (_InternationalDrivingLicenseInfo == null)
-            {
-                ResetInfo();
-                MessageBox.Show($"Error : No International Driving License With Driver ID [{DriverID}] in The System!", "Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            _FillInfo();
+            ctrlDrivingLicenseCardWithFilter1.ShowDrivingLicenseButton = false;
+            ctrlDrivingLicenseCardWithFilter1.FilterDrivingLicenseEnabled = false;
         }
 
 
@@ -100,7 +102,7 @@ namespace DVLDSystem.DVLD.Applications.International_Driving_License.Controls
         }
         private void ctrlInternationalDrivingLicenseApplicationCard_Load(object sender, EventArgs e)
         {
-
+            ctrlDrivingLicenseCardWithFilter1.OnLocalDrivingLicenseSelected += _DataBack;
         }
     }
 }

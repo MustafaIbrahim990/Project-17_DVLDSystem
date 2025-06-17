@@ -31,7 +31,6 @@ namespace DVLDSystem.DVLD.Login
                 return clsGlobal.SaveUserNameANDPassWord(null, null);
             }
         }
-
         private bool _GetUserInfo()
         {
             _UserInfo = clsUser.Find(txtUserName.Text.Trim(), clsGlobal.GenerateHash(txtPassWord.Text.Trim()));

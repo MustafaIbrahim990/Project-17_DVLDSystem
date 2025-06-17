@@ -36,14 +36,14 @@ namespace DVLDSystem.DVLD.Driving_License.Local_Driving_License.Controls
 
 
         //Private Methods :-
-        private bool _GetDrivingLicenseObject()
+        private bool _GetLocalDrivingLicenseObject()
         {
             _DrivingLicenseInfo = clsDrivingLicense.Find(_DrivingLicenseID);
 
             if (_DrivingLicenseInfo == null)
             {
                 MessageBox.Show($"Error : Could Not Find Driving License With ID [{_DrivingLicenseID}] in The System!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ResetDrivingLicenseInfo();
+                ResetLocalDrivingLicenseInfo();
                 return false;
             }
             return true;
@@ -88,7 +88,7 @@ namespace DVLDSystem.DVLD.Driving_License.Local_Driving_License.Controls
             _GetDefaultPersonImage();
         }
 
-        private void _FillDrivingLicenseInfo()
+        private void _FillLocalDrivingLicenseInfo()
         {
             lblClass.Text = _DrivingLicenseInfo.LicenseClassInfo.ClassName;
             lblFullName.Text = _DrivingLicenseInfo.ApplicationInfo.FullName;
@@ -113,7 +113,7 @@ namespace DVLDSystem.DVLD.Driving_License.Local_Driving_License.Controls
 
 
         //Public Methods :-
-        public void ResetDrivingLicenseInfo()
+        public void ResetLocalDrivingLicenseInfo()
         {
             _DrivingLicenseID = -1;
             lblClass.Text = "[????]";
@@ -133,14 +133,14 @@ namespace DVLDSystem.DVLD.Driving_License.Local_Driving_License.Controls
             pbPersonImage.Image = Properties.Resources.Male_512;
             llShowPersonInfo.Enabled = false;
         }
-        public void LoadDrivingLicenseInfo(int DrivingLicenseID)
+        public void LoadLocalDrivingLicenseInfo(int LocalDrivingLicenseID)
         {
-            _DrivingLicenseID = DrivingLicenseID;
+            _DrivingLicenseID = LocalDrivingLicenseID;
 
-            if (!_GetDrivingLicenseObject())
+            if (!_GetLocalDrivingLicenseObject())
                 return;
 
-            _FillDrivingLicenseInfo();
+            _FillLocalDrivingLicenseInfo();
         }
 
 
@@ -163,7 +163,7 @@ namespace DVLDSystem.DVLD.Driving_License.Local_Driving_License.Controls
             frm.ShowDialog();
 
             //Refresh :-
-            LoadDrivingLicenseInfo(_DrivingLicenseID);
+            LoadLocalDrivingLicenseInfo(_DrivingLicenseID);
         }
     }
 }

@@ -116,6 +116,40 @@ namespace DVLDSystem_DataAccessLayer
         }
 
 
+        //Dose Have Active International License By ID :-
+        public static bool DoesHaveActiveInternationalLicense(int InternationalDrivingLicenseID)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataSettings.ConnectionString);
+
+            string query = @"SELECT IsFound = 'Yes' FROM InternationalDrivingLicenses
+                           Where InternationalDrivingLicenses.InternationalDrivingLicenseID = @InternationalDrivingLicenseID AND InternationalDrivingLicenses.IsActive = 1;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            //Dose Have Active International License By ID :-
+            command.Parameters.AddWithValue("@InternationalDrivingLicenseID", InternationalDrivingLicenseID);
+
+            try
+            {
+                connection.Open();
+                object Result = command.ExecuteScalar();
+
+                isFound = (Result == null) ? false : true;
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isFound;
+        }
+
+
         //Get Info By ID :-
         public static bool GetInfo(int InternationalDrivingLicenseID, ref int ApplicationID, ref int DriverID, ref int IssuedUsingDrivingLicenseID, ref DateTime IssueDate, ref DateTime ExpriationDate, ref bool IsActive, ref int CreatedByUserID)
         {

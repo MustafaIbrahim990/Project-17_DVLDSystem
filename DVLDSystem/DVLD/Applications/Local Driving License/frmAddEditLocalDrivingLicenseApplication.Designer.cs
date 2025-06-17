@@ -32,6 +32,7 @@
             this.tcLocalDrivingLicenseApplicationInfo = new System.Windows.Forms.TabControl();
             this.tpPersonalInfo = new System.Windows.Forms.TabPage();
             this.btnNextStep = new System.Windows.Forms.Button();
+            this.ctrlPersonInfoWithFilter1 = new DVLDSystem.DVLD.People.Controls.ctrlPersonInfoWithFilter();
             this.tpApplicationInfo = new System.Windows.Forms.TabPage();
             this.cbLicenseClass = new System.Windows.Forms.ComboBox();
             this.lblCreatedBy = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.btnCloseForm = new System.Windows.Forms.Button();
             this.btnSaveData = new System.Windows.Forms.Button();
-            this.ctrlPersonInfoWithFilter1 = new DVLDSystem.DVLD.People.Controls.ctrlPersonInfoWithFilter();
             this.tcLocalDrivingLicenseApplicationInfo.SuspendLayout();
             this.tpPersonalInfo.SuspendLayout();
             this.tpApplicationInfo.SuspendLayout();
@@ -110,6 +110,16 @@
             this.btnNextStep.Text = "Next";
             this.btnNextStep.UseVisualStyleBackColor = false;
             this.btnNextStep.Click += new System.EventHandler(this.btnNextStep_Click);
+            // 
+            // ctrlPersonInfoWithFilter1
+            // 
+            this.ctrlPersonInfoWithFilter1.BackColor = System.Drawing.Color.White;
+            this.ctrlPersonInfoWithFilter1.btnAddNewPersonEnabled = true;
+            this.ctrlPersonInfoWithFilter1.FilterPersonEnabled = true;
+            this.ctrlPersonInfoWithFilter1.Location = new System.Drawing.Point(8, 6);
+            this.ctrlPersonInfoWithFilter1.Name = "ctrlPersonInfoWithFilter1";
+            this.ctrlPersonInfoWithFilter1.Size = new System.Drawing.Size(1183, 545);
+            this.ctrlPersonInfoWithFilter1.TabIndex = 0;
             // 
             // tpApplicationInfo
             // 
@@ -317,7 +327,6 @@
             // btnSaveData
             // 
             this.btnSaveData.BackColor = System.Drawing.Color.White;
-            this.btnSaveData.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSaveData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveData.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveData.Image = global::DVLDSystem.Properties.Resources.Save_32;
@@ -329,16 +338,6 @@
             this.btnSaveData.Text = "Save";
             this.btnSaveData.UseVisualStyleBackColor = false;
             this.btnSaveData.Click += new System.EventHandler(this.btnSaveUserData_Click);
-            // 
-            // ctrlPersonInfoWithFilter1
-            // 
-            this.ctrlPersonInfoWithFilter1.BackColor = System.Drawing.Color.White;
-            this.ctrlPersonInfoWithFilter1.btnAddNewPersonEnabled = true;
-            this.ctrlPersonInfoWithFilter1.FilterPersonEnabled = true;
-            this.ctrlPersonInfoWithFilter1.Location = new System.Drawing.Point(8, 6);
-            this.ctrlPersonInfoWithFilter1.Name = "ctrlPersonInfoWithFilter1";
-            this.ctrlPersonInfoWithFilter1.Size = new System.Drawing.Size(1183, 545);
-            this.ctrlPersonInfoWithFilter1.TabIndex = 0;
             // 
             // frmAddEditLocalDrivingLicenseApplication
             // 
