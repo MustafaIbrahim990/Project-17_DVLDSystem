@@ -264,5 +264,39 @@ namespace DVLDSystem_DataAccessLayer
             }
             return (rowsAffected > 0);
         }
+
+
+        //Is Local Driving License As a Oridinary Driving License(Class 3) :-
+        public static bool IsLocalDrivingLicenseAsOrdinaryDrivingLicense(int LocalLicenseApplicationID)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataSettings.ConnectionString);
+
+            string query = @"SELECT IsFound = 'Yes' FROM LocalDrivingLicenseApplications
+                           Where LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID AND LocalDrivingLicenseApplications.LicenseClassID = 3;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            //Dose Have Active International License By ID :-
+            command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalLicenseApplicationID);
+
+            try
+            {
+                connection.Open();
+                object Result = command.ExecuteScalar();
+
+                isFound = (Result == null) ? false : true;
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isFound;
+        }
     }
 }

@@ -60,7 +60,7 @@ namespace DVLDSystem.DVLD.Driving_License.Controls
 
         private void _GetInternationalDrivingLicenseLists()
         {
-            //_dtInternationalDrivingLicenseLists = clsInternationalDrivingLicense.GetDrivingLicensesForDriver(_DriverID);
+            _dtInternationalDrivingLicenseLists = clsInternationalDrivingLicense.GetDrivingLicensesForDriver(_DriverID);
         }
 
         private void _ShowInternationalDrivingLicenseListsInGrid()

@@ -25,7 +25,7 @@ namespace DVLDSystem.DVLD.Driving_License.Local_Driving_License
         }
         private void frmShowDrivingLicenseCard_Load(object sender, EventArgs e)
         {
-            ctrlDrivingLicenseCard1.LoadDrivingLicenseInfo(_DrivingLicenseID);
+            ctrlDrivingLicenseCard1.LoadLocalDrivingLicenseInfo(_DrivingLicenseID);
         }
 
 

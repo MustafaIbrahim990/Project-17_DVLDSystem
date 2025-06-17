@@ -226,5 +226,12 @@ namespace DVLDSystem_BusinessLayer
                 return -1;
             }
         }
+
+
+        //Is Local Driving License As a Oridinary Driving License(Class 3) :-
+        public static bool IsLocalDrivingLicenseAsOrdinaryDrivingLicense(int LocalLicenseApplicationID)
+        {
+            return clsLocalDrivingLicenseApplicationData.IsLocalDrivingLicenseAsOrdinaryDrivingLicense(LocalLicenseApplicationID);
+        }
     }
 }
