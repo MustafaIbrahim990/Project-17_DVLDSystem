@@ -40,11 +40,11 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft JhengHei", 22F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(487, 131);
+            this.label3.Location = new System.Drawing.Point(388, 134);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(302, 38);
+            this.label3.Size = new System.Drawing.Size(501, 38);
             this.label3.TabIndex = 28;
-            this.label3.Text = "Driving License Info";
+            this.label3.Text = "Local Driving License Information";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
@@ -90,10 +90,10 @@
             this.Controls.Add(this.ctrlDrivingLicenseCard1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmShowDrivingLicenseCard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Show Driving License Card";
+            this.Text = "Show Local Driving License Card";
             this.Load += new System.EventHandler(this.frmShowDrivingLicenseCard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

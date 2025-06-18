@@ -42,19 +42,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.lblRecordCountInInternational = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dgvInternationalDrivingLicenseLists = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
             this.cmsInternationalDrivinglicenseHistory = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.showLocalDrivingLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showInternationalDrivingLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
+            this.dgvInternationalDrivingLicenseLists = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocalDrivingLicenseLists)).BeginInit();
             this.cmsLocalDrivingLicenseHistory.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInternationalDrivingLicenseLists)).BeginInit();
             this.cmsInternationalDrivinglicenseHistory.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInternationalDrivingLicenseLists)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -66,7 +66,7 @@
             this.groupBox1.Size = new System.Drawing.Size(1160, 275);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Driving License ";
+            this.groupBox1.Text = "Driving Licenses";
             // 
             // tabControl1
             // 
@@ -138,6 +138,7 @@
             this.dgvLocalDrivingLicenseLists.RowTemplate.Height = 24;
             this.dgvLocalDrivingLicenseLists.Size = new System.Drawing.Size(1082, 109);
             this.dgvLocalDrivingLicenseLists.TabIndex = 31;
+            this.dgvLocalDrivingLicenseLists.DoubleClick += new System.EventHandler(this.dgvLocalDrivingLicenseLists_DoubleClick);
             // 
             // cmsLocalDrivingLicenseHistory
             // 
@@ -146,14 +147,14 @@
             this.cmsLocalDrivingLicenseHistory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showLocalDrivingLicenseToolStripMenuItem1});
             this.cmsLocalDrivingLicenseHistory.Name = "cmsLocalDrivingLicenseHistory";
-            this.cmsLocalDrivingLicenseHistory.Size = new System.Drawing.Size(247, 72);
+            this.cmsLocalDrivingLicenseHistory.Size = new System.Drawing.Size(286, 50);
             // 
             // showLocalDrivingLicenseToolStripMenuItem1
             // 
             this.showLocalDrivingLicenseToolStripMenuItem1.Image = global::DVLDSystem.Properties.Resources.License_View_32;
             this.showLocalDrivingLicenseToolStripMenuItem1.Name = "showLocalDrivingLicenseToolStripMenuItem1";
-            this.showLocalDrivingLicenseToolStripMenuItem1.Size = new System.Drawing.Size(246, 46);
-            this.showLocalDrivingLicenseToolStripMenuItem1.Text = "Show Driving License";
+            this.showLocalDrivingLicenseToolStripMenuItem1.Size = new System.Drawing.Size(285, 46);
+            this.showLocalDrivingLicenseToolStripMenuItem1.Text = "Show Local Driving License";
             this.showLocalDrivingLicenseToolStripMenuItem1.Click += new System.EventHandler(this.showLocalDrivingLicenseToolStripMenuItem1_Click);
             // 
             // label1
@@ -170,9 +171,9 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
-            this.tabPage1.Controls.Add(this.lblRecordCountInInternational);
-            this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.dgvInternationalDrivingLicenseLists);
+            this.tabPage1.Controls.Add(this.lblRecordCountInInternational);
+            this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
@@ -184,21 +185,49 @@
             // 
             this.lblRecordCountInInternational.AutoSize = true;
             this.lblRecordCountInInternational.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecordCountInInternational.Location = new System.Drawing.Point(140, 204);
+            this.lblRecordCountInInternational.Location = new System.Drawing.Point(140, 177);
             this.lblRecordCountInInternational.Name = "lblRecordCountInInternational";
             this.lblRecordCountInInternational.Size = new System.Drawing.Size(26, 17);
-            this.lblRecordCountInInternational.TabIndex = 41;
+            this.lblRecordCountInInternational.TabIndex = 43;
             this.lblRecordCountInInternational.Text = "##";
             // 
-            // label5
+            // label6
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(21, 204);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 17);
-            this.label5.TabIndex = 40;
-            this.label5.Text = "# Records :";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(21, 177);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(92, 17);
+            this.label6.TabIndex = 42;
+            this.label6.Text = "# Records :";
+            // 
+            // cmsInternationalDrivinglicenseHistory
+            // 
+            this.cmsInternationalDrivinglicenseHistory.Font = new System.Drawing.Font("Perpetua", 13F);
+            this.cmsInternationalDrivinglicenseHistory.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.cmsInternationalDrivinglicenseHistory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showInternationalDrivingLicenseToolStripMenuItem});
+            this.cmsInternationalDrivinglicenseHistory.Name = "cmsInternationalDrivinglicenseHistory";
+            this.cmsInternationalDrivinglicenseHistory.Size = new System.Drawing.Size(333, 50);
+            // 
+            // showInternationalDrivingLicenseToolStripMenuItem
+            // 
+            this.showInternationalDrivingLicenseToolStripMenuItem.Image = global::DVLDSystem.Properties.Resources.License_View_32;
+            this.showInternationalDrivingLicenseToolStripMenuItem.Name = "showInternationalDrivingLicenseToolStripMenuItem";
+            this.showInternationalDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(332, 46);
+            this.showInternationalDrivingLicenseToolStripMenuItem.Text = "Show International Driving License";
+            this.showInternationalDrivingLicenseToolStripMenuItem.Click += new System.EventHandler(this.showInternationalDrivingLicenseToolStripMenuItem_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(18, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(278, 16);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "International Driving License History :";
             // 
             // dgvInternationalDrivingLicenseLists
             // 
@@ -208,7 +237,7 @@
             this.dgvInternationalDrivingLicenseLists.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvInternationalDrivingLicenseLists.BackgroundColor = System.Drawing.Color.White;
             this.dgvInternationalDrivingLicenseLists.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInternationalDrivingLicenseLists.ContextMenuStrip = this.cmsInternationalDrivinglicenseHistory;
+            this.dgvInternationalDrivingLicenseLists.ContextMenuStrip = this.cmsLocalDrivingLicenseHistory;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -223,36 +252,9 @@
             this.dgvInternationalDrivingLicenseLists.ReadOnly = true;
             this.dgvInternationalDrivingLicenseLists.RowHeadersWidth = 51;
             this.dgvInternationalDrivingLicenseLists.RowTemplate.Height = 24;
-            this.dgvInternationalDrivingLicenseLists.Size = new System.Drawing.Size(1082, 134);
-            this.dgvInternationalDrivingLicenseLists.TabIndex = 39;
-            // 
-            // cmsInternationalDrivinglicenseHistory
-            // 
-            this.cmsInternationalDrivinglicenseHistory.Font = new System.Drawing.Font("Perpetua", 13F);
-            this.cmsInternationalDrivinglicenseHistory.ImageScalingSize = new System.Drawing.Size(40, 40);
-            this.cmsInternationalDrivinglicenseHistory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showLocalDrivingLicenseToolStripMenuItem});
-            this.cmsInternationalDrivinglicenseHistory.Name = "cmsInternationalDrivinglicenseHistory";
-            this.cmsInternationalDrivinglicenseHistory.Size = new System.Drawing.Size(247, 50);
-            // 
-            // showLocalDrivingLicenseToolStripMenuItem
-            // 
-            this.showLocalDrivingLicenseToolStripMenuItem.Image = global::DVLDSystem.Properties.Resources.License_View_32;
-            this.showLocalDrivingLicenseToolStripMenuItem.Name = "showLocalDrivingLicenseToolStripMenuItem";
-            this.showLocalDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(246, 46);
-            this.showLocalDrivingLicenseToolStripMenuItem.Text = "Show Driving License";
-            this.showLocalDrivingLicenseToolStripMenuItem.Click += new System.EventHandler(this.showLocalDrivingLicenseToolStripMenuItem_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Lucida Bright", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(18, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(278, 16);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "International Driving License History :";
+            this.dgvInternationalDrivingLicenseLists.Size = new System.Drawing.Size(1082, 109);
+            this.dgvInternationalDrivingLicenseLists.TabIndex = 44;
+            this.dgvInternationalDrivingLicenseLists.DoubleClick += new System.EventHandler(this.dgvInternationalDrivingLicenseLists_DoubleClick_1);
             // 
             // ctrlDrivingLicenses
             // 
@@ -270,8 +272,8 @@
             this.cmsLocalDrivingLicenseHistory.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInternationalDrivingLicenseLists)).EndInit();
             this.cmsInternationalDrivinglicenseHistory.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInternationalDrivingLicenseLists)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -286,13 +288,13 @@
         private System.Windows.Forms.DataGridView dgvLocalDrivingLicenseLists;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Label lblRecordCountInInternational;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView dgvInternationalDrivingLicenseLists;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ContextMenuStrip cmsLocalDrivingLicenseHistory;
         private System.Windows.Forms.ToolStripMenuItem showLocalDrivingLicenseToolStripMenuItem1;
         private System.Windows.Forms.ContextMenuStrip cmsInternationalDrivinglicenseHistory;
-        private System.Windows.Forms.ToolStripMenuItem showLocalDrivingLicenseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showInternationalDrivingLicenseToolStripMenuItem;
+        private System.Windows.Forms.Label lblRecordCountInInternational;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridView dgvInternationalDrivingLicenseLists;
     }
 }

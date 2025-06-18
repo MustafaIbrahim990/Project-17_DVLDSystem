@@ -31,6 +31,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnCloseForm = new System.Windows.Forms.Button();
             this.btnIssueInternationalDrivingLicense = new System.Windows.Forms.Button();
+            this.llShowLicenseHistory = new System.Windows.Forms.LinkLabel();
+            this.llShowLicenseInfo = new System.Windows.Forms.LinkLabel();
             this.ctrlInternationalDrivingLicenseApplicationCard1 = new DVLDSystem.DVLD.Applications.International_Driving_License.Controls.ctrlInternationalDrivingLicenseApplicationCard();
             this.SuspendLayout();
             // 
@@ -77,6 +79,34 @@
             this.btnIssueInternationalDrivingLicense.UseVisualStyleBackColor = false;
             this.btnIssueInternationalDrivingLicense.Click += new System.EventHandler(this.btnIssueInternationalDrivingLicense_Click);
             // 
+            // llShowLicenseHistory
+            // 
+            this.llShowLicenseHistory.AutoSize = true;
+            this.llShowLicenseHistory.Enabled = false;
+            this.llShowLicenseHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llShowLicenseHistory.LinkColor = System.Drawing.Color.Blue;
+            this.llShowLicenseHistory.Location = new System.Drawing.Point(56, 937);
+            this.llShowLicenseHistory.Name = "llShowLicenseHistory";
+            this.llShowLicenseHistory.Size = new System.Drawing.Size(147, 17);
+            this.llShowLicenseHistory.TabIndex = 219;
+            this.llShowLicenseHistory.TabStop = true;
+            this.llShowLicenseHistory.Text = "Show License History.";
+            this.llShowLicenseHistory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llShowLicenseHistory_LinkClicked);
+            // 
+            // llShowLicenseInfo
+            // 
+            this.llShowLicenseInfo.AutoSize = true;
+            this.llShowLicenseInfo.Enabled = false;
+            this.llShowLicenseInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llShowLicenseInfo.LinkColor = System.Drawing.Color.Blue;
+            this.llShowLicenseInfo.Location = new System.Drawing.Point(246, 937);
+            this.llShowLicenseInfo.Name = "llShowLicenseInfo";
+            this.llShowLicenseInfo.Size = new System.Drawing.Size(126, 17);
+            this.llShowLicenseInfo.TabIndex = 220;
+            this.llShowLicenseInfo.TabStop = true;
+            this.llShowLicenseInfo.Text = "Show License Info.";
+            this.llShowLicenseInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llShowLicenseInfo_LinkClicked);
+            // 
             // ctrlInternationalDrivingLicenseApplicationCard1
             // 
             this.ctrlInternationalDrivingLicenseApplicationCard1.BackColor = System.Drawing.Color.White;
@@ -90,6 +120,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1297, 990);
+            this.Controls.Add(this.llShowLicenseInfo);
+            this.Controls.Add(this.llShowLicenseHistory);
             this.Controls.Add(this.ctrlInternationalDrivingLicenseApplicationCard1);
             this.Controls.Add(this.btnCloseForm);
             this.Controls.Add(this.btnIssueInternationalDrivingLicense);
@@ -110,5 +142,7 @@
         private System.Windows.Forms.Button btnCloseForm;
         private System.Windows.Forms.Button btnIssueInternationalDrivingLicense;
         private Controls.ctrlInternationalDrivingLicenseApplicationCard ctrlInternationalDrivingLicenseApplicationCard1;
+        private System.Windows.Forms.LinkLabel llShowLicenseHistory;
+        private System.Windows.Forms.LinkLabel llShowLicenseInfo;
     }
 }

@@ -117,19 +117,19 @@ namespace DVLDSystem_DataAccessLayer
 
 
         //Dose Have Active International License By ID :-
-        public static bool DoesHaveActiveInternationalLicense(int InternationalDrivingLicenseID)
+        public static bool DoesHaveActiveInternationalLicense(int LocalDrivingLicenseID)
         {
             bool isFound = false;
 
             SqlConnection connection = new SqlConnection(clsDataSettings.ConnectionString);
 
             string query = @"SELECT IsFound = 'Yes' FROM InternationalDrivingLicenses
-                           Where InternationalDrivingLicenses.InternationalDrivingLicenseID = @InternationalDrivingLicenseID AND InternationalDrivingLicenses.IsActive = 1;";
+                           Where InternationalDrivingLicenses.IssuedUsingDrivingLicenseID = @IssuedUsingDrivingLicenseID AND InternationalDrivingLicenses.IsActive = 1;";
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            //Dose Have Active International License By ID :-
-            command.Parameters.AddWithValue("@InternationalDrivingLicenseID", InternationalDrivingLicenseID);
+            //Dose Have Active Local License By ID :-
+            command.Parameters.AddWithValue("@IssuedUsingDrivingLicenseID", LocalDrivingLicenseID);
 
             try
             {
@@ -221,6 +221,51 @@ namespace DVLDSystem_DataAccessLayer
                     InternationalDrivingLicenseID = (int)reader["InternationalDrivingLicenseID"];
                     ApplicationID = (int)reader["ApplicationID"];
                     IssuedUsingDrivingLicenseID = (int)reader["IssuedUsingDrivingLicenseID"];
+                    IssueDate = (DateTime)reader["IssueDate"];
+                    ExpriationDate = (DateTime)reader["ExpriationDate"];
+                    IsActive = (bool)reader["IsActive"];
+                    CreatedByUserID = (int)reader["CreatedByUserID"];
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isFound;
+        }
+
+
+        //Get Info By LocalLicenseID :-
+        public static bool GetInfoByLocalLicenseID(int IssuedUsingDrivingLicenseID, ref int InternationalDrivingLicenseID, ref int ApplicationID, ref int DriverID, ref DateTime IssueDate, ref DateTime ExpriationDate, ref bool IsActive, ref int CreatedByUserID)
+        {
+            bool isFound = false;
+            SqlConnection connection = new SqlConnection(clsDataSettings.ConnectionString);
+
+            string query = @"SELECT * FROM InternationalDrivingLicenses
+                           WHERE InternationalDrivingLicenses.IssuedUsingDrivingLicenseID = @IssuedUsingDrivingLicenseID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            //Get Info By IssuedUsingDrivingLicenseID :-
+            command.Parameters.AddWithValue("@IssuedUsingDrivingLicenseID", IssuedUsingDrivingLicenseID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isFound = true;
+
+                    InternationalDrivingLicenseID = (int)reader["InternationalDrivingLicenseID"];
+                    ApplicationID = (int)reader["ApplicationID"];
+                    DriverID = (int)reader["DriverID"];
                     IssueDate = (DateTime)reader["IssueDate"];
                     ExpriationDate = (DateTime)reader["ExpriationDate"];
                     IsActive = (bool)reader["IsActive"];
@@ -363,11 +408,11 @@ namespace DVLDSystem_DataAccessLayer
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(clsDataSettings.ConnectionString);
 
-            string query = @"SELECT InternationalDrivingLicenses.InternationalDrivingLicenseID AS InternationalID, InternationalDrivingLicenses.ApplicationID, 
-                           InternationalDrivingLicenses.IssuedUsingDrivingLicenseID AS DrivingLicenseID, InternationalDrivingLicenses.IssueDate,
-                           InternationalDrivingLicenses.ExpriationDate, InternationalDrivingLicenses.IsActive
+            string query = @"SELECT InternationalDrivingLicenses.InternationalDrivingLicenseID AS [Internation L. ID], InternationalDrivingLicenses.ApplicationID AS ApplicationID, 
+                           InternationalDrivingLicenses.IssuedUsingDrivingLicenseID AS [Local L. ID], InternationalDrivingLicenses.IssueDate AS IssueDate,
+                           InternationalDrivingLicenses.ExpriationDate AS ExpriationDate, InternationalDrivingLicenses.IsActive AS IsActive
                            FROM InternationalDrivingLicenses
-                           WHERE InternationalDrivingLicenses.DriverID = @DriverID
+                           Where InternationalDrivingLicenses.DriverID = @DriverID
                            Order By InternationalDrivingLicenses.IsActive DESC, ExpriationDate DESC;";
 
             SqlCommand command = new SqlCommand(query, connection);
@@ -395,6 +440,7 @@ namespace DVLDSystem_DataAccessLayer
                 connection.Close();
             }
             return dt;
+
         }
     }
 }

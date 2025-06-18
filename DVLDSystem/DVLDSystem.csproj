@@ -129,6 +129,18 @@
     <Compile Include="DVLD\Applications\International Driving License\frmManageInternationalDrivingLicenseApplications.Designer.cs">
       <DependentUpon>frmManageInternationalDrivingLicenseApplications.cs</DependentUpon>
     </Compile>
+    <Compile Include="DVLD\Driving License\International Driving License\Controls\ctrlInternationalDrivingLicenseCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DVLD\Driving License\International Driving License\Controls\ctrlInternationalDrivingLicenseCard.Designer.cs">
+      <DependentUpon>ctrlInternationalDrivingLicenseCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD\Driving License\International Driving License\frmShowInternationalDrivingLicenseCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD\Driving License\International Driving License\frmShowInternationalDrivingLicenseCard.Designer.cs">
+      <DependentUpon>frmShowInternationalDrivingLicenseCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="DVLD\Driving License\Local Driving License\frmIssueDrivingLicense.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -340,6 +352,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD\Applications\International Driving License\frmManageInternationalDrivingLicenseApplications.resx">
       <DependentUpon>frmManageInternationalDrivingLicenseApplications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD\Driving License\International Driving License\Controls\ctrlInternationalDrivingLicenseCard.resx">
+      <DependentUpon>ctrlInternationalDrivingLicenseCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD\Driving License\International Driving License\frmShowInternationalDrivingLicenseCard.resx">
+      <DependentUpon>frmShowInternationalDrivingLicenseCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD\Driving License\Local Driving License\frmIssueDrivingLicense.resx">
       <DependentUpon>frmIssueDrivingLicense.cs</DependentUpon>
@@ -694,9 +712,7 @@
   <ItemGroup>
     <None Include="Resources\IssueDrivingLicense 321.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DVLD\Driving License\International Driving License\Controls\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\Question 32.png" />
   </ItemGroup>

@@ -42,7 +42,7 @@ namespace DVLDSystem.DVLD.Driving_License.Local_Driving_License.Controls
 
             if (_DrivingLicenseInfo == null)
             {
-                MessageBox.Show($"Error : Could Not Find Driving License With ID [{_DrivingLicenseID}] in The System!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error : No Driving License With ID [{_DrivingLicenseID}] in The System!", "Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ResetLocalDrivingLicenseInfo();
                 return false;
             }

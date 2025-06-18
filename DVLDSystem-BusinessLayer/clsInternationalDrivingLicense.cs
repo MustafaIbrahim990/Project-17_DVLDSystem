@@ -103,9 +103,9 @@ namespace DVLDSystem_BusinessLayer
 
 
         //Is Exist By ID :-
-        public static bool DoesHaveActiveInternationalLicense(int ID)
+        public static bool DoesHaveActiveInternationalLicense(int LocalDrivingLicenseID)
         {
-            return clsInternationalDrivingLicenseData.DoesHaveActiveInternationalLicense(ID);
+            return clsInternationalDrivingLicenseData.DoesHaveActiveInternationalLicense(LocalDrivingLicenseID);
         }
 
 
@@ -146,6 +146,27 @@ namespace DVLDSystem_BusinessLayer
 
             return new clsInternationalDrivingLicense(ApplicationID, ApplicationInfo.ApplicationDate, ApplicationInfo.ApplicantPersonID, ApplicationInfo.ApplicationTypeID,
             ApplicationInfo.ApplicationStatus, ApplicationInfo.LastStatusDate, ApplicationInfo.PaidFees, InternationalDrivingLicenseID, DriverID, IssuedUsingDrivingLicenseID,
+            IssueDate, ExpriationDate, IsActive, CreatedByUserID);
+        }
+
+
+        //Get Info By LocalLicenseID :-
+        public static clsInternationalDrivingLicense FindByLocalLicenseID(int LocalLicenseID)
+        {
+            int InternationalDrivingLicenseID = -1, ApplicationID = -1, DriverID = -1, CreatedByUserID = -1;
+            DateTime IssueDate = new DateTime(), ExpriationDate = new DateTime();
+            bool IsActive = false;
+
+
+            bool IsFound = clsInternationalDrivingLicenseData.GetInfoByLocalLicenseID(LocalLicenseID, ref InternationalDrivingLicenseID, ref ApplicationID, ref DriverID, ref IssueDate, ref ExpriationDate, ref IsActive, ref CreatedByUserID);
+
+            if (!IsFound)
+                return null;
+
+            clsApplication ApplicationInfo = clsApplication.Find(ApplicationID);
+
+            return new clsInternationalDrivingLicense(ApplicationID, ApplicationInfo.ApplicationDate, ApplicationInfo.ApplicantPersonID, ApplicationInfo.ApplicationTypeID,
+            ApplicationInfo.ApplicationStatus, ApplicationInfo.LastStatusDate, ApplicationInfo.PaidFees, InternationalDrivingLicenseID, DriverID, LocalLicenseID,
             IssueDate, ExpriationDate, IsActive, CreatedByUserID);
         }
 
@@ -212,6 +233,40 @@ namespace DVLDSystem_BusinessLayer
         public static DataTable GetDrivingLicensesForDriver(int DriverID)
         {
             return clsInternationalDrivingLicenseData.GetDrivingLicensesForDriver(DriverID);
+        }
+
+
+        //Issue International Driving License :-
+        public int IssueInternationalDrivingLicense(int LocalDrivingLicenseID, int CreatedByUserID)
+        {
+            clsInternationalDrivingLicense InternationalDrivingLicenseInfo = new clsInternationalDrivingLicense();
+
+            //Application Info :-
+            InternationalDrivingLicenseInfo.ApplicationDate = DateTime.Now;
+            InternationalDrivingLicenseInfo.ApplicantPersonID = clsDrivingLicense.Find(LocalDrivingLicenseID).ApplicationInfo.ApplicantPersonID;
+            InternationalDrivingLicenseInfo.ApplicationTypeID = (int)clsApplication.enApplicationType.NewInternationalDrivingLicense;
+            InternationalDrivingLicenseInfo.ApplicationStatus = clsApplication.enApplicationStatus.Completed;
+            InternationalDrivingLicenseInfo.LastStatusDate = DateTime.Now;
+            InternationalDrivingLicenseInfo.PaidFees = clsApplicationType.Find((int)clsApplication.enApplicationType.NewInternationalDrivingLicense).Fees;
+            InternationalDrivingLicenseInfo.CreatedByUserID = CreatedByUserID;
+
+            //International Driving License Info :-
+            InternationalDrivingLicenseInfo.ApplicationID = this.ApplicationID;
+            InternationalDrivingLicenseInfo.DriverID = clsDrivingLicense.Find(LocalDrivingLicenseID).DriverID;
+            InternationalDrivingLicenseInfo.IssuedUsingDrivingLicenseID = LocalDrivingLicenseID;
+            InternationalDrivingLicenseInfo.IssueDate = DateTime.Now;
+            InternationalDrivingLicenseInfo.ExpriationDate = DateTime.Now.AddYears(1);
+            InternationalDrivingLicenseInfo.IsActive = true;
+            InternationalDrivingLicenseInfo.CreatedByUserID = CreatedByUserID;
+
+            if (InternationalDrivingLicenseInfo.SaveInternational())
+            {
+                return InternationalDrivingLicenseInfo.InternationalDrivingLicenseID;
+            }
+            else
+            {
+                return -1;
+            }
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLDSystem_BusinessLayer;
 using DVLDSystem.DVLD.Driving_License.Local_Driving_License;
+using DVLDSystem.DVLD.Driving_License.International_Driving_License;
 
 namespace DVLDSystem.DVLD.Driving_License.Controls
 {
@@ -97,14 +98,14 @@ namespace DVLDSystem.DVLD.Driving_License.Controls
         {
             if (dgvLocalDrivingLicenseLists.Rows.Count > 0)
             {
-                dgvLocalDrivingLicenseLists.Columns[0].HeaderText = "L.D.L. ID";
+                dgvLocalDrivingLicenseLists.Columns[0].HeaderText = "Local L. ID";
                 dgvLocalDrivingLicenseLists.Columns[0].Width = 70;
 
-                dgvLocalDrivingLicenseLists.Columns[1].HeaderText = "App. ID";
-                dgvLocalDrivingLicenseLists.Columns[1].Width = 70;
+                dgvLocalDrivingLicenseLists.Columns[1].HeaderText = "Application ID";
+                dgvLocalDrivingLicenseLists.Columns[1].Width = 80;
 
                 dgvLocalDrivingLicenseLists.Columns[2].HeaderText = "Class Name";
-                dgvLocalDrivingLicenseLists.Columns[2].Width = 200;
+                dgvLocalDrivingLicenseLists.Columns[2].Width = 190;
 
                 dgvLocalDrivingLicenseLists.Columns[3].HeaderText = "Issue Date";
                 dgvLocalDrivingLicenseLists.Columns[3].Width = 120;
@@ -119,26 +120,26 @@ namespace DVLDSystem.DVLD.Driving_License.Controls
 
         private void _ResetColumnsOfInternationalDrivingLicense()
         {
-            if (dgvInternationalDrivingLicenseLists.Rows.Count > 0)
-            {
-                dgvInternationalDrivingLicenseLists.Columns[0].HeaderText = "L.D.L. ID";
-                dgvInternationalDrivingLicenseLists.Columns[0].Width = 70;
+            //if (dgvInternationalDrivingLicenseLists.Rows.Count > 0) 
+            //{
+            //    dgvInternationalDrivingLicenseLists.Columns[0].HeaderText = "Internation L. ID";
+            //    dgvInternationalDrivingLicenseLists.Columns[0].Width = 80;
 
-                dgvInternationalDrivingLicenseLists.Columns[1].HeaderText = "App. ID";
-                dgvInternationalDrivingLicenseLists.Columns[1].Width = 70;
+            //    dgvInternationalDrivingLicenseLists.Columns[1].HeaderText = "Application ID";
+            //    dgvInternationalDrivingLicenseLists.Columns[1].Width = 70;
 
-                dgvInternationalDrivingLicenseLists.Columns[2].HeaderText = "L.D.L. ID";
-                dgvInternationalDrivingLicenseLists.Columns[2].Width = 70;
+            //    dgvInternationalDrivingLicenseLists.Columns[2].HeaderText = "Local L. ID";
+            //    dgvInternationalDrivingLicenseLists.Columns[2].Width = 70;
 
-                dgvInternationalDrivingLicenseLists.Columns[3].HeaderText = "Issue Date";
-                dgvInternationalDrivingLicenseLists.Columns[3].Width = 150;
+            //    dgvInternationalDrivingLicenseLists.Columns[3].HeaderText = "Issue Date";
+            //    dgvInternationalDrivingLicenseLists.Columns[3].Width = 145;
 
-                dgvInternationalDrivingLicenseLists.Columns[4].HeaderText = "Expiration Date";
-                dgvInternationalDrivingLicenseLists.Columns[4].Width = 150;
+            //    dgvInternationalDrivingLicenseLists.Columns[4].HeaderText = "Expiration Date";
+            //    dgvInternationalDrivingLicenseLists.Columns[4].Width = 145;
 
-                dgvInternationalDrivingLicenseLists.Columns[5].HeaderText = "Is Active";
-                dgvInternationalDrivingLicenseLists.Columns[5].Width = 100;
-            }
+            //    dgvInternationalDrivingLicenseLists.Columns[5].HeaderText = "Is Active";
+            //    dgvInternationalDrivingLicenseLists.Columns[5].Width = 100;
+            //}
         }
 
         private void _ResetColumnsInGrid()
@@ -198,16 +199,24 @@ namespace DVLDSystem.DVLD.Driving_License.Controls
             //Refresh :-
             LoadDrivingLicensesInfo(_DriverID);
         }
+        private void dgvLocalDrivingLicenseLists_DoubleClick(object sender, EventArgs e)
+        {
+            showLocalDrivingLicenseToolStripMenuItem1.PerformClick();
+        }
 
 
         //Show International Driving License :-
-        private void showLocalDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        private void showInternationalDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //frmShowDrivingLicenseInfo frm = new frmShowDrivingLicenseInfo((int)dgvInternationalDrivingLicenseLists.CurrentRow.Cells[0].Value);
-            //frm.ShowDialog();
+            frmShowInternationalDrivingLicenseCard frm = new frmShowInternationalDrivingLicenseCard((int)dgvInternationalDrivingLicenseLists.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
 
-            ////Refresh :-
-            //LoadDrivingLicensesInfo(_DriverID);
+            //Refresh :-
+            LoadDrivingLicensesInfo(_DriverID);
+        }
+        private void dgvInternationalDrivingLicenseLists_DoubleClick_1(object sender, EventArgs e)
+        {
+            showInternationalDrivingLicenseToolStripMenuItem.PerformClick();
         }
     }
 }
