@@ -40,11 +40,6 @@ namespace DVLDSystem.DVLD.Applications.International_Driving_License.Controls
             lblInternationalApplicationID.Text = "N/A";
             lblInternationalLicenseID.Text = "N/A";
             lblLocalLicenseID.Text = "N/A";
-            lblInternationalApplicationDate.Text = "[????]";
-            lblIssueDate.Text = "[????]";
-            lblFees.Text = "[????]";
-            lblExpirationDate.Text = "[????]";
-            lblCreatedBy.Text = "[????]";
         }
         private void _LoadApplicationBasicInfo()
         {
@@ -65,9 +60,9 @@ namespace DVLDSystem.DVLD.Applications.International_Driving_License.Controls
         }
         private void _FillInfo()
         {
-            //lblInternationalApplicationID.Text = _InternationalDrivingLicenseInfo.ApplicationID.ToString();
-            //lblInternationalLicenseID.Text = _InternationalDrivingLicenseInfo.InternationalDrivingLicenseID.ToString();
-            //lblLocalLicenseID.Text = _LocalDrivingLicenseID.ToString();
+            lblInternationalApplicationID.Text = _InternationalDrivingLicenseInfo.ApplicationID.ToString();
+            lblInternationalLicenseID.Text = _InternationalDrivingLicenseInfo.InternationalDrivingLicenseID.ToString();
+            lblLocalLicenseID.Text = _InternationalDrivingLicenseInfo.IssuedUsingDrivingLicenseID.ToString();
         }
 
 
@@ -79,7 +74,7 @@ namespace DVLDSystem.DVLD.Applications.International_Driving_License.Controls
 
 
         //Public Methods :-
-        public void LoadInternationalDrivingLicenseInfo(int InternationalDrivingLicenseID)
+        public void LoadApplicationBasicInfo(int InternationalDrivingLicenseID)
         {
             _InternationalDrivingLicenseInfo = clsInternationalDrivingLicense.FindInternationalID(InternationalDrivingLicenseID);
 
@@ -90,7 +85,6 @@ namespace DVLDSystem.DVLD.Applications.International_Driving_License.Controls
                 return;
             }
             _FillInfo();
-            ctrlDrivingLicenseCardWithFilter1.ShowDrivingLicenseButton = false;
             ctrlDrivingLicenseCardWithFilter1.FilterDrivingLicenseEnabled = false;
         }
 
