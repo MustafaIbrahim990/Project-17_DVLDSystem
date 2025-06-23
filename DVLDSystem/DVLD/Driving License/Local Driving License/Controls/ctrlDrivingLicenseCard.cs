@@ -42,8 +42,8 @@ namespace DVLDSystem.DVLD.Driving_License.Local_Driving_License.Controls
 
             if (_DrivingLicenseInfo == null)
             {
-                MessageBox.Show($"Error : No Driving License With ID [{_DrivingLicenseID}] in The System!", "Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ResetLocalDrivingLicenseInfo();
+                MessageBox.Show($"Error : Could Not Find Driving License With ID [{_DrivingLicenseID}] in The System!", "Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ResetLocalDrivingLicenseInfo(); 
                 return false;
             }
             return true;
@@ -103,8 +103,7 @@ namespace DVLDSystem.DVLD.Driving_License.Local_Driving_License.Controls
             lblDriverID.Text = _DrivingLicenseInfo.DriverInfo.ID.ToString();
             lblExpirationDate.Text = _DrivingLicenseInfo.ExpriationDate.ToShortDateString();
 
-            //lblIsDetained.Text = (clsDetainedDrivingLicense.IsExistBy(_DrivingLicenseInfo.ID)) ? ((clsDetainedDrivingLicense.FindBy(_DrivingLicenseID).IsReleased) ? "No" : "Yes") : "No";
-            lblIsDetained.Text = _DrivingLicenseInfo.IsDetained ? "Yes" : "No";
+            lblIsDetained.Text = (_DrivingLicenseInfo.IsDetained) ? "Yes" : "No";
 
             _LoadGenderImage();
             _LoadPersonImage();
@@ -116,6 +115,7 @@ namespace DVLDSystem.DVLD.Driving_License.Local_Driving_License.Controls
         public void ResetLocalDrivingLicenseInfo()
         {
             _DrivingLicenseID = -1;
+
             lblClass.Text = "[????]";
             lblFullName.Text = "[????]";
             lblDrivingLicenseID.Text = "N/A";

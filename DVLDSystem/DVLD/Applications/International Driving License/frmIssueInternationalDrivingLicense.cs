@@ -22,15 +22,15 @@ namespace DVLDSystem.DVLD.Applications.International_Driving_License
 
 
         //Private Methods :-
-        private void _ShowMessageError(string Message, string Caption, MessageBoxButtons MessageBoxButtons, MessageBoxIcon MessageBoxIcon)
-        {
-            MessageBox.Show(Message, Caption, MessageBoxButtons, MessageBoxIcon);
-        }
-        private void _DataBack(int LocalLicenseID)
+        private void _OnLocalDrivingLicenseIDSelected(int LocalLicenseID)
         {
             _LocalLicenseID = LocalLicenseID;
             btnIssueInternationalDrivingLicense.Enabled = (LocalLicenseID == -1) ? false : true;
             llShowLicenseHistory.Enabled = (LocalLicenseID == -1) ? false : true;
+        }
+        private void _ShowMessageError(string Message, string Caption, MessageBoxButtons MessageBoxButtons, MessageBoxIcon MessageBoxIcon)
+        {
+            MessageBox.Show(Message, Caption, MessageBoxButtons, MessageBoxIcon);
         }
         private bool DoesHaveActiveInternationalLicense()
         {
@@ -81,7 +81,11 @@ namespace DVLDSystem.DVLD.Applications.International_Driving_License
         }
         private void frmIssueInternationalDrivingLicense_Load(object sender, EventArgs e)
         {
-            ctrlInternationalDrivingLicenseApplicationCard1.OnSelectedLocalDrivingLicenseID += _DataBack;
+            ctrlInternationalDrivingLicenseApplicationCard1.LocalDrivingLicenseIDSelected += _OnLocalDrivingLicenseIDSelected;
+        }
+        private void frmIssueInternationalDrivingLicense_Activated(object sender, EventArgs e)
+        {
+            ctrlInternationalDrivingLicenseApplicationCard1.FilterFocus();
         }
 
 

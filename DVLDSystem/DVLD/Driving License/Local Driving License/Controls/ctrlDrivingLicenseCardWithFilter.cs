@@ -16,7 +16,7 @@ namespace DVLDSystem.DVLD.Driving_License.Local_Driving_License.Controls
     public partial class ctrlDrivingLicenseCardWithFilter : UserControl
     {
         //Event :-
-        public event Action<int> OnLocalDrivingLicenseSelected;
+        public event Action<int> LocalDrivingLicenseIDSelected;
 
 
         //Privte Properties :-
@@ -55,14 +55,14 @@ namespace DVLDSystem.DVLD.Driving_License.Local_Driving_License.Controls
 
 
         //Protected Methods :-
-        protected virtual void DrivingLicenseSelected(int LocalDrivingLicenseID)
+        protected virtual void OnLocalDrivingLicenseIDSelected(int LocalDrivingLicenseID)
         {
             //Action<int> handler = OnPersonSelected;
             //if (handler != null)
             //{
             //    handler(PersonID); // Raise the event with the parameter
             //}
-            OnLocalDrivingLicenseSelected?.Invoke(LocalDrivingLicenseID);
+            LocalDrivingLicenseIDSelected?.Invoke(LocalDrivingLicenseID);
         }
 
 
@@ -79,16 +79,18 @@ namespace DVLDSystem.DVLD.Driving_License.Local_Driving_License.Controls
         public void LoadLocalDrivingLicenseInfo(int LocalDrivingLicenseID)
         {
             txtFilterValue.Text = LocalDrivingLicenseID.ToString();
-            ctrlDrivingLicenseCard1.LoadLocalDrivingLicenseInfo(LocalDrivingLicenseID);
 
-            if (ctrlDrivingLicenseCard1.SelectedDrivingLicenseID == -1)
+            ctrlDrivingLicenseCard1.LoadLocalDrivingLicenseInfo(LocalDrivingLicenseID);
+            _LocalDrivingLicenseID = ctrlDrivingLicenseCard1.SelectedDrivingLicenseID;
+
+            if (_LocalDrivingLicenseID == -1)
             {
                 FilterFocus();
             }
 
             //Send Local Driving License ID to Subscriber :-
-            if (OnLocalDrivingLicenseSelected != null && FilterDrivingLicenseEnabled)
-                OnLocalDrivingLicenseSelected.Invoke(ctrlDrivingLicenseCard1.SelectedDrivingLicenseID);
+            if (LocalDrivingLicenseIDSelected != null && FilterDrivingLicenseEnabled)
+                LocalDrivingLicenseIDSelected.Invoke(_LocalDrivingLicenseID);
         }
 
 

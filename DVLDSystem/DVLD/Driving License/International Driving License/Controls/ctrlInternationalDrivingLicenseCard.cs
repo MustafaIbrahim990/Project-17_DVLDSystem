@@ -49,14 +49,6 @@ namespace DVLDSystem.DVLD.Driving_License.International_Driving_License.Controls
             return true;
         }
 
-        private void _GetDefaultPersonImage()
-        {
-            if (_InternationalDrivingLicenseInfo.PersonInfo.Gender == (byte)enGender.eMale)
-                pbPersonImage.Image = Properties.Resources.Male_512;
-            else
-                pbPersonImage.Image = Properties.Resources.Female_512;
-        }
-
         private void _LoadGenderImage()
         {
             if (_InternationalDrivingLicenseInfo.PersonInfo.Gender == (byte)enGender.eMale)
@@ -69,6 +61,14 @@ namespace DVLDSystem.DVLD.Driving_License.International_Driving_License.Controls
                 lblGender.Text = "Female";
                 pbGenderImage.Image = Properties.Resources.Woman_32;
             }
+        }
+
+        private void _GetDefaultPersonImage()
+        {
+            if (_InternationalDrivingLicenseInfo.PersonInfo.Gender == (byte)enGender.eMale)
+                pbPersonImage.Image = Properties.Resources.Male_512;
+            else
+                pbPersonImage.Image = Properties.Resources.Female_512;
         }
 
         private void _LoadPersonImage()
@@ -112,6 +112,8 @@ namespace DVLDSystem.DVLD.Driving_License.International_Driving_License.Controls
         //Public Methods :-
         public void ResetInternationalDrivingLicenseInfo()
         {
+            _InternationalDrivingLicenseID = -1;
+
             lblFullName.Text = "[????]";
             lblInternationalDrivingLicenseID.Text = "N/A";
             lblLocalLicenseID.Text = "N/A";
