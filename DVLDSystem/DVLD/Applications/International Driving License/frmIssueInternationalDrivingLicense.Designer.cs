@@ -130,6 +130,7 @@
             this.Name = "frmIssueInternationalDrivingLicense";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Issue International  Driving License";
+            this.Activated += new System.EventHandler(this.frmIssueInternationalDrivingLicense_Activated);
             this.Load += new System.EventHandler(this.frmIssueInternationalDrivingLicense_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -60,11 +60,12 @@ namespace DVLDSystem_BusinessLayer
             this.IssuedUsingDrivingLicenseID = IssuedUsingDrivingLicenseID;
             this.IssueDate = IssueDate;
             this.ExpriationDate = ExpriationDate;
+
             this.DriverInfo = clsDriver.Find(DriverID);
             this.IssuedUsingLocalDrivingLicenseInfo = clsDrivingLicense.Find(IssuedUsingDrivingLicenseID);
             this.IsActive = IsActive;
 
-            //
+            //Base Class :-
 
             this.ApplicationID = ApplicationID;
             this.ApplicationDate = ApplicationDate;
@@ -267,6 +268,13 @@ namespace DVLDSystem_BusinessLayer
             {
                 return -1;
             }
+        }
+
+
+        //Get Active International License ID DriverID :-
+        public static int GetActiveInternationalLicenseID(int DriverID)
+        {
+            return clsInternationalDrivingLicenseData.GetActiveInternationalLicenseIDByDriverID(DriverID);
         }
     }
 }

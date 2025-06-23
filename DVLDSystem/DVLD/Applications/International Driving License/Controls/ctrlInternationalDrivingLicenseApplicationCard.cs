@@ -16,7 +16,7 @@ namespace DVLDSystem.DVLD.Applications.International_Driving_License.Controls
     public partial class ctrlInternationalDrivingLicenseApplicationCard : UserControl
     {
         //Event :-
-        public event Action<int> OnSelectedLocalDrivingLicenseID;
+        public event Action<int> LocalDrivingLicenseIDSelected;
 
 
         //Properties :-
@@ -35,12 +35,6 @@ namespace DVLDSystem.DVLD.Applications.International_Driving_License.Controls
 
 
         //Private Methods :-
-        private void _ResetInfo()
-        {
-            lblInternationalApplicationID.Text = "N/A";
-            lblInternationalLicenseID.Text = "N/A";
-            lblLocalLicenseID.Text = "N/A";
-        }
         private void _LoadApplicationBasicInfo()
         {
             lblInternationalApplicationID.Text = "N/A";
@@ -52,11 +46,19 @@ namespace DVLDSystem.DVLD.Applications.International_Driving_License.Controls
             lblExpirationDate.Text = DateTime.Now.AddYears(1).ToShortDateString();
             lblCreatedBy.Text = clsGlobal.CurrentUser.UserName;
         }
-        private void _DataBack(int LocalLicenseID)
+        private void _OnLocalDrivingLicenseIDSelected(int LocalLicenseID)
         {
             _LocalDrivingLicenseID = LocalLicenseID;
             _LoadApplicationBasicInfo();
-            OnSelectedLocalDrivingLicenseID?.Invoke(_LocalDrivingLicenseID);
+
+            //Send Local License ID to Subscriber :-
+            LocalDrivingLicenseIDSelected?.Invoke(_LocalDrivingLicenseID);
+        }
+        private void _ResetInfo()
+        {
+            lblInternationalApplicationID.Text = "N/A";
+            lblInternationalLicenseID.Text = "N/A";
+            lblLocalLicenseID.Text = "N/A";
         }
         private void _FillInfo()
         {
@@ -67,13 +69,17 @@ namespace DVLDSystem.DVLD.Applications.International_Driving_License.Controls
 
 
         //Protected Methods :-
-        protected void LocalLicenseIDSelected(int InternationalLicenseID)
+        protected void OnLocalDrivingLicenseIDSelected(int InternationalLicenseID)
         {
-            OnSelectedLocalDrivingLicenseID?.Invoke(InternationalLicenseID);
+            LocalDrivingLicenseIDSelected?.Invoke(InternationalLicenseID);
         }
 
 
         //Public Methods :-
+        public void FilterFocus()
+        {
+            ctrlDrivingLicenseCardWithFilter1.FilterFocus();
+        }
         public void LoadApplicationBasicInfo(int InternationalDrivingLicenseID)
         {
             _InternationalDrivingLicenseInfo = clsInternationalDrivingLicense.FindInternationalID(InternationalDrivingLicenseID);
@@ -96,7 +102,7 @@ namespace DVLDSystem.DVLD.Applications.International_Driving_License.Controls
         }
         private void ctrlInternationalDrivingLicenseApplicationCard_Load(object sender, EventArgs e)
         {
-            ctrlDrivingLicenseCardWithFilter1.OnLocalDrivingLicenseSelected += _DataBack;
+            ctrlDrivingLicenseCardWithFilter1.LocalDrivingLicenseIDSelected += _OnLocalDrivingLicenseIDSelected;
         }
     }
 }
