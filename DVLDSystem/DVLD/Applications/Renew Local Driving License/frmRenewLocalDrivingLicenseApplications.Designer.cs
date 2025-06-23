@@ -62,7 +62,7 @@
             this.llShowNewLicenseInfo.Enabled = false;
             this.llShowNewLicenseInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.llShowNewLicenseInfo.LinkColor = System.Drawing.Color.Blue;
-            this.llShowNewLicenseInfo.Location = new System.Drawing.Point(242, 941);
+            this.llShowNewLicenseInfo.Location = new System.Drawing.Point(242, 943);
             this.llShowNewLicenseInfo.Name = "llShowNewLicenseInfo";
             this.llShowNewLicenseInfo.Size = new System.Drawing.Size(157, 17);
             this.llShowNewLicenseInfo.TabIndex = 224;
@@ -76,7 +76,7 @@
             this.llShowLicenseHistory.Enabled = false;
             this.llShowLicenseHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.llShowLicenseHistory.LinkColor = System.Drawing.Color.Blue;
-            this.llShowLicenseHistory.Location = new System.Drawing.Point(52, 941);
+            this.llShowLicenseHistory.Location = new System.Drawing.Point(52, 943);
             this.llShowLicenseHistory.Name = "llShowLicenseHistory";
             this.llShowLicenseHistory.Size = new System.Drawing.Size(147, 17);
             this.llShowLicenseHistory.TabIndex = 223;
