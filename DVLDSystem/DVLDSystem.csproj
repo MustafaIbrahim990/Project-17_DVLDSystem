@@ -117,6 +117,18 @@
     <Compile Include="DVLD\Applications\Local Driving License\frmShowLocalDrivingLicenseApplicationCard.Designer.cs">
       <DependentUpon>frmShowLocalDrivingLicenseApplicationCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="DVLD\Applications\Renew Local Driving License\Controls\ctrlRenewLocalDrivingLicenseApplications.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DVLD\Applications\Renew Local Driving License\Controls\ctrlRenewLocalDrivingLicenseApplications.Designer.cs">
+      <DependentUpon>ctrlRenewLocalDrivingLicenseApplications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD\Applications\Renew Local Driving License\frmRenewLocalDrivingLicenseApplications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD\Applications\Renew Local Driving License\frmRenewLocalDrivingLicenseApplications.Designer.cs">
+      <DependentUpon>frmRenewLocalDrivingLicenseApplications.cs</DependentUpon>
+    </Compile>
     <Compile Include="DVLD\Driver\frmManageDrivers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -352,6 +364,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD\Applications\Local Driving License\frmShowLocalDrivingLicenseApplicationCard.resx">
       <DependentUpon>frmShowLocalDrivingLicenseApplicationCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD\Applications\Renew Local Driving License\Controls\ctrlRenewLocalDrivingLicenseApplications.resx">
+      <DependentUpon>ctrlRenewLocalDrivingLicenseApplications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD\Applications\Renew Local Driving License\frmRenewLocalDrivingLicenseApplications.resx">
+      <DependentUpon>frmRenewLocalDrivingLicenseApplications.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD\Driver\frmManageDrivers.resx">
       <DependentUpon>frmManageDrivers.cs</DependentUpon>
@@ -756,6 +774,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Driver Main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Renew Driving License 321.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

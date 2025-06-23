@@ -75,3 +75,5 @@ C:\My_Projects\Project 17 _ DVLD System\DVLDSystem\obj\Debug\DVLDSystem.DVLD.App
 C:\My_Projects\Project 17 _ DVLD System\DVLDSystem\obj\Debug\DVLDSystem.DVLD.Driving_License.International_Driving_License.Controls.ctrlInternationalDrivingLicenseCard.resources
 C:\My_Projects\Project 17 _ DVLD System\DVLDSystem\obj\Debug\DVLDSystem.DVLD.Driving_License.International_Driving_License.frmShowInternationalDrivingLicenseCard.resources
 C:\My_Projects\Project 17 _ DVLD System\DVLDSystem\obj\Debug\DVLDSystem.DVLD.Driver.frmManageDrivers.resources
+C:\My_Projects\Project 17 _ DVLD System\DVLDSystem\obj\Debug\DVLDSystem.DVLD.Applications.Renew_Local_Driving_License.Controls.ctrlRenewLocalDrivingLicenseApplications.resources
+C:\My_Projects\Project 17 _ DVLD System\DVLDSystem\obj\Debug\DVLDSystem.DVLD.Applications.Renew_Local_Driving_License.frmRenewLocalDrivingLicenseApplications.resources
