@@ -233,55 +233,5 @@ namespace DVLDSystem_BusinessLayer
         {
             return clsLocalDrivingLicenseApplicationData.IsLocalDrivingLicenseAsOrdinaryDrivingLicense(LocalLicenseApplicationID);
         }
-
-
-        //Deactivate Current Local Driving License :-
-        public bool DeactivateCurrentLocalLicense()
-        {
-            return false;
-        }
-
-
-        //Renew Local Driving License Application :-
-        public int _RenewLocalDrivingLicenseApplication(int OldLocalLicenseID, float PaidFees, string Notes, int CreatedByUserID)
-        {
-            clsApplication NewApplicationInfo = new clsApplication();
-            clsDrivingLicense OldLocalDrivingLicenseInfo = clsDrivingLicense.Find(OldLocalLicenseID);
-            clsDrivingLicense NewLocalDrivingLicenseInfo = clsDrivingLicense.Find(OldLocalLicenseID);
-
-            //Application Info :-
-            NewApplicationInfo.ApplicationDate = DateTime.Now;
-            NewApplicationInfo.ApplicantPersonID = OldLocalDrivingLicenseInfo.ApplicationInfo.ApplicantPersonID;
-            NewApplicationInfo.ApplicationTypeID = (int)clsApplication.enApplicationType.RenewDrivingLicense;
-            NewApplicationInfo.ApplicationStatus = clsApplication.enApplicationStatus.Completed;
-            NewApplicationInfo.LastStatusDate = DateTime.Now;
-            NewApplicationInfo.PaidFees = clsApplicationType.Find((int)clsApplication.enApplicationType.RenewDrivingLicense).Fees;
-            NewApplicationInfo.CreatedByUserID = CreatedByUserID;
-
-            if (!NewApplicationInfo.Save())
-            {
-                return -1;
-            }
-
-            //ReNew Local Driving License Info :-
-            NewLocalDrivingLicenseInfo.ApplicationID = this.ApplicationID;
-            NewLocalDrivingLicenseInfo.DriverID = OldLocalDrivingLicenseInfo.DriverID;
-            NewLocalDrivingLicenseInfo.LicenseClassID = (int)clsApplication.enApplicationType.RenewDrivingLicense;
-            NewLocalDrivingLicenseInfo.IssueDate = DateTime.Now;
-            NewLocalDrivingLicenseInfo.ExpriationDate = DateTime.Now.AddYears(clsLicenseClass.Find((int)clsApplication.enApplicationType.RenewDrivingLicense).DefaultValidityLength);
-            NewLocalDrivingLicenseInfo.IsActive = true;
-            NewLocalDrivingLicenseInfo.IssueReason = clsDrivingLicense.enIssueReason.Renew;
-            NewLocalDrivingLicenseInfo.Notes = Notes;
-            NewLocalDrivingLicenseInfo.PaidFees = PaidFees;
-            NewLocalDrivingLicenseInfo.CreatedByUserID = CreatedByUserID;
-
-            if (!NewLocalDrivingLicenseInfo.Save())
-            {
-                return -1;   
-            }
-
-            DeactivateCurrentLocalLicense();
-            return NewLocalDrivingLicenseInfo.ID;
-        }
     }
 }

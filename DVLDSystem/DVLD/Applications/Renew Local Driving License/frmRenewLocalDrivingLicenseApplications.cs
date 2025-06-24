@@ -10,24 +10,23 @@ using System.Windows.Forms;
 using DVLDSystem_BusinessLayer;
 using DVLDSystem.DVLD.Driving_License;
 using DVLDSystem.DVLD.Driving_License.Local_Driving_License;
+using DVLDSystem.DVLD.Global_User;
 
 namespace DVLDSystem.DVLD.Applications.Renew_Local_Driving_License
 {
     public partial class frmRenewLocalDrivingLicenseApplications : Form
     {
         //Properties :-
-        private int _LocalLicenseID = -1;
-        private clsLocalDrivingLicenseApplication _LocalLicenseInfo;
-
-        private int _InternationalDrivingLicenseID = -1;
+        private int _LocalDrivingLicenseID = -1;
+        private clsDrivingLicense _LocalDrivingLicenseInfo;
 
 
         //Private Methods :-
         private void _OnLocalDrivingLicenseIDSelected(int LocalLicenseID)
         {
-            _LocalLicenseID = LocalLicenseID;
-            btnRenewLocalDrivingLicenseApplication.Enabled = (_LocalLicenseID == -1) ? false : true;
-            llShowLicenseHistory.Enabled = (_LocalLicenseID == -1) ? false : true;
+            _LocalDrivingLicenseID = LocalLicenseID;
+            btnRenewLocalDrivingLicenseApplication.Enabled = (_LocalDrivingLicenseID == -1) ? false : true;
+            llShowLicenseHistory.Enabled = (_LocalDrivingLicenseID == -1) ? false : true;
         }
         private void _ShowMessageError(string Message, string Caption, MessageBoxButtons MessageBoxButtons, MessageBoxIcon MessageBoxIcon)
         {
@@ -35,43 +34,51 @@ namespace DVLDSystem.DVLD.Applications.Renew_Local_Driving_License
         }
         private bool _GetLocalDrivingLicenseObject()
         {
-            _LocalLicenseInfo = clsLocalDrivingLicenseApplication.FindLocal(_LocalLicenseID);
+            _LocalDrivingLicenseInfo = clsDrivingLicense.Find(_LocalDrivingLicenseID);
 
-            if (_LocalLicenseInfo == null)
+            if (_LocalDrivingLicenseInfo == null)
             {
                 return false;
             }
             return true;
         }
-        private bool DoesHaveActiveLocalLicense()
+        private bool _IsLicenseExpired()
         {
-            if (clsDrivingLicense.DoesPersonHaveActiveDrivingLicnese(_LocalLicenseID))
+            if (_LocalDrivingLicenseInfo.IsLicenseExpired()) 
             {
-                _InternationalDrivingLicenseID = clsInternationalDrivingLicense.FindByLocalLicenseID(_LocalLicenseID).InternationalDrivingLicenseID;
-                MessageBox.Show($"Error : Person Already have an International License With ID [{_InternationalDrivingLicenseID}] in The System.", "Not Allowed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ctrlInternationalDrivingLicenseApplicationCard1.LoadApplicationBasicInfo(_InternationalDrivingLicenseID);
-                btnIssueInternationalDrivingLicense.Enabled = false;
-                llShowLicenseInfo.Enabled = true;
+                MessageBox.Show($"Selected License is Not Active, Choose an Active License.", "Not Allowed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnRenewLocalDrivingLicenseApplication.Enabled = false;
+                llShowNewLicenseInfo.Enabled = false;
+                return true;
+            }
+            return false;
+        }
+        private bool DoesPersonHaveActiveLocalDrivingLicense()
+        {
+            if (clsDrivingLicense.DoesPersonHaveActiveDrivingLicense(_LocalDrivingLicenseInfo.DriverInfo.PersonID, _LocalDrivingLicenseInfo.LicenseClassID)) 
+            {
+                MessageBox.Show($"Error : Selected License is Not Yet Expiared, It Will Expire On : {_LocalDrivingLicenseInfo.ExpriationDate}.", "Not Allowed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnRenewLocalDrivingLicenseApplication.Enabled = false;
+                llShowNewLicenseInfo.Enabled = true;
                 return true;
             }
             return false;
         }
         private void _RenewLocalDrivingLicenseApplication()
         {
-            clsInternationalDrivingLicense _InternationalDrivingLicenseInfo = new clsInternationalDrivingLicense();
-            _InternationalDrivingLicenseID = _InternationalDrivingLicenseInfo.IssueInternationalDrivingLicense(_LocalLicenseID, clsGlobal.CurrentUser.UserID);
+            _LocalDrivingLicenseID = _LocalDrivingLicenseInfo.RenewLocalDrivingLicenseApplication(ctrlRenewLocalDrivingLicenseApplications1.Notes, clsGlobal.CurrentUser.UserID);
 
-            if (_InternationalDrivingLicenseID != -1)
+            if (_LocalDrivingLicenseID != -1)
             {
-                _ShowMessageError($"International Driving License Issued Successfully With ID [{_InternationalDrivingLicenseID}] in The System.", "Succeeded", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ctrlInternationalDrivingLicenseApplicationCard1.LoadApplicationBasicInfo(_InternationalDrivingLicenseID);
+                _ShowMessageError($"Local Driving License Renewed Successfully With ID [{_LocalDrivingLicenseID}] in The System.", "Succeeded", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ctrlRenewLocalDrivingLicenseApplications1.LoadLocalDrivingLicenseInfo(_LocalDrivingLicenseID);
             }
             else
             {
-                _ShowMessageError($"International Driving License Was Not Issued!", "Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _ShowMessageError($"Local Driving License Was Not Renewed!", "Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            llShowLicenseInfo.Enabled = (_InternationalDrivingLicenseID == -1) ? false : true;
-            btnIssueInternationalDrivingLicense.Enabled = false;
+            llShowNewLicenseInfo.Enabled = (_LocalDrivingLicenseID == -1) ? false : true;
+            btnRenewLocalDrivingLicenseApplication.Enabled = false;
         }
 
 
@@ -100,14 +107,27 @@ namespace DVLDSystem.DVLD.Applications.Renew_Local_Driving_License
         //Renew Local Driving License Application :-
         private void btnRenewLocalDrivingLicenseApplication_Click(object sender, EventArgs e)
         {
+            if (!_GetLocalDrivingLicenseObject())
+                return;
 
+            if (_IsLicenseExpired())
+                return;
+
+            if (DoesPersonHaveActiveLocalDrivingLicense())
+                return;
+
+            if (MessageBox.Show("Are You Sure You Want to Renew This License?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                return;
+            }
+            _RenewLocalDrivingLicenseApplication();
         }
 
 
         //Show New Local Driving License Info :-
         private void llShowNewLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmShowDrivingLicenseCard frm = new frmShowDrivingLicenseCard(_LocalLicenseID);
+            frmShowDrivingLicenseCard frm = new frmShowDrivingLicenseCard(_LocalDrivingLicenseID);
             frm.ShowDialog();
 
             //Refresh :-
@@ -118,11 +138,11 @@ namespace DVLDSystem.DVLD.Applications.Renew_Local_Driving_License
         //Show Driving License History :-
         private void llShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmShowPersonDrivingLicenseHistory frm = new frmShowPersonDrivingLicenseHistory(clsDrivingLicense.Find(_LocalLicenseID).DriverInfo.PersonID);
+            frmShowPersonDrivingLicenseHistory frm = new frmShowPersonDrivingLicenseHistory(clsDrivingLicense.Find(_LocalDrivingLicenseID).DriverInfo.PersonID);
             frm.ShowDialog();
 
             //Refresh :-
-            //
+            
         }
     }
 }

@@ -381,7 +381,15 @@ namespace DVLDSystem_DataAccessLayer
                            FROM DrivingLicenses
                            INNER JOIN Drivers 
                            ON DrivingLicenses.DriverID = Drivers.DriverID
-                           WHERE DrivingLicenses.IsActive = 1 AND DrivingLicenses.LicenseClassID = @LicenseClassID AND Drivers.PersonID = @PersonID";
+                           WHERE ((DrivingLicenses.IsActive = 1 AND DrivingLicenses.LicenseClassID = @LicenseClassID) AND (Drivers.PersonID = @PersonID AND GetDate() Between IssueDate and ExpriationDate));";
+
+            /*
+             SELECT DrivingLicenses.DrivingLicenseID
+             FROM DrivingLicenses
+             INNER JOIN Drivers 
+             ON DrivingLicenses.DriverID = Drivers.DriverID
+             WHERE DrivingLicenses.IsActive = 1 AND DrivingLicenses.LicenseClassID = 3 AND Drivers.PersonID = 1 AND GetDate() Between IssueDate and ExpriationDate
+             */
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -447,6 +455,126 @@ namespace DVLDSystem_DataAccessLayer
                 connection.Close();
             }
             return ID;
+        }
+
+
+        //Deactivate Local Driving License :-
+        public static bool DeactivateLocalDrivingLicense(int LocalDrivingLicenseID)
+        {
+            int rowsAffected = 0;
+
+            SqlConnection connection = new SqlConnection(clsDataSettings.ConnectionString);
+
+            string query = @"Update DrivingLicenses
+                           SET DrivingLicenses.IsActive = 0
+                           Where DrivingLicenses.DrivingLicenseID = @DrivingLicenseID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            //Deactivate Local Driving License By LocalDrivingLicenseID :-
+            command.Parameters.AddWithValue("@DrivingLicenseID", LocalDrivingLicenseID);
+
+            try
+            {
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return (rowsAffected > 0);
+        }
+
+
+        //Does Person Have Active Driving License :-
+        public static bool DoesPersonHaveActiveDrivingLicense(int PersonID, int LicenseClassID)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataSettings.ConnectionString);
+
+            string query = @"SELECT Result = 'Yes'
+                           FROM DrivingLicenses
+                           INNER JOIN Drivers 
+                           ON DrivingLicenses.DriverID = Drivers.DriverID
+                           WHERE DrivingLicenses.LicenseClassID = @LicenseClassID AND Drivers.PersonID = @PersonID AND GetDate() Between IssueDate and ExpriationDate AND IsActive = 1;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            //Does Person Have Active Driving License :-
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+            command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+
+            try
+            {
+                connection.Open();
+                object Result = command.ExecuteScalar();
+
+                if (Result != null)
+                {
+                    isFound = true;
+                }
+                else
+                {
+                    isFound = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isFound;
+        }
+
+
+        //Is Local Driving License Expired :-
+        public static bool IsLocalDrivingLicenseExpired(int LocaDrivingLicenseID, int LicenseClassID)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataSettings.ConnectionString);
+
+            string query = @"SELECT Result = 'Yes' FROM DrivingLicenses
+                           Where DrivingLicenseID = @LocaDrivingLicenseID AND LicenseClassID = @LicenseClassID AND GetDate() Between IssueDate and ExpriationDate;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            //Is Local Driving License Expired :-
+            command.Parameters.AddWithValue("@LocaDrivingLicenseID", LocaDrivingLicenseID);
+            command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+
+            try
+            {
+                connection.Open();
+                object Result = command.ExecuteScalar();
+
+                if (Result != null)
+                {
+                    isFound = true;
+                }
+                else
+                {
+                    isFound = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isFound;
         }
     }
 }
