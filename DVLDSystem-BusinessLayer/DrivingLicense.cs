@@ -252,10 +252,74 @@ namespace DVLDSystem_BusinessLayer
         }
 
 
+        //Does Person Have Active Driving License :-
+        public static bool DoesPersonHaveActiveDrivingLicense(int PersonID, int LicenseClassID)
+        {
+            return clsDrivingLicenseData.DoesPersonHaveActiveDrivingLicense(PersonID, LicenseClassID);
+        }
+
+
+        //Is Local Driving License Expired :-
+        public bool IsLicenseExpired()
+        {
+            return this.ExpriationDate < DateTime.Now;
+        }
+
+
         ////Get Driving License ID By LocalDrivingLicenseApplicationID :-
         public static int GetDrivingLicenseID(int LocalDrivingLicenseApplicationID)
         {
             return clsDrivingLicenseData.GetDrivingLicenseID(LocalDrivingLicenseApplicationID);
+        }
+
+
+        //Deactivate Current Local Driving License :-
+        public bool DeactivateCurrentLocalLicense()
+        {
+            return clsDrivingLicenseData.DeactivateLocalDrivingLicense(this.ID);
+        }
+
+
+        //Renew Local Driving License Application :-
+        public int RenewLocalDrivingLicenseApplication(string Notes, int CreatedByUserID)
+        {
+            clsApplication NewApplicationInfo = new clsApplication();
+            clsDrivingLicense NewLocalDrivingLicenseInfo = new clsDrivingLicense();
+            //clsDrivingLicense OldLocalDrivingLicenseInfo = clsDrivingLicense.Find(this.ID);
+
+            //Application Info :-
+            NewApplicationInfo.ApplicationDate = DateTime.Now;
+            NewApplicationInfo.ApplicantPersonID = this.ApplicationInfo.ApplicantPersonID;
+            NewApplicationInfo.ApplicationTypeID = (int)clsApplication.enApplicationType.RenewDrivingLicense;
+            NewApplicationInfo.ApplicationStatus = clsApplication.enApplicationStatus.Completed;
+            NewApplicationInfo.LastStatusDate = DateTime.Now;
+            NewApplicationInfo.PaidFees = clsApplicationType.Find((int)clsApplication.enApplicationType.RenewDrivingLicense).Fees;
+            NewApplicationInfo.CreatedByUserID = CreatedByUserID;
+
+            if (!NewApplicationInfo.Save())
+            {
+                return -1;
+            }
+
+            //ReNew Local Driving License Info :-
+            NewLocalDrivingLicenseInfo.ApplicationID = NewApplicationInfo.ApplicationID;
+            NewLocalDrivingLicenseInfo.DriverID = this.DriverID;
+            NewLocalDrivingLicenseInfo.LicenseClassID = this.LicenseClassID;
+            NewLocalDrivingLicenseInfo.IssueDate = DateTime.Now;
+            NewLocalDrivingLicenseInfo.ExpriationDate = DateTime.Now.AddYears(clsLicenseClass.Find((int)clsApplication.enApplicationType.RenewDrivingLicense).DefaultValidityLength);
+            NewLocalDrivingLicenseInfo.IsActive = true;
+            NewLocalDrivingLicenseInfo.IssueReason = clsDrivingLicense.enIssueReason.Renew;
+            NewLocalDrivingLicenseInfo.Notes = Notes;
+            NewLocalDrivingLicenseInfo.PaidFees = this.LicenseClassInfo.ClassFees;
+            NewLocalDrivingLicenseInfo.CreatedByUserID = CreatedByUserID;
+
+            if (!NewLocalDrivingLicenseInfo.Save())
+            {
+                return -1;
+            }
+
+            DeactivateCurrentLocalLicense();
+            return NewLocalDrivingLicenseInfo.ID;
         }
     }
 }

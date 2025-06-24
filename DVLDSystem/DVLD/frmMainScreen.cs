@@ -16,6 +16,7 @@ using DVLDSystem.DVLD.Applications.Local_Driving_License;
 using DVLDSystem.DVLD.Driving_License.International_Driving_License;
 using DVLDSystem.DVLD.Applications.International_Driving_License;
 using DVLDSystem.DVLD.Driver;
+using DVLDSystem.DVLD.Applications.Renew_Local_Driving_License;
 
 namespace DVLDSystem.DVLD
 {
@@ -136,7 +137,8 @@ namespace DVLDSystem.DVLD
         //Renew Driving License :-
         private void renewDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            frmRenewLocalDrivingLicenseApplications frm = new frmRenewLocalDrivingLicenseApplications();
+            frm.ShowDialog();
         }
 
 
