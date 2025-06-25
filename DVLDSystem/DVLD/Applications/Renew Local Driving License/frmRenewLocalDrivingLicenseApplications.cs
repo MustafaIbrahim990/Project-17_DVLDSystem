@@ -27,6 +27,7 @@ namespace DVLDSystem.DVLD.Applications.Renew_Local_Driving_License
             _LocalDrivingLicenseID = LocalLicenseID;
             btnRenewLocalDrivingLicenseApplication.Enabled = (_LocalDrivingLicenseID == -1) ? false : true;
             llShowLicenseHistory.Enabled = (_LocalDrivingLicenseID == -1) ? false : true;
+            llShowNewLicenseInfo.Enabled = false;
         }
         private void _ShowMessageError(string Message, string Caption, MessageBoxButtons MessageBoxButtons, MessageBoxIcon MessageBoxIcon)
         {
@@ -42,29 +43,31 @@ namespace DVLDSystem.DVLD.Applications.Renew_Local_Driving_License
             }
             return true;
         }
-        private bool _IsLicenseExpired()
+        private bool _DoesPersonHaveActiveLocalDrivingLicense()
         {
-            if (_LocalDrivingLicenseInfo.IsLicenseExpired()) 
+            if (!_LocalDrivingLicenseInfo.IsActive)  
             {
                 MessageBox.Show($"Selected License is Not Active, Choose an Active License.", "Not Allowed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 btnRenewLocalDrivingLicenseApplication.Enabled = false;
                 llShowNewLicenseInfo.Enabled = false;
+                ctrlRenewLocalDrivingLicenseApplications1.FilterFocus();
                 return true;
             }
             return false;
         }
-        private bool DoesPersonHaveActiveLocalDrivingLicense()
+        private bool _IsLicenseExpired()
         {
-            if (clsDrivingLicense.DoesPersonHaveActiveDrivingLicense(_LocalDrivingLicenseInfo.DriverInfo.PersonID, _LocalDrivingLicenseInfo.LicenseClassID)) 
+            if (!_LocalDrivingLicenseInfo.IsLicenseExpired())  
             {
                 MessageBox.Show($"Error : Selected License is Not Yet Expiared, It Will Expire On : {_LocalDrivingLicenseInfo.ExpriationDate}.", "Not Allowed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 btnRenewLocalDrivingLicenseApplication.Enabled = false;
                 llShowNewLicenseInfo.Enabled = true;
+                llShowNewLicenseInfo.Focus();
                 return true;
             }
             return false;
         }
-        private void _RenewLocalDrivingLicenseApplication()
+        private void _RenewLocalDrivingLicense()
         {
             _LocalDrivingLicenseID = _LocalDrivingLicenseInfo.RenewLocalDrivingLicenseApplication(ctrlRenewLocalDrivingLicenseApplications1.Notes, clsGlobal.CurrentUser.UserID);
 
@@ -110,17 +113,17 @@ namespace DVLDSystem.DVLD.Applications.Renew_Local_Driving_License
             if (!_GetLocalDrivingLicenseObject())
                 return;
 
-            if (_IsLicenseExpired())
+            if (_DoesPersonHaveActiveLocalDrivingLicense())
                 return;
 
-            if (DoesPersonHaveActiveLocalDrivingLicense())
+            if (_IsLicenseExpired())
                 return;
 
             if (MessageBox.Show("Are You Sure You Want to Renew This License?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 return;
             }
-            _RenewLocalDrivingLicenseApplication();
+            _RenewLocalDrivingLicense();
         }
 
 
@@ -130,8 +133,8 @@ namespace DVLDSystem.DVLD.Applications.Renew_Local_Driving_License
             frmShowDrivingLicenseCard frm = new frmShowDrivingLicenseCard(_LocalDrivingLicenseID);
             frm.ShowDialog();
 
-            //Refresh :-
-            //
+            //Refresh The Form :-
+            ctrlRenewLocalDrivingLicenseApplications1.RefreshLocalDrivingLicenseInfo(_LocalDrivingLicenseID);
         }
 
 
@@ -141,8 +144,8 @@ namespace DVLDSystem.DVLD.Applications.Renew_Local_Driving_License
             frmShowPersonDrivingLicenseHistory frm = new frmShowPersonDrivingLicenseHistory(clsDrivingLicense.Find(_LocalDrivingLicenseID).DriverInfo.PersonID);
             frm.ShowDialog();
 
-            //Refresh :-
-            
+            //Refresh The Form :-
+            ctrlRenewLocalDrivingLicenseApplications1.RefreshLocalDrivingLicenseInfo(_LocalDrivingLicenseID);
         }
     }
 }

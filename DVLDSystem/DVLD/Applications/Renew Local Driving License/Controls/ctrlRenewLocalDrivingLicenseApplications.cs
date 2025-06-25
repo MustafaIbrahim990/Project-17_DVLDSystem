@@ -20,40 +20,58 @@ namespace DVLDSystem.DVLD.Applications.Renew_Local_Driving_License.Controls
 
         //Properties :-
         private int _OldLocalDrivingLicenseID = -1;
-        private int _NewLocalDrivingLicenseID = -1;
-        private clsDrivingLicense _LocalDrivingLicenseInfo;
 
-        public int SelectedLocalDrivingLicenseID
-        {
-            get { return _NewLocalDrivingLicenseID; }
-        }
+        private int _RenewLocalDrivingLicenseID = -1;
+        private clsDrivingLicense _RenewLocalDrivingLicenseInfo;
+
         public string Notes
         {
             get { return txtNotes.Text.Trim(); }
         }
+        public int SelectedLocalDrivingLicenseID
+        {
+            get { return _RenewLocalDrivingLicenseID; }
+        }
         public clsDrivingLicense SelectedLocalDrivingLicenseInfo
         {
-            get { return _LocalDrivingLicenseInfo; }
+            get { return _RenewLocalDrivingLicenseInfo; }
         }
 
 
         //Private Methods :-
-        private void _LoadApplicationBasicInfo()
+        private void _LoadBasicApplicationInfo()
         {
             lblRenewlApplicationID.Text = "N/A";
             lblRenewedLocalLicenseID.Text = "N/A";
+            //
+            lblOldLocalLicenseID.Text = "N/A";
+            lblExpirationDate.Text = "[????]";
+            lblLocalLicenseFees.Text = "[????]";
+            lblTotalFees.Text = "[????]";
+            txtNotes.Text = null;
 
             lblRenewApplicationDate.Text = DateTime.Now.ToShortDateString();
             lblIssueDate.Text = DateTime.Now.ToShortDateString();
             lblApplicationFees.Text = clsApplicationType.Find((int)clsApplication.enApplicationType.RenewDrivingLicense).Fees.ToString() + " $";
-            txtNotes.Text = null;
-           
             lblCreatedBy.Text = clsGlobal.CurrentUser.UserName;
+        }
+        private void _LoadAdditionalApplicationInfo()
+        {
+            _LoadBasicApplicationInfo();
+
+            if (_OldLocalDrivingLicenseID != -1)
+            {
+                lblOldLocalLicenseID.Text = _OldLocalDrivingLicenseID.ToString();
+                lblExpirationDate.Text = (DateTime.Now.AddYears(clsLicenseClass.Find(clsDrivingLicense.Find(_OldLocalDrivingLicenseID).LicenseClassID).DefaultValidityLength).ToShortDateString());
+                lblLocalLicenseFees.Text = clsLicenseClass.Find(clsDrivingLicense.Find(_OldLocalDrivingLicenseID).LicenseClassID).ClassFees.ToString() + " $";
+                lblTotalFees.Text = ((Convert.ToSingle(lblApplicationFees.Text.Replace("$", " ").Trim())) + (Convert.ToSingle(lblLocalLicenseFees.Text.Replace("$", " ").Trim()))).ToString() + " $";
+                txtNotes.Text = ctrlDrivingLicenseCardWithFilter1.SelectedDrivingLicenseInfo.Notes;
+            }
         }
         private void _OnLocalDrivingLicenseIDSelected(int LocalLicenseID)
         {
             _OldLocalDrivingLicenseID = LocalLicenseID;
-            _LoadApplicationBasicInfo();
+            _LoadAdditionalApplicationInfo();
 
             //Send Local License ID to Subscriber :-
             LocalDrivingLicenseIDSelected?.Invoke(_OldLocalDrivingLicenseID);
@@ -61,19 +79,15 @@ namespace DVLDSystem.DVLD.Applications.Renew_Local_Driving_License.Controls
         private void _ResetInfo()
         {
             _OldLocalDrivingLicenseID = -1;
-            _NewLocalDrivingLicenseID = -1;
+            _RenewLocalDrivingLicenseID = -1;
 
-            lblRenewlApplicationID.Text = "N/A";
-            lblRenewedLocalLicenseID.Text = "N/A";
+            _LoadBasicApplicationInfo();
         }
         private void _FillInfo()
         {
-            lblOldLocalLicenseID.Text = _OldLocalDrivingLicenseID.ToString();
-            lblRenewlApplicationID.Text = _LocalDrivingLicenseInfo.ApplicationID.ToString();
-            lblRenewedLocalLicenseID.Text = _NewLocalDrivingLicenseID.ToString();
-            lblExpirationDate.Text = (DateTime.Now.AddYears(_LocalDrivingLicenseInfo.LicenseClassInfo.DefaultValidityLength).ToShortDateString());
-            lblLocalLicenseFees.Text = _LocalDrivingLicenseInfo.LicenseClassInfo.ClassFees.ToString() + " $";
-            lblTotalFees.Text = ((Convert.ToSingle(lblApplicationFees.Text.Replace("$", "").Trim())) + (Convert.ToSingle(lblApplicationFees.Text.Replace("$", "").Trim()))).ToString() + " $";
+            ctrlDrivingLicenseCardWithFilter1.LoadLocalDrivingLicenseInfo(_RenewLocalDrivingLicenseID);
+            lblRenewlApplicationID.Text = _RenewLocalDrivingLicenseInfo.ApplicationID.ToString();
+            lblRenewedLocalLicenseID.Text = _RenewLocalDrivingLicenseID.ToString();
         }
 
 
@@ -91,17 +105,21 @@ namespace DVLDSystem.DVLD.Applications.Renew_Local_Driving_License.Controls
         }
         public void LoadLocalDrivingLicenseInfo(int LocalLicenseID)
         {
-            _NewLocalDrivingLicenseID = LocalLicenseID;
-            _LocalDrivingLicenseInfo = clsDrivingLicense.Find(_NewLocalDrivingLicenseID);
+            _RenewLocalDrivingLicenseID = LocalLicenseID;
+             _RenewLocalDrivingLicenseInfo = clsDrivingLicense.Find(_RenewLocalDrivingLicenseID);
 
-            if (_LocalDrivingLicenseInfo == null)
+            if (_RenewLocalDrivingLicenseInfo == null)
             {
                 _ResetInfo();
-                MessageBox.Show($"Error : Could Not Find Local Driving License With ID [{_NewLocalDrivingLicenseID}] in The System!", "Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error : Could Not Find Local Driving License With ID [{_RenewLocalDrivingLicenseID}] in The System!", "Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             _FillInfo();
             ctrlDrivingLicenseCardWithFilter1.FilterDrivingLicenseEnabled = false;
+        }
+        public void RefreshLocalDrivingLicenseInfo(int LocalDrivingLicenseID)
+        {
+            _OnLocalDrivingLicenseIDSelected(LocalDrivingLicenseID);
         }
 
 

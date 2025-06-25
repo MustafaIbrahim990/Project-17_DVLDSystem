@@ -534,47 +534,5 @@ namespace DVLDSystem_DataAccessLayer
             }
             return isFound;
         }
-
-
-        //Is Local Driving License Expired :-
-        public static bool IsLocalDrivingLicenseExpired(int LocaDrivingLicenseID, int LicenseClassID)
-        {
-            bool isFound = false;
-
-            SqlConnection connection = new SqlConnection(clsDataSettings.ConnectionString);
-
-            string query = @"SELECT Result = 'Yes' FROM DrivingLicenses
-                           Where DrivingLicenseID = @LocaDrivingLicenseID AND LicenseClassID = @LicenseClassID AND GetDate() Between IssueDate and ExpriationDate;";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            //Is Local Driving License Expired :-
-            command.Parameters.AddWithValue("@LocaDrivingLicenseID", LocaDrivingLicenseID);
-            command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
-
-            try
-            {
-                connection.Open();
-                object Result = command.ExecuteScalar();
-
-                if (Result != null)
-                {
-                    isFound = true;
-                }
-                else
-                {
-                    isFound = false;
-                }
-            }
-            catch (Exception ex)
-            {
-                isFound = false;
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return isFound;
-        }
     }
 }
