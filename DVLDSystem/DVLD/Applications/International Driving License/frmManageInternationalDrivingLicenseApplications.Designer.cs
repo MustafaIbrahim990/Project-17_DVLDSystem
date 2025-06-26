@@ -106,7 +106,7 @@
             this.toolStripSeparator6,
             this.showPersonLicneseHistoryToolStripMenuItem});
             this.cmsInternationalApplications.Name = "contextMenuStrip1";
-            this.cmsInternationalApplications.Size = new System.Drawing.Size(294, 176);
+            this.cmsInternationalApplications.Size = new System.Drawing.Size(294, 154);
             // 
             // showDetailsToolStripMenuItem
             // 
@@ -289,7 +289,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "frmManageInternationalDrivingLicenseApplications";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage International Driving License Applications";
             this.Load += new System.EventHandler(this.frmManageInternationalDrivingLicenseApplications_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInterationalDrivingLicenseApplicationLists)).EndInit();

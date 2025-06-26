@@ -40,7 +40,7 @@ namespace DVLDSystem_DataAccessLayer
         {
             if (reader[columnName] == DBNull.Value)
             {
-                return DateTime.MinValue;
+                return DateTime.MaxValue;
             }
             else
             {
@@ -93,6 +93,55 @@ namespace DVLDSystem_DataAccessLayer
             SqlConnection connection = new SqlConnection(clsDataSettings.ConnectionString);
 
             string query = @"SELECT * FROM DetainedDrivingLicenses;";
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+        }
+
+
+        //Get All Custom Info :-
+        public static DataTable GetAllCustomInfo()
+        {
+            DataTable dt = new DataTable();
+
+            SqlConnection connection = new SqlConnection(clsDataSettings.ConnectionString);
+
+            string query = @"SELECT
+                           	    D.DetainID,
+                           	    D.DrivingLicenseID,
+                           	    P.NationalNo AS NationalNo,
+                           	    Concat(P.FirstName , ' ' , P.SecondName , ' ' , P.ThirdName , ' ' , P.LastName) AS FullName,
+                           	    D.DetainDate,
+                           	    D.FineFees,
+                           	    D.IsReleased,
+                           	    IsNull(Cast(D.ReleaseDate AS Varchar), 'Not Available') AS ReleaseDate,
+                           	    IsNull(Cast(D.ReleaseApplicationID AS Varchar), 'Not Available') AS ReleaseApplicationID
+                           FROM DetainedDrivingLicenses D
+                           INNER JOIN DrivingLicenses
+                           ON D.DrivingLicenseID = DrivingLicenses.DrivingLicenseID
+                           INNER JOIN Drivers 
+                           ON DrivingLicenses.DriverID = Drivers.DriverID
+                           INNER JOIN People P
+                           ON Drivers.PersonID = P.PersonID";
             SqlCommand command = new SqlCommand(query, connection);
 
             try
@@ -229,9 +278,9 @@ namespace DVLDSystem_DataAccessLayer
                     CreatedByUserID = (int)reader["CreatedByUserID"];
                     IsReleased = (bool)reader["IsReleased"];
 
-                    ReleaseDate = _GetDateTimeFromReader(reader, "ReleaseDate");
                     ReleasedByUserID = _GetIntFromReader(reader, "ReleasedByUserID");
                     ReleaseApplicationID = _GetIntFromReader(reader, "ReleaseApplicationID");
+                    ReleaseDate = _GetDateTimeFromReader(reader, "ReleaseDate");
                 }
                 reader.Close();
             }
@@ -292,7 +341,6 @@ namespace DVLDSystem_DataAccessLayer
             }
             return isFound;
         }
-
 
 
         //Add New :-

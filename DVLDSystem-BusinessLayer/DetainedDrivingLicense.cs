@@ -74,6 +74,13 @@ namespace DVLDSystem_BusinessLayer
         }
 
 
+        //Get All Custom Info :-
+        public static DataTable GetAllCustomInfo()
+        {
+            return clsDetainedDrivingLicenseData.GetAllCustomInfo();
+        }
+
+
         //Is Exist By DetainID :-
         public static bool IsExist(int DetainID)
         {
@@ -92,7 +99,8 @@ namespace DVLDSystem_BusinessLayer
         public static clsDetainedDrivingLicense Find(int DetainID)
         {
             int DrivingLicenseID = -1, ReleasedByUserID = -1, ReleaseApplicationID = -1, CreatedByUserID = -1;
-            DateTime DetainDate = new DateTime(), ReleaseDate = new DateTime();
+            DateTime ReleaseDate = new DateTime();
+            DateTime DetainDate = new DateTime();
             float FineFees = -1;
             bool IsReleased = false;
 
@@ -112,7 +120,8 @@ namespace DVLDSystem_BusinessLayer
         public static clsDetainedDrivingLicense FindBy(int DrivingLicenseID)
         {
             int DetainID = -1, ReleasedByUserID = -1, ReleaseApplicationID = -1, CreatedByUserID = -1;
-            DateTime DetainDate = new DateTime(), ReleaseDate = new DateTime();
+            DateTime ReleaseDate = new DateTime();
+            DateTime DetainDate = new DateTime();
             float FineFees = -1;
             bool IsReleased = false;
 

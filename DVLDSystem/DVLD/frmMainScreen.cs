@@ -18,6 +18,7 @@ using DVLDSystem.DVLD.Applications.International_Driving_License;
 using DVLDSystem.DVLD.Driver;
 using DVLDSystem.DVLD.Applications.Renew_Local_Driving_License;
 using DVLDSystem.DVLD.Applications.Replacement_For_Lost_Or_Damaged_License;
+using DVLDSystem.DVLD.Applications.Manage_License_Release_and_Detention;
 
 namespace DVLDSystem.DVLD
 {
@@ -151,13 +152,6 @@ namespace DVLDSystem.DVLD
         }
 
 
-        //Release Detained Driving License :-
-        private void releaseDetainedDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
-
-
         //Retake Test :-
         private void retakeTestToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -168,7 +162,8 @@ namespace DVLDSystem.DVLD
         //Manage Detained Driving Licenses :-
         private void ManageDetainedLicensestoolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            frmManageLicenseReleaseAndDetention frm = new frmManageLicenseReleaseAndDetention();
+            frm.ShowDialog();
         }
 
 
@@ -181,6 +176,10 @@ namespace DVLDSystem.DVLD
 
         //Release Detained Driving License :-
         private void releaseDetainedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+        private void releaseDetainedDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }

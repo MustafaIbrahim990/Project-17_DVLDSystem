@@ -40,7 +40,7 @@ namespace DVLDSystem_BusinessLayer
         {
             get { return clsDetainedDrivingLicense.IsReleasedDrivingLicense(this.ID); }
         }
-        public clsDetainedDrivingLicense DetainedDrivingLicenseInfo;
+        //public clsDetainedDrivingLicense DetainedDrivingLicenseInfo;
 
 
         //Constructor :-
@@ -64,7 +64,7 @@ namespace DVLDSystem_BusinessLayer
             LicenseClassInfo = null;
             CreatedByUserInfo = null;
 
-            DetainedDrivingLicenseInfo = null;
+            //DetainedDrivingLicenseInfo = null;
         }
         private clsDrivingLicense(int DrivingLicenseID, int ApplicationID, int DriverID, int LicenseClassID, DateTime IssueDate, DateTime ExpriationDate, bool IsActive, enIssueReason IssueReason, string Notes, float PaidFees, int CreatedByUserID)
         {
@@ -86,7 +86,7 @@ namespace DVLDSystem_BusinessLayer
             LicenseClassInfo = clsLicenseClass.Find(LicenseClassID);
             CreatedByUserInfo = clsUser.Find(CreatedByUserID);
 
-            DetainedDrivingLicenseInfo = clsDetainedDrivingLicense.FindBy(DrivingLicenseID);
+            //DetainedDrivingLicenseInfo = clsDetainedDrivingLicense.FindBy(DrivingLicenseID);
         }
 
 
@@ -115,7 +115,7 @@ namespace DVLDSystem_BusinessLayer
         public static clsDrivingLicense Find(int ID)
         {
             int ApplicationID = -1, DriverID = -1, LicenseClassID = -1, CreatedByUserID = -1;
-            DateTime IssueDate = new DateTime(), ExpriationDate = new DateTime();
+            DateTime IssueDate = DateTime.Now, ExpriationDate = DateTime.Now;
             byte IssueReason = 0;
             string Notes = "";
             float PaidFees = -1;
