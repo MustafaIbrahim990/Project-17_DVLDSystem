@@ -82,7 +82,6 @@ namespace DVLDSystem.DVLD.Applications.Replacement_For_Lost_Or_Damaged_License.C
 
             //Send Local License ID to Subscriber :-
             LocalDrivingLicenseIDSelected?.Invoke(_OldLocalDrivingLicenseID);
-            IssueReasonSelected?.Invoke(_IssueReason);
         }
         private void _ResetInfo()
         {
@@ -93,8 +92,10 @@ namespace DVLDSystem.DVLD.Applications.Replacement_For_Lost_Or_Damaged_License.C
         }
         private void _FillInfo()
         {
-            ctrlDrivingLicenseCardWithFilter1.LoadLocalDrivingLicenseInfo(_RenewLocalDrivingLicenseID);
+            //UnSubscribe With Local Driving License ID Selected :-
+            ctrlDrivingLicenseCardWithFilter1.LocalDrivingLicenseIDSelected -= _OnLocalDrivingLicenseIDSelected;
 
+            ctrlDrivingLicenseCardWithFilter1.LoadLocalDrivingLicenseInfo(_RenewLocalDrivingLicenseID);
             lblNewApplicationID.Text = _RenewLocalDrivingLicenseInfo.ApplicationID.ToString();
             lblReplacedLicenseID.Text = _RenewLocalDrivingLicenseID.ToString();
         }
@@ -116,7 +117,7 @@ namespace DVLDSystem.DVLD.Applications.Replacement_For_Lost_Or_Damaged_License.C
         {
             ctrlDrivingLicenseCardWithFilter1.FilterFocus();
         }
-        public void LoadLocalDrivingLicenseInfo(int LocalLicenseID)
+        public void LoadLocalDrivingLicenseWithApplicationInfo(int LocalLicenseID)
         {
             _RenewLocalDrivingLicenseID = LocalLicenseID;
             _RenewLocalDrivingLicenseInfo = clsDrivingLicense.Find(_RenewLocalDrivingLicenseID);
@@ -133,7 +134,7 @@ namespace DVLDSystem.DVLD.Applications.Replacement_For_Lost_Or_Damaged_License.C
         }
         public void RefreshLocalDrivingLicenseInfo(int LocalDrivingLicenseID)
         {
-            _OnLocalDrivingLicenseIDSelected(LocalDrivingLicenseID);
+            ctrlDrivingLicenseCardWithFilter1.LoadLocalDrivingLicenseInfo(LocalDrivingLicenseID);
         }
 
 
@@ -145,6 +146,8 @@ namespace DVLDSystem.DVLD.Applications.Replacement_For_Lost_Or_Damaged_License.C
         private void ctrlReplacementForLostOrDamagedDrivingLicense_Load(object sender, EventArgs e)
         {
             rbDamagedLicense.PerformClick();
+
+            //Subscribe With Local Driving License ID Selected :-
             ctrlDrivingLicenseCardWithFilter1.LocalDrivingLicenseIDSelected += _OnLocalDrivingLicenseIDSelected;
         }
 

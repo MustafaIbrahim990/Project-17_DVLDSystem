@@ -78,7 +78,7 @@ namespace DVLDSystem.DVLD.Applications.Replacement_For_Lost_Or_Damaged_License
             if (_LocalDrivingLicenseID != -1)
             {
                 _ShowMessageError($"Local Driving License Replaced Successfully With ID [{_LocalDrivingLicenseID}] in The System.", "Succeeded", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ctrlReplacementForLostOrDamagedDrivingLicense1.LoadLocalDrivingLicenseInfo(_LocalDrivingLicenseID);
+                ctrlReplacementForLostOrDamagedDrivingLicense1.LoadLocalDrivingLicenseWithApplicationInfo(_LocalDrivingLicenseID);
             }
             else
             {
@@ -121,7 +121,7 @@ namespace DVLDSystem.DVLD.Applications.Replacement_For_Lost_Or_Damaged_License
             if (_DoesPersonHaveActiveLocalDrivingLicense())
                 return;
 
-            if (MessageBox.Show("Are You Sure You Want to Renew This License?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            if (MessageBox.Show("Are You Sure You Want to Replaced This License?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 return;
             }
@@ -137,8 +137,6 @@ namespace DVLDSystem.DVLD.Applications.Replacement_For_Lost_Or_Damaged_License
 
             //Refresh The Form :-
             ctrlReplacementForLostOrDamagedDrivingLicense1.RefreshLocalDrivingLicenseInfo(_LocalDrivingLicenseID);
-            ctrlReplacementForLostOrDamagedDrivingLicense1.ReplacementForEnabled = false;
-            btnIssueReplacementLicense.Enabled = false;
         }
 
 
@@ -149,7 +147,7 @@ namespace DVLDSystem.DVLD.Applications.Replacement_For_Lost_Or_Damaged_License
             frm.ShowDialog();
 
             //Refresh The Form :-
-            //ctrlReplacementForLostOrDamagedDrivingLicense1.RefreshLocalDrivingLicenseInfo(_LocalDrivingLicenseID);
+            ctrlReplacementForLostOrDamagedDrivingLicense1.RefreshLocalDrivingLicenseInfo(_LocalDrivingLicenseID);
         }
     }
 }
