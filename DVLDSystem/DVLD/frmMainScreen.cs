@@ -17,6 +17,7 @@ using DVLDSystem.DVLD.Driving_License.International_Driving_License;
 using DVLDSystem.DVLD.Applications.International_Driving_License;
 using DVLDSystem.DVLD.Driver;
 using DVLDSystem.DVLD.Applications.Renew_Local_Driving_License;
+using DVLDSystem.DVLD.Applications.Replacement_For_Lost_Or_Damaged_License;
 
 namespace DVLDSystem.DVLD
 {
@@ -145,7 +146,8 @@ namespace DVLDSystem.DVLD
         //Replacement Driving License for (Lost Or Damaged) :-
         private void ReplacementLostOrDamagedDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            frmReplacementForLostOrDamagedDrivingLicense frm = new frmReplacementForLostOrDamagedDrivingLicense();
+            frm.ShowDialog();
         }
 
 

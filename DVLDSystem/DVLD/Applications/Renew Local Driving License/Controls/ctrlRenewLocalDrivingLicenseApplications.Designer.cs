@@ -118,7 +118,7 @@
             this.gbApplicationNewLicenseInfo.Size = new System.Drawing.Size(1249, 277);
             this.gbApplicationNewLicenseInfo.TabIndex = 75;
             this.gbApplicationNewLicenseInfo.TabStop = false;
-            this.gbApplicationNewLicenseInfo.Text = "Application New Driving License Information";
+            this.gbApplicationNewLicenseInfo.Text = "New Application Information";
             // 
             // txtNotes
             // 

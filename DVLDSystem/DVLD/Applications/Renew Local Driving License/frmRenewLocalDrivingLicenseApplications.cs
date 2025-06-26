@@ -135,6 +135,7 @@ namespace DVLDSystem.DVLD.Applications.Renew_Local_Driving_License
 
             //Refresh The Form :-
             ctrlRenewLocalDrivingLicenseApplications1.RefreshLocalDrivingLicenseInfo(_LocalDrivingLicenseID);
+            btnRenewLocalDrivingLicenseApplication.Enabled = true;
         }
 
 
@@ -145,7 +146,7 @@ namespace DVLDSystem.DVLD.Applications.Renew_Local_Driving_License
             frm.ShowDialog();
 
             //Refresh The Form :-
-            ctrlRenewLocalDrivingLicenseApplications1.RefreshLocalDrivingLicenseInfo(_LocalDrivingLicenseID);
+            //ctrlRenewLocalDrivingLicenseApplications1.RefreshLocalDrivingLicenseInfo(_LocalDrivingLicenseID);
         }
     }
 }

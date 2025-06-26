@@ -129,6 +129,18 @@
     <Compile Include="DVLD\Applications\Renew Local Driving License\frmRenewLocalDrivingLicenseApplications.Designer.cs">
       <DependentUpon>frmRenewLocalDrivingLicenseApplications.cs</DependentUpon>
     </Compile>
+    <Compile Include="DVLD\Applications\Replacement For Lost Or Damaged License\Controls\ctrlReplacementForLostOrDamagedDrivingLicense.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DVLD\Applications\Replacement For Lost Or Damaged License\Controls\ctrlReplacementForLostOrDamagedDrivingLicense.Designer.cs">
+      <DependentUpon>ctrlReplacementForLostOrDamagedDrivingLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DVLD\Applications\Replacement For Lost Or Damaged License\frmReplacementForLostOrDamagedDrivingLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DVLD\Applications\Replacement For Lost Or Damaged License\frmReplacementForLostOrDamagedDrivingLicense.Designer.cs">
+      <DependentUpon>frmReplacementForLostOrDamagedDrivingLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="DVLD\Driver\frmManageDrivers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -370,6 +382,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD\Applications\Renew Local Driving License\frmRenewLocalDrivingLicenseApplications.resx">
       <DependentUpon>frmRenewLocalDrivingLicenseApplications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD\Applications\Replacement For Lost Or Damaged License\Controls\ctrlReplacementForLostOrDamagedDrivingLicense.resx">
+      <DependentUpon>ctrlReplacementForLostOrDamagedDrivingLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DVLD\Applications\Replacement For Lost Or Damaged License\frmReplacementForLostOrDamagedDrivingLicense.resx">
+      <DependentUpon>frmReplacementForLostOrDamagedDrivingLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DVLD\Driver\frmManageDrivers.resx">
       <DependentUpon>frmManageDrivers.cs</DependentUpon>
