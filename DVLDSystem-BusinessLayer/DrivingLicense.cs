@@ -284,8 +284,6 @@ namespace DVLDSystem_BusinessLayer
         public int RenewLocalDrivingLicenseApplication(string Notes, int CreatedByUserID)
         {
             clsApplication NewApplicationInfo = new clsApplication();
-            clsDrivingLicense NewLocalDrivingLicenseInfo = new clsDrivingLicense();
-            //clsDrivingLicense OldLocalDrivingLicenseInfo = clsDrivingLicense.Find(this.ID);
 
             //Application Info :-
             NewApplicationInfo.ApplicationDate = DateTime.Now;
@@ -300,6 +298,7 @@ namespace DVLDSystem_BusinessLayer
             {
                 return -1;
             }
+            clsDrivingLicense NewLocalDrivingLicenseInfo = new clsDrivingLicense();
 
             //ReNew Local Driving License Info :-
             NewLocalDrivingLicenseInfo.ApplicationID = NewApplicationInfo.ApplicationID;
@@ -310,8 +309,55 @@ namespace DVLDSystem_BusinessLayer
             NewLocalDrivingLicenseInfo.IsActive = true;
             NewLocalDrivingLicenseInfo.IssueReason = clsDrivingLicense.enIssueReason.Renew;
             NewLocalDrivingLicenseInfo.Notes = Notes;
-            NewLocalDrivingLicenseInfo.PaidFees = this.LicenseClassInfo.ClassFees;
+            NewLocalDrivingLicenseInfo.PaidFees = clsLicenseClass.Find(this.LicenseClassID).ClassFees;
             NewLocalDrivingLicenseInfo.CreatedByUserID = CreatedByUserID;
+
+            if (!NewLocalDrivingLicenseInfo.Save())
+            {
+                return -1;
+            }
+
+            DeactivateCurrentLocalLicense();
+            return NewLocalDrivingLicenseInfo.ID;
+        }
+
+
+        //Renew Local Driving License Application :-
+        public int ReplacementLicenseForDamagedOrLost(enIssueReason IssueReason, int CreatedByUserID)
+        {
+            clsApplication NewApplicationInfo = new clsApplication();
+            
+            //Application Info :-
+            NewApplicationInfo.ApplicationDate = DateTime.Now;
+            NewApplicationInfo.ApplicantPersonID = this.ApplicationInfo.ApplicantPersonID;
+            NewApplicationInfo.ApplicationStatus = clsApplication.enApplicationStatus.Completed;
+            NewApplicationInfo.LastStatusDate = DateTime.Now;
+
+            NewApplicationInfo.ApplicationTypeID = (IssueReason == enIssueReason.ReplacementForDamaged) ?
+                (int)clsApplication.enApplicationType.ReplaceDamagedDrivingLicense :
+                (int)clsApplication.enApplicationType.ReplaceLostDrivingLicense;
+
+            NewApplicationInfo.PaidFees = clsApplicationType.Find(NewApplicationInfo.ApplicationTypeID).Fees;
+            NewApplicationInfo.CreatedByUserID = CreatedByUserID;
+
+            if (!NewApplicationInfo.Save())
+            {
+                return -1;
+            }
+
+            clsDrivingLicense NewLocalDrivingLicenseInfo = new clsDrivingLicense();
+
+            //Replacement Local Driving License Info :-
+            NewLocalDrivingLicenseInfo.ApplicationID = NewApplicationInfo.ApplicationID;
+            NewLocalDrivingLicenseInfo.DriverID = this.DriverID;
+            NewLocalDrivingLicenseInfo.LicenseClassID = this.LicenseClassID;
+            NewLocalDrivingLicenseInfo.IssueDate = DateTime.Now;
+            NewLocalDrivingLicenseInfo.IsActive = true;
+            NewLocalDrivingLicenseInfo.Notes = this.Notes;
+            NewLocalDrivingLicenseInfo.PaidFees = 0;    // No Fees For The License because it's a Replacement.
+            NewLocalDrivingLicenseInfo.CreatedByUserID = CreatedByUserID;
+            NewLocalDrivingLicenseInfo.IssueReason = IssueReason;
+            NewLocalDrivingLicenseInfo.ExpriationDate = this.ExpriationDate;
 
             if (!NewLocalDrivingLicenseInfo.Save())
             {
