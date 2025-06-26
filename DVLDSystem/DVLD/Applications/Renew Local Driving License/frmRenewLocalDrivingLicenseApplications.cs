@@ -74,7 +74,7 @@ namespace DVLDSystem.DVLD.Applications.Renew_Local_Driving_License
             if (_LocalDrivingLicenseID != -1)
             {
                 _ShowMessageError($"Local Driving License Renewed Successfully With ID [{_LocalDrivingLicenseID}] in The System.", "Succeeded", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ctrlRenewLocalDrivingLicenseApplications1.LoadLocalDrivingLicenseInfo(_LocalDrivingLicenseID);
+                ctrlRenewLocalDrivingLicenseApplications1.LoadLocalDrivingLicenseWithApplicationInfo(_LocalDrivingLicenseID);
             }
             else
             {
@@ -135,7 +135,6 @@ namespace DVLDSystem.DVLD.Applications.Renew_Local_Driving_License
 
             //Refresh The Form :-
             ctrlRenewLocalDrivingLicenseApplications1.RefreshLocalDrivingLicenseInfo(_LocalDrivingLicenseID);
-            btnRenewLocalDrivingLicenseApplication.Enabled = true;
         }
 
 
@@ -146,7 +145,7 @@ namespace DVLDSystem.DVLD.Applications.Renew_Local_Driving_License
             frm.ShowDialog();
 
             //Refresh The Form :-
-            //ctrlRenewLocalDrivingLicenseApplications1.RefreshLocalDrivingLicenseInfo(_LocalDrivingLicenseID);
+            ctrlRenewLocalDrivingLicenseApplications1.RefreshLocalDrivingLicenseInfo(_LocalDrivingLicenseID);
         }
     }
 }

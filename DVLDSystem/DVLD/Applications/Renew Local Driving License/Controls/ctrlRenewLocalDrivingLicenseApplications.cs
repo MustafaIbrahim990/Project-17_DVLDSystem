@@ -85,6 +85,9 @@ namespace DVLDSystem.DVLD.Applications.Renew_Local_Driving_License.Controls
         }
         private void _FillInfo()
         {
+            //UnSubscribe With Local Driving License ID Selected :-
+            ctrlDrivingLicenseCardWithFilter1.LocalDrivingLicenseIDSelected -= _OnLocalDrivingLicenseIDSelected;
+
             ctrlDrivingLicenseCardWithFilter1.LoadLocalDrivingLicenseInfo(_RenewLocalDrivingLicenseID);
             lblRenewlApplicationID.Text = _RenewLocalDrivingLicenseInfo.ApplicationID.ToString();
             lblRenewedLocalLicenseID.Text = _RenewLocalDrivingLicenseID.ToString();
@@ -103,7 +106,7 @@ namespace DVLDSystem.DVLD.Applications.Renew_Local_Driving_License.Controls
         {
             ctrlDrivingLicenseCardWithFilter1.FilterFocus();
         }
-        public void LoadLocalDrivingLicenseInfo(int LocalLicenseID)
+        public void LoadLocalDrivingLicenseWithApplicationInfo(int LocalLicenseID)
         {
             _RenewLocalDrivingLicenseID = LocalLicenseID;
              _RenewLocalDrivingLicenseInfo = clsDrivingLicense.Find(_RenewLocalDrivingLicenseID);
@@ -119,7 +122,7 @@ namespace DVLDSystem.DVLD.Applications.Renew_Local_Driving_License.Controls
         }
         public void RefreshLocalDrivingLicenseInfo(int LocalDrivingLicenseID)
         {
-            _OnLocalDrivingLicenseIDSelected(LocalDrivingLicenseID);
+            ctrlDrivingLicenseCardWithFilter1.LoadLocalDrivingLicenseInfo(LocalDrivingLicenseID);
         }
 
 
@@ -130,6 +133,7 @@ namespace DVLDSystem.DVLD.Applications.Renew_Local_Driving_License.Controls
         }
         private void ctrlRenewLocalDrivingLicenseApplications_Load(object sender, EventArgs e)
         {
+            //Subscribe With Local Driving License ID Selected :-
             ctrlDrivingLicenseCardWithFilter1.LocalDrivingLicenseIDSelected += _OnLocalDrivingLicenseIDSelected;
         }
     }
