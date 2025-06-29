@@ -42,10 +42,10 @@ namespace DVLDSystem_BusinessLayer
             ReleasedByUserID = -1;
             ReleaseApplicationID = -1;
 
-            DrivingLicenseInfo = null;
-            CreatedByUserInfo = null;
-            ReleasedByUserInfo = null;
-            ReleaseApplicationInfo = null;
+            DrivingLicenseInfo = new clsDrivingLicense();
+            CreatedByUserInfo = new clsUser();
+            ReleasedByUserInfo = new clsUser();
+            ReleaseApplicationInfo = new clsApplication();
         }
         private clsDetainedDrivingLicense(int DetainID, DateTime DetainDate, int DrivingLicenseID, float FineFees, int CreatedByUserID, bool IsReleased, DateTime ReleaseDate, int ReleasedByUserID, int ReleaseApplicationID)
         {
@@ -141,7 +141,7 @@ namespace DVLDSystem_BusinessLayer
         private bool _AddNew()
         {
             //int PersonID = -1;
-            this.ID = clsDetainedDrivingLicenseData.AddNew(this.DetainDate, this.DrivingLicenseID, this.FineFees, this.CreatedByUserID, this.IsReleased, this.ReleaseDate, this.ReleasedByUserID, this.ReleaseApplicationID);
+            this.ID = clsDetainedDrivingLicenseData.AddNew(this.DetainDate, this.DrivingLicenseID, this.FineFees, this.CreatedByUserID);
             return (this.ID != -1);
         }
 
@@ -149,7 +149,7 @@ namespace DVLDSystem_BusinessLayer
         //Update Person :-
         private bool _Update()
         {
-            return clsDetainedDrivingLicenseData.Update(this.ID, this.DetainDate, this.DrivingLicenseID, this.FineFees, this.CreatedByUserID, this.IsReleased, this.ReleaseDate, this.ReleasedByUserID, this.ReleaseApplicationID);
+            return clsDetainedDrivingLicenseData.Update(this.ID, this.DetainDate, this.DrivingLicenseID, this.FineFees, this.CreatedByUserID);
         }
 
 
@@ -190,16 +190,46 @@ namespace DVLDSystem_BusinessLayer
 
 
         //Is Detained Driving License :-
-        public static bool IsReleasedDrivingLicense(int DrivingLicenseID)
+        public static bool IsReleasedDrivingLicenseBy(int DrivingLicenseID)
         {
-            return clsDetainedDrivingLicenseData.IsReleased(DrivingLicenseID);
+            return clsDetainedDrivingLicenseData.IsReleasedBy(DrivingLicenseID);
+        }
+
+        public static bool IsReleasedDrivingLicense(int DetainID)
+        {
+            return clsDetainedDrivingLicenseData.IsReleased(DetainID);
         }
 
 
         //Is Detained Driving License :-
         public static bool IsDetainedDrivingLicense(int DrivingLicenseID)
         {
-            return !IsReleasedDrivingLicense(DrivingLicenseID);
+            return clsDetainedDrivingLicenseData.IsDetained(DrivingLicenseID);
+        }
+
+
+        //Reease Detained License :-
+        public bool ReleaseDetainedLicense(int DrivingLicenseID, int ReleasedByUserID)
+        {
+            clsApplication NewApplicationInfo = new clsApplication();
+
+            //Application Info :-
+            NewApplicationInfo.ApplicationDate = DateTime.Now;
+            NewApplicationInfo.ApplicantPersonID = this.DrivingLicenseInfo.ApplicationInfo.ApplicantPersonID; 
+            NewApplicationInfo.ApplicationStatus = clsApplication.enApplicationStatus.Completed;
+            NewApplicationInfo.LastStatusDate = DateTime.Now;
+            NewApplicationInfo.ApplicationTypeID = (int)clsApplicationType.enApplicationType.ReleaseeDetainedDrivingLicense;
+
+            NewApplicationInfo.PaidFees = clsApplicationType.Find(NewApplicationInfo.ApplicationTypeID).Fees;
+            NewApplicationInfo.CreatedByUserID = CreatedByUserID;
+
+            if (!NewApplicationInfo.Save())
+            {
+                return false;
+            }
+
+            //Release Detained License :-
+            return clsDetainedDrivingLicenseData.ReleaseDeatinedLicense(this.DrivingLicenseID, ReleasedByUserID, NewApplicationInfo.ApplicationID);
         }
     }
 }

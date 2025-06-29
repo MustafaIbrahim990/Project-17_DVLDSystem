@@ -12,6 +12,8 @@ using DVLDSystem.DVLD.People;
 using DVLDSystem.DVLD.Driving_License;
 using DVLDSystem.DVLD.Driving_License.Local_Driving_License;
 using DVLDSystem.Gobal_Classes;
+using DVLDSystem.DVLD.Driving_License.Detain_License;
+using DVLDSystem.DVLD.Applications.Manage_License_Release_and_Detention;
 
 namespace DVLDSystem.DVLD.Applications.Manage_License_Release_and_Detention
 {
@@ -248,14 +250,22 @@ namespace DVLDSystem.DVLD.Applications.Manage_License_Release_and_Detention
         //Detain License :-
         private void btnDetainLicense_Click(object sender, EventArgs e)
         {
+            frmDetainLicenseApplication frm = new frmDetainLicenseApplication();
+            frm.ShowDialog();
 
+            //Refresh The Form :-
+            frmManageLicenseReleaseAndDetention_Load(null, null);
         }
 
 
         //Release Detained License :-
         private void btnReleaseDetainedLicense_Click(object sender, EventArgs e)
         {
+            frmReleaseDetainedLicenseApplication frm = new frmReleaseDetainedLicenseApplication();
+            frm.ShowDialog();
 
+            //Refresh The Form :-
+            frmManageLicenseReleaseAndDetention_Load(null, null);
         }
         private void ReleaseDetainedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -277,9 +287,7 @@ namespace DVLDSystem.DVLD.Applications.Manage_License_Release_and_Detention
         //Show License Details :-
         private void showLicenseDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int LocalLicenseID = (int)dgvDrivingLicenseReleaseAndDetentionLists.CurrentRow.Cells[1].Value;
-
-            frmShowDrivingLicenseCard frm = new frmShowDrivingLicenseCard(LocalLicenseID);
+            frmShowDrivingLicenseCard frm = new frmShowDrivingLicenseCard((int)dgvDrivingLicenseReleaseAndDetentionLists.CurrentRow.Cells[1].Value);
             frm.ShowDialog();
 
             //Refresh The Form :-
@@ -299,6 +307,15 @@ namespace DVLDSystem.DVLD.Applications.Manage_License_Release_and_Detention
 
             //Refresh The Form: -
             frmManageLicenseReleaseAndDetention_Load(null, null);
+        }
+
+
+        //cms Application :-
+        private void cmsApplications_Opening(object sender, CancelEventArgs e)
+        {
+            //ReleaseDetainedLicenseToolStripMenuItem.Enabled = !clsDetainedDrivingLicense.IsReleasedDrivingLicense((int)dgvDrivingLicenseReleaseAndDetentionLists.CurrentRow.Cells[0].Value);
+
+            ReleaseDetainedLicenseToolStripMenuItem.Enabled = !(bool)dgvDrivingLicenseReleaseAndDetentionLists.CurrentRow.Cells[6].Value;
         }
     }
 }

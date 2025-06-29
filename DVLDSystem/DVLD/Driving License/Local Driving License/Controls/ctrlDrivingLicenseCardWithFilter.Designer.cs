@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gbDrivingLicenseFilter = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnFindDrivingLicenseCard = new System.Windows.Forms.Button();
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.ctrlDrivingLicenseCard1 = new DVLDSystem.DVLD.Driving_License.Local_Driving_License.Controls.ctrlDrivingLicenseCard();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label1 = new System.Windows.Forms.Label();
             this.gbDrivingLicenseFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -51,6 +51,17 @@
             this.gbDrivingLicenseFilter.TabIndex = 5;
             this.gbDrivingLicenseFilter.TabStop = false;
             this.gbDrivingLicenseFilter.Text = "Filter";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(18, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(213, 20);
+            this.label1.TabIndex = 69;
+            this.label1.Text = "Local Driving License ID :";
             // 
             // btnFindDrivingLicenseCard
             // 
@@ -91,17 +102,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(18, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(213, 20);
-            this.label1.TabIndex = 69;
-            this.label1.Text = "Local Driving License ID :";
             // 
             // ctrlDrivingLicenseCardWithFilter
             // 
