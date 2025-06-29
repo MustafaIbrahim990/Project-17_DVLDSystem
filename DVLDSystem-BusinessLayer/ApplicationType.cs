@@ -14,7 +14,7 @@ namespace DVLDSystem_BusinessLayer
         public enum enApplicationType
         {
             NewDrivingLicense = 1, RenewDrivingLicense = 2, ReplaceLostDrivingLicense = 3, ReplaceDamagedDrivingLicense = 4,
-            ReplaceDetainedDrivingLicense = 5, NewInternationalDrivingLicense = 6, RetakeTest = 7
+            ReleaseeDetainedDrivingLicense = 5, NewInternationalDrivingLicense = 6, RetakeTest = 7
         };
 
 

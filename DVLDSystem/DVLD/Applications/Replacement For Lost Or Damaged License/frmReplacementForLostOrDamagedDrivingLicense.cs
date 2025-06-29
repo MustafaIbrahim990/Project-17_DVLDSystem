@@ -16,9 +16,6 @@ namespace DVLDSystem.DVLD.Applications.Replacement_For_Lost_Or_Damaged_License
 {
     public partial class frmReplacementForLostOrDamagedDrivingLicense : Form
     {
-        //Enums :-
-        public enum enReplacementFor { DamagedLicense = 0, LostLicense = 1 };
-
         //Properties :-
         private int _LocalDrivingLicenseID = -1;
         private clsDrivingLicense _LocalDrivingLicenseInfo;

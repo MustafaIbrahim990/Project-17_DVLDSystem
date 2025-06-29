@@ -19,6 +19,7 @@ using DVLDSystem.DVLD.Driver;
 using DVLDSystem.DVLD.Applications.Renew_Local_Driving_License;
 using DVLDSystem.DVLD.Applications.Replacement_For_Lost_Or_Damaged_License;
 using DVLDSystem.DVLD.Applications.Manage_License_Release_and_Detention;
+using DVLDSystem.DVLD.Driving_License.Detain_License;
 
 namespace DVLDSystem.DVLD
 {
@@ -155,7 +156,8 @@ namespace DVLDSystem.DVLD
         //Retake Test :-
         private void retakeTestToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            frmManageLocalDrivingLicenseApplications frm = new frmManageLocalDrivingLicenseApplications();
+            frm.ShowDialog();
         }
 
 
@@ -170,18 +172,21 @@ namespace DVLDSystem.DVLD
         //Detain Driving Licenses :-
         private void detainLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            frmDetainLicenseApplication frm = new frmDetainLicenseApplication();
+            frm.ShowDialog();
         }
 
 
         //Release Detained Driving License :-
         private void releaseDetainedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            frmReleaseDetainedLicenseApplication frm = new frmReleaseDetainedLicenseApplication();
+            frm.ShowDialog();
         }
         private void releaseDetainedDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Feature is Not Implemented Yet!", "Not Ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            frmReleaseDetainedLicenseApplication frm = new frmReleaseDetainedLicenseApplication();
+            frm.ShowDialog();
         }
 
 

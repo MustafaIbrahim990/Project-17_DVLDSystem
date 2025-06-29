@@ -80,3 +80,7 @@ C:\My_Projects\Project 17 _ DVLD System\DVLDSystem\obj\Debug\DVLDSystem.DVLD.App
 C:\My_Projects\Project 17 _ DVLD System\DVLDSystem\obj\Debug\DVLDSystem.DVLD.Applications.Replacement_For_Lost_Or_Damaged_License.Controls.ctrlReplacementForLostOrDamagedDrivingLicense.resources
 C:\My_Projects\Project 17 _ DVLD System\DVLDSystem\obj\Debug\DVLDSystem.DVLD.Applications.Replacement_For_Lost_Or_Damaged_License.frmReplacementForLostOrDamagedDrivingLicense.resources
 C:\My_Projects\Project 17 _ DVLD System\DVLDSystem\obj\Debug\DVLDSystem.DVLD.Applications.Manage_License_Release_and_Detention.frmManageLicenseReleaseAndDetention.resources
+C:\My_Projects\Project 17 _ DVLD System\DVLDSystem\obj\Debug\DVLDSystem.DVLD.Applications.Manage_License_Release_and_Detention.frmReleaseDetainedLicenseApplication.resources
+C:\My_Projects\Project 17 _ DVLD System\DVLDSystem\obj\Debug\DVLDSystem.DVLD.Driving_License.Detain_License.frmDetainLicenseApplication.resources
+C:\My_Projects\Project 17 _ DVLD System\DVLDSystem\obj\Debug\DVLDSystem.DVLD.Driving_License.Detain_License.Controls.ctrlDetainLicenseApplication.resources
+C:\My_Projects\Project 17 _ DVLD System\DVLDSystem\obj\Debug\DVLDSystem.DVLD.Applications.Manage_License_Release_and_Detention.Controls.ctrlReleaseDetainedLicenseApplication.resources

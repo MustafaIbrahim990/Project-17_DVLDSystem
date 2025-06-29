@@ -28,23 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrlInternationalDrivingLicenseApplicationCard1 = new DVLDSystem.DVLD.Applications.International_Driving_License.Controls.ctrlInternationalDrivingLicenseApplicationCard();
             this.SuspendLayout();
-            // 
-            // ctrlInternationalDrivingLicenseApplicationCard1
-            // 
-            this.ctrlInternationalDrivingLicenseApplicationCard1.BackColor = System.Drawing.Color.White;
-            this.ctrlInternationalDrivingLicenseApplicationCard1.Location = new System.Drawing.Point(12, 12);
-            this.ctrlInternationalDrivingLicenseApplicationCard1.Name = "ctrlInternationalDrivingLicenseApplicationCard1";
-            this.ctrlInternationalDrivingLicenseApplicationCard1.Size = new System.Drawing.Size(1275, 861);
-            this.ctrlInternationalDrivingLicenseApplicationCard1.TabIndex = 0;
             // 
             // FormTest
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1319, 928);
-            this.Controls.Add(this.ctrlInternationalDrivingLicenseApplicationCard1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormTest";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -55,7 +45,5 @@
         }
 
         #endregion
-
-        private DVLD.Applications.International_Driving_License.Controls.ctrlInternationalDrivingLicenseApplicationCard ctrlInternationalDrivingLicenseApplicationCard1;
     }
 }

@@ -38,9 +38,8 @@ namespace DVLDSystem_BusinessLayer
         //
         public bool IsDetained
         {
-            get { return clsDetainedDrivingLicense.IsReleasedDrivingLicense(this.ID); }
+            get { return clsDetainedDrivingLicense.IsDetainedDrivingLicense(this.ID); }
         }
-        //public clsDetainedDrivingLicense DetainedDrivingLicenseInfo;
 
 
         //Constructor :-
@@ -367,5 +366,25 @@ namespace DVLDSystem_BusinessLayer
             DeactivateCurrentLocalLicense();
             return NewLocalDrivingLicenseInfo.ID;
         }
+
+
+        //Detain License :-
+        public int DetainLicense(float FineFees, int CreatedByUserID)
+        {
+            clsDetainedDrivingLicense DetainLicenseInfo = new clsDetainedDrivingLicense();
+
+            //Detain License Info :-
+            DetainLicenseInfo.DetainDate = DateTime.Now;
+            DetainLicenseInfo.DrivingLicenseID = this.ID;
+            DetainLicenseInfo.FineFees = FineFees;
+            DetainLicenseInfo.CreatedByUserID = CreatedByUserID;
+
+            if (!DetainLicenseInfo.Save())
+            {
+                return -1;
+            }
+
+            return DetainLicenseInfo.ID;
+        }        
     }
 }

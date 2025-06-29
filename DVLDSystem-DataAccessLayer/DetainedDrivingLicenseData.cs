@@ -141,7 +141,8 @@ namespace DVLDSystem_DataAccessLayer
                            INNER JOIN Drivers 
                            ON DrivingLicenses.DriverID = Drivers.DriverID
                            INNER JOIN People P
-                           ON Drivers.PersonID = P.PersonID";
+                           ON Drivers.PersonID = P.PersonID
+                           Order By D.IsReleased ASC;";
             SqlCommand command = new SqlCommand(query, connection);
 
             try
@@ -302,8 +303,9 @@ namespace DVLDSystem_DataAccessLayer
             bool isFound = false;
             SqlConnection connection = new SqlConnection(clsDataSettings.ConnectionString);
 
-            string query = @"SELECT * FROM DetainedDrivingLicenses
-                           WHERE DetainedDrivingLicenses.DrivingLicenseID = @DrivingLicenseID;";
+            string query = @"SELECT Top 1 * FROM DetainedDrivingLicenses
+                           WHERE DetainedDrivingLicenses.DrivingLicenseID = @DrivingLicenseID 
+                           Order By DetainedDrivingLicenses.DetainID Desc;";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -344,16 +346,16 @@ namespace DVLDSystem_DataAccessLayer
 
 
         //Add New :-
-        public static int AddNew(DateTime DetainDate, int DrivingLicenseID, float FineFees, int CreatedByUserID, bool IsReleased, DateTime ReleaseDate, int ReleasedByUserID, int ReleaseApplicationID)
+        public static int AddNew(DateTime DetainDate, int DrivingLicenseID, float FineFees, int CreatedByUserID)
         {
             int ID = -1;
 
             SqlConnection connection = new SqlConnection(clsDataSettings.ConnectionString);
 
             string query = @"INSERT INTO DetainedDrivingLicenses
-                           (DetainDate , DrivingLicenseID , FineFees , CreatedByUserID , IsReleased , ReleaseDate , ReleasedByUserID , ReleaseApplicationID)
+                           (DetainDate , DrivingLicenseID , FineFees , CreatedByUserID , IsReleased)
                            VALUES
-                           (@DetainDate , @DrivingLicenseID , @FineFees , @CreatedByUserID , @IsReleased , @ReleaseDate , @ReleasedByUserID , @ReleaseApplicationID);
+                           (@DetainDate , @DrivingLicenseID , @FineFees , @CreatedByUserID , 0);
                            SELECT SCOPE_IDENTITY();";
 
             SqlCommand command = new SqlCommand(query, connection);
@@ -362,11 +364,6 @@ namespace DVLDSystem_DataAccessLayer
             command.Parameters.AddWithValue("@DrivingLicenseID", DrivingLicenseID);
             command.Parameters.AddWithValue("@FineFees", FineFees);
             command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
-            command.Parameters.AddWithValue("@IsReleased", IsReleased);
-
-            _AddParameterWithNullCheck(command, "@ReleaseDate", ReleaseDate);
-            _AddParameterWithNullCheck(command, "@ReleasedByUserID", ReleasedByUserID);
-            _AddParameterWithNullCheck(command, "@ReleaseApplicationID", ReleaseApplicationID);
 
             try
             {
@@ -391,14 +388,13 @@ namespace DVLDSystem_DataAccessLayer
 
 
         //Update By ID :-
-        public static bool Update(int DetainID, DateTime DetainDate, int DrivingLicenseID, float FineFees, int CreatedByUserID, bool IsReleased, DateTime ReleaseDate, int ReleasedByUserID, int ReleaseApplicationID)
+        public static bool Update(int DetainID, DateTime DetainDate, int DrivingLicenseID, float FineFees, int CreatedByUserID)
         {
             int rowsAffected = 0;
             SqlConnection connection = new SqlConnection(clsDataSettings.ConnectionString);
 
             string query = @"UPDATE DetainedDrivingLicenses
-                           SET DetainDate = @DetainDate , DrivingLicenseID = @DrivingLicenseID , FineFees = @FineFees , CreatedByUserID = @CreatedByUserID , 
-                           IsReleased = @IsReleased , ReleaseDate = @ReleaseDate , ReleasedByUserID = @ReleasedByUserID , ReleaseApplicationID = @ReleaseApplicationID
+                           SET DetainDate = @DetainDate , DrivingLicenseID = @DrivingLicenseID , FineFees = @FineFees , CreatedByUserID = @CreatedByUserID 
                            Where DetainedDrivingLicenses.DetainID = @DetainID;";
 
             SqlCommand command = new SqlCommand(query, connection);
@@ -407,11 +403,6 @@ namespace DVLDSystem_DataAccessLayer
             command.Parameters.AddWithValue("@DrivingLicenseID", DrivingLicenseID);
             command.Parameters.AddWithValue("@FineFees", FineFees);
             command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
-            command.Parameters.AddWithValue("@IsReleased", IsReleased);
-
-            _AddParameterWithNullCheck(command, "@ReleaseDate", ReleaseDate);
-            _AddParameterWithNullCheck(command, "@ReleasedByUserID", ReleasedByUserID);
-            _AddParameterWithNullCheck(command, "@ReleaseApplicationID", ReleaseApplicationID);
 
             //Update By ID :-
             command.Parameters.AddWithValue("@DetainID", DetainID);
@@ -465,14 +456,15 @@ namespace DVLDSystem_DataAccessLayer
 
 
         //Is IsReleased By DrivingLicenseID :-
-        public static bool IsReleased(int DrivingLicenseID)
+        public static bool IsReleasedBy(int DrivingLicenseID)
         {
             bool isReleased = false;
 
             SqlConnection connection = new SqlConnection(clsDataSettings.ConnectionString);
 
-            string query = @"SELECT DetainedDrivingLicenses.IsReleased FROM DetainedDrivingLicenses
-                           WHERE DetainedDrivingLicenses.DrivingLicenseID = 1;";
+            string query = @"SELECT Top 1 DetainedDrivingLicenses.IsReleased FROM DetainedDrivingLicenses
+                           WHERE DetainedDrivingLicenses.DrivingLicenseID = @DrivingLicenseID
+                           Order By DetainID Desc;";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -482,11 +474,11 @@ namespace DVLDSystem_DataAccessLayer
             try
             {
                 connection.Open();
-                object Result = command.ExecuteScalar();
+                SqlDataReader reader = command.ExecuteReader();
 
-                if (Result != null)
+                if (reader.Read())
                 {
-                    isReleased = true;
+                    isReleased = Convert.ToBoolean(reader["IsReleased"]);
                 }
             }
             catch (Exception ex)
@@ -498,6 +490,127 @@ namespace DVLDSystem_DataAccessLayer
                 connection.Close();
             }
             return isReleased;
+        }
+
+
+        //Is IsReleased By DetainID :-
+        public static bool IsReleased(int DetainID)
+        {
+            bool isReleased = false;
+
+            SqlConnection connection = new SqlConnection(clsDataSettings.ConnectionString);
+
+            string query = @"SELECT DetainedDrivingLicenses.IsReleased FROM DetainedDrivingLicenses
+                           Where DetainedDrivingLicenses.DetainID = @DetainID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            //Is IsReleased By DrivingLicenseID :-
+            command.Parameters.AddWithValue("@DetainID", DetainID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isReleased = Convert.ToBoolean(reader["IsReleased"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                isReleased = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isReleased;
+        }
+
+
+        //Is Detained Driving License :-
+        public static bool IsDetained(int DrivingLicenseID)
+        {
+            bool isDetained = false;
+
+            SqlConnection connection = new SqlConnection(clsDataSettings.ConnectionString);
+
+            string query = @"SELECT Top 1
+                            	CASE DetainedDrivingLicenses.IsReleased
+                            		When 0 Then 1
+                            		else 0
+                            	END AS IsDetained
+                            FROM DetainedDrivingLicenses
+                            WHERE DetainedDrivingLicenses.DrivingLicenseID = @DrivingLicenseID
+                            Order By DetainID Desc;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            //Is Detained By DrivingLicenseID :-
+            command.Parameters.AddWithValue("@DrivingLicenseID", DrivingLicenseID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isDetained = Convert.ToBoolean(reader["IsDetained"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                isDetained = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isDetained;
+        }
+
+
+        //Release Detained License :-
+        public static bool ReleaseDeatinedLicense(int DrivingLicenseID, int ReleasedByUserID, int ReleaseApplicationID)
+        {
+            int rowsAffected = 0;
+
+            SqlConnection connection = new SqlConnection(clsDataSettings.ConnectionString);
+
+            string query = @"Update DetainedDrivingLicenses
+                           SET
+                             	IsReleased = 1,
+                             	ReleaseDate = @ReleaseDate,
+                             	ReleasedByUserID = @ReleasedByUserID,
+                             	ReleaseApplicationID = @ReleaseApplicationID
+                           Where DetainedDrivingLicenses.DrivingLicenseID = @DrivingLicenseID AND DetainedDrivingLicenses.IsReleased = 0;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ReleaseDate", DateTime.Now);
+            command.Parameters.AddWithValue("@ReleasedByUserID", ReleasedByUserID);
+            command.Parameters.AddWithValue("@ReleaseApplicationID", ReleaseApplicationID);
+
+            //Update By ID :-
+            command.Parameters.AddWithValue("@DrivingLicenseID", DrivingLicenseID);
+
+            try
+            {
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return (rowsAffected > 0);
         }
     }
 }
