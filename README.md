@@ -80,9 +80,7 @@ This system is intended for:
 ### 🔄 3. ADO.NET for Data Operations
 - Used **ADO.NET** for all interactions with SQL Server:
   - CRUD operations
-  - Stored procedures
-  - Parameterized queries
-  - Transactions
+  - Queries
 
 ### 🖥 4. UI Responsiveness
 - Designed a fluid UI with proper layout handling, feedback messages, and user flow.
