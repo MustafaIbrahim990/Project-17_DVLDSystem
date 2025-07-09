@@ -13,3 +13,4 @@ The system is designed to manage driving licenses and vehicle registration, cove
 - Testing workflows  
 - Issuance of international permits  
 - License detainment handling
+- And others
