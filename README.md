@@ -118,7 +118,3 @@ This project showcases:
 - Implement **unit testing** and **logging system** for production-level reliability.
 
 ---
-
-## 📝 License
-
-> _Add your license information here (e.g., MIT, GPL)._
