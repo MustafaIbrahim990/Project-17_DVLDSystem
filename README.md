@@ -1,5 +1,3 @@
-"# Project-17 _ DVLDSystem" 
-
 # 🛂 DVLD Management System
 
 ## 📋 Overview
